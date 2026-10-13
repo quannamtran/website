@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://augmenting-decision.com/sitemap.xml

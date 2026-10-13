@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Page introuvable · Augmenting Decision</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <!-- Self-contained styles: this page can be served at any URL depth. -->
+  <style>
+    @font-face { font-family: "Newsreader"; src: url("/assets/fonts/newsreader-latin-opsz-normal.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+    @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+    :root { --paper: #f7f4ee; --ink: #131a26; --muted: #5b6475; --line: rgba(19, 26, 38, 0.14); --accent: #ff6a3d; --accent-text: #b33f19; }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #0b1220; --ink: #eef0f4; --muted: #9da8bb; --line: rgba(238, 240, 244, 0.16); --accent-text: #ff9b78; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 2rem 1rem; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.6 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; }
+    main { max-width: 34rem; }
+    .code { margin: 0 0 1rem; color: var(--accent-text); font: italic 500 clamp(4.5rem, 18vw, 8rem)/1 "Newsreader", Georgia, serif; }
+    h1, h2 { margin: 0; font-family: "Newsreader", Georgia, serif; font-weight: 500; line-height: 1.15; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; color: var(--muted); }
+    p { margin: 0.5rem 0 0; color: var(--muted); }
+    hr { width: 3rem; margin: 2rem auto; border: 0; border-top: 2px solid var(--accent); }
+    .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2.5rem; }
+    .links a { padding: 0.75rem 1.25rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-weight: 600; text-decoration: none; }
+    .links a:hover { border-color: var(--accent); }
+    a:focus-visible { outline: 3px solid #2f6fed; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="code" aria-hidden="true">404</p>
+    <h1>Page not found</h1>
+    <p>This page doesn’t exist or has moved.</p>
+    <hr>
+    <h2 lang="fr">Page introuvable</h2>
+    <p lang="fr">Cette page n’existe pas ou a été déplacée.</p>
+    <div class="links">
+      <a href="/">Home page</a>
+      <a href="/fr/" lang="fr" hreflang="fr">Page d’accueil</a>
+    </div>
+  </main>
+</body>
+</html>
