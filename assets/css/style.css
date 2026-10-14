@@ -571,6 +571,53 @@ cite {
   }
 }
 
+/* Substack invitation in the hero */
+.substack {
+  position: relative;
+  max-width: 34rem;
+  margin-top: 2rem;
+  padding: 1.4rem 1.5rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.substack::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: var(--radius) 0 0 var(--radius);
+  background: var(--rule-gradient);
+}
+.substack__kicker {
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.substack__title {
+  margin-top: 0.4rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.substack__text {
+  margin: 0.5rem 0 1.1rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.btn--outline {
+  background: transparent;
+  color: var(--accent-text);
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+.btn--outline:hover {
+  background: var(--paper-alt);
+  filter: none;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+
 /* Sign-up form --------------------------------------------------------------- */
 .signup {
   max-width: 34rem;
