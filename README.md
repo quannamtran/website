@@ -1,6 +1,6 @@
 # Augmenting Decision · book website
 
-The website for the book *Augmenting Decision: How data and AI are reshaping the way we choose*,
+The website for the book *Augmenting Decision: How data and AI are reshaping the way we choose* by Antoine Tran Quan Nam,
 published at **https://augmenting-decision.com** (English) and **https://augmenting-decision.com/fr/** (French).
 
 It is plain HTML and CSS, with no build step and nothing to install, hosted for free on GitHub Pages.
@@ -13,20 +13,20 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `fr/index.html` | French home page |
 | `legal.html` · `fr/mentions-legales.html` | Legal notice and privacy policy (EN · FR) |
 | `404.html` | "Page not found" page, in both languages |
-| `assets/css/style.css` | All the styling. Colors and fonts are defined at the top. |
+| `assets/css/style.css` | All the styling. Colors (taken from the cover) and fonts are defined at the top. |
 | `assets/js/main.js` | Sign-up form messages and the footer year |
-| `assets/img/cover.webp` | Book cover (currently a placeholder design) |
+| `assets/img/cover.webp` | Book cover |
+| `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
 | `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
-| `assets/fonts/` | Newsreader and Inter, served from the site itself (no Google Fonts) |
+| `assets/fonts/` | Montserrat (headings, like the cover) and Inter (text), served from the site itself (no Google Fonts) |
 | `CNAME` | Tells GitHub Pages the site's domain name |
 
 ## Before launch: things to fill in
 
-Placeholders are highlighted in orange on the pages. Search the HTML for `class="todo"` to find them.
+Placeholders are highlighted in lavender on the pages. Search the HTML for `class="todo"` to find them.
 
-- [ ] **Author**: name, short bio and photo, in both `index.html` and `fr/index.html`
+- [ ] **Author**: short bio and photo, in both `index.html` and `fr/index.html`
 - [ ] **Legal pages**: publisher name and contact email, in `legal.html` and `fr/mentions-legales.html`
-- [ ] **Cover**: replace `assets/img/cover.webp` with the real cover (2:3 ratio, about 800 × 1200 px)
 - [ ] **Sign-up form**: connect it to an email service (see below)
 - [ ] **Texts**: the book description, themes and audience are drafts written from the title. Rewrite them in your own words.
 
