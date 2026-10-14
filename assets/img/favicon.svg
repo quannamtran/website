@@ -1,14 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#10203a"/>
-  <g fill="none" stroke="#c9d5e6" stroke-width="4" stroke-linecap="round">
-    <path d="M15 17 Q30 22 43 32"/>
-    <path d="M13 33 L43 32"/>
-    <path d="M15 48 Q30 42 43 32"/>
-  </g>
-  <g fill="#c9d5e6">
-    <circle cx="15" cy="17" r="4.5"/>
-    <circle cx="13" cy="33" r="4.5"/>
-    <circle cx="15" cy="48" r="4.5"/>
-  </g>
-  <circle cx="44" cy="32" r="9.5" fill="#ff6a3d"/>
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <!-- Origami crane, after the book cover: violet wing, light body, green neck and head -->
+  <polygon points="5,8 37,36 23,44" fill="#a68bd6"/>
+  <polygon points="5,8 23,44 27,57" fill="#4b2a85"/>
+  <polygon points="23,44 37,36 33,52 27,57" fill="#ece8f3"/>
+  <polygon points="37,36 47,47 33,52" fill="#c3bad8"/>
+  <polygon points="40,46 53,11 47,48" fill="#5a9e47"/>
+  <polygon points="44,47 53,11 47,48" fill="#3f8034"/>
+  <polygon points="53,11 62,21 54,16.5" fill="#3f8034"/>
 </svg>

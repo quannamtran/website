@@ -1,21 +1,15 @@
 /* ==========================================================================
    Augmenting Decision: site styles
-   One stylesheet for every page. Colors and fonts are set once in :root.
+   One stylesheet for every page. Colors and fonts are set once in :root and
+   follow the book cover: violet to green on white, geometric capitals.
    ========================================================================== */
 
 /* Fonts (self-hosted, no third-party requests) ---------------------------- */
 @font-face {
-  font-family: "Newsreader";
-  src: url("../fonts/newsreader-latin-opsz-normal.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Newsreader";
-  src: url("../fonts/newsreader-latin-wght-italic.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: italic;
   font-display: swap;
 }
 @font-face {
@@ -26,58 +20,71 @@
   font-display: swap;
 }
 
-/* Design tokens ------------------------------------------------------------ */
+/* Design tokens (colors sampled from the cover) ----------------------------- */
 :root {
   color-scheme: light dark;
 
-  --paper: #f7f4ee;
-  --paper-alt: #efeae1;
-  --card: #fbf9f5;
-  --ink: #131a26;
-  --ink-soft: #364154;
-  --muted: #5b6475;
-  --line: rgba(19, 26, 38, 0.12);
-  --dot: rgba(19, 26, 38, 0.17);
+  --paper: #fafafb;
+  --paper-alt: #f4f1f8;
+  --card: #ffffff;
+  --ink: #241d3d;
+  --ink-soft: #3e3757;
+  --muted: #615a77;
+  --line: rgba(36, 29, 61, 0.12);
 
-  --navy: #10203a;
-  --on-navy: #f7f4ee;
-  --on-navy-muted: #b9c6da;
-  --on-navy-line: rgba(247, 244, 238, 0.16);
+  --violet: #4b2a85;
+  --violet-deep: #2c0d63;
+  --violet-light: #a68bd6;
+  --green: #559646;
 
-  --accent: #ff6a3d;
-  --accent-hover: #ff8259;
-  --on-accent: #0b1626;
-  --accent-text: #b33f19;
-  --accent-on-navy: #ff8a65;
-  --focus: #2f6fed;
+  /* "DECISION" on the cover: deep violet, through slate, to green. */
+  --brand-gradient: linear-gradient(90deg, #330b6b 0%, #22114f 42%, #233046 64%, #2f5a44 82%, #4f9a41 100%);
+  --button-gradient: linear-gradient(90deg, #4b2a85 0%, #3b3b7c 50%, #2f6f3c 100%);
+  --rule-gradient: linear-gradient(90deg, #4b2a85, #559646);
+  --title-light: #4b2a85;
+  --accent-text: #4b2a85;
+  --focus: #6a3fd1;
   --error: #b3261e;
-  --todo: rgba(255, 106, 61, 0.16);
+  --todo: rgba(166, 139, 214, 0.28);
+  --waves: url("../img/waves-light.svg");
 
-  --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  /* Deep violet bands */
+  --band: #21123f;
+  --on-band: #f5f2fb;
+  --on-band-muted: #cbc2e2;
+  --on-band-line: rgba(245, 242, 251, 0.18);
+  --band-gradient-text: linear-gradient(90deg, #c9b2f6 0%, #aab9ea 55%, #a0db90 100%);
+
+  --font-display: "Montserrat", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   --container: 72rem;
   --gutter: clamp(1rem, 4vw, 2.5rem);
-  --radius: 14px;
+  --radius: 16px;
   --section-space: clamp(4rem, 9vw, 7.5rem);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0b1220;
-    --paper-alt: #0f1828;
-    --card: #131e32;
-    --ink: #eef0f4;
-    --ink-soft: #ccd3df;
-    --muted: #9da8bb;
-    --line: rgba(238, 240, 244, 0.12);
-    --dot: rgba(238, 240, 244, 0.13);
+    --paper: #100c1b;
+    --paper-alt: #161124;
+    --card: #1b152d;
+    --ink: #f2eff8;
+    --ink-soft: #d6d0e6;
+    --muted: #a9a1c0;
+    --line: rgba(242, 239, 248, 0.12);
 
-    --navy: #12233e;
-    --accent-text: #ff9b78;
-    --focus: #8fb3ff;
+    --brand-gradient: linear-gradient(90deg, #c4a9f7 0%, #a99be9 40%, #95b4d6 66%, #96d685 100%);
+    --button-gradient: linear-gradient(90deg, #6243ad 0%, #4b4f9a 50%, #377c3c 100%);
+    --rule-gradient: linear-gradient(90deg, #c4a9f7, #96d685);
+    --title-light: #cbb6f5;
+    --accent-text: #c4a9f7;
+    --focus: #b69cf5;
     --error: #ff8f87;
-    --todo: rgba(255, 106, 61, 0.24);
+    --todo: rgba(166, 139, 214, 0.32);
+    --waves: url("../img/waves-dark.svg");
+
+    --band: #1e1338;
   }
 }
 
@@ -99,7 +106,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink-soft);
-  font: 400 1.0625rem/1.65 var(--font-sans);
+  font: 400 1.0625rem/1.7 var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -116,10 +123,10 @@ h2,
 h3 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
@@ -139,10 +146,15 @@ a {
   text-underline-offset: 0.2em;
 }
 
+/* Book title in running text, set in capitals like on the cover. */
 cite {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.06em;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.84em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 :focus-visible {
@@ -152,8 +164,8 @@ cite {
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: #ddd0f5;
+  color: #241d3d;
 }
 
 .container {
@@ -189,6 +201,22 @@ cite {
   top: 1rem;
 }
 
+/* Gradient text (the cover's violet-to-green lettering). */
+.gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+@media (forced-colors: active) {
+  .gradient-text {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
 /* Placeholder text you still need to replace. Search the HTML for class="todo". */
 .todo {
   background: var(--todo);
@@ -204,27 +232,30 @@ cite {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.4rem;
+  padding: 0.85rem 1.45rem;
   border: 0;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font: 600 1rem/1.1 var(--font-sans);
+  background: var(--button-gradient);
+  color: #ffffff;
+  font: 600 0.98rem/1.1 var(--font-display);
+  letter-spacing: 0.02em;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 8px 20px -10px rgba(75, 42, 133, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 .btn:hover {
-  background: var(--accent-hover);
+  filter: brightness(1.08);
   transform: translateY(-1px);
+  box-shadow: 0 12px 26px -12px rgba(75, 42, 133, 0.7);
 }
 .btn:active {
   transform: translateY(0);
 }
 .btn--small {
-  padding: 0.6rem 1.05rem;
-  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
 }
 
 /* Header ------------------------------------------------------------------- */
@@ -240,20 +271,30 @@ cite {
   gap: 1.5rem;
 }
 
+/* Wordmark: "AUGMENTING" light, "DECISION" bold, as on the cover. */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.7rem;
   color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
   text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 .brand img {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.brand__light {
+  font-weight: 400;
+}
+.brand__strong {
+  font-weight: 700;
 }
 
 .site-nav {
@@ -288,9 +329,10 @@ cite {
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 .lang a:hover {
@@ -301,7 +343,7 @@ cite {
   color: var(--paper);
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .site-nav {
     display: none;
   }
@@ -309,9 +351,15 @@ cite {
     margin-left: auto;
   }
 }
-@media (max-width: 32rem) {
+@media (max-width: 34rem) {
   .header-actions .btn {
     display: none;
+  }
+}
+@media (max-width: 24rem) {
+  .brand {
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
   }
 }
 
@@ -323,16 +371,26 @@ cite {
   padding-block: clamp(2rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem);
 }
 
-/* Faint "data field" of dots behind the hero. */
+/* Soft violet and green light, like the shadow under the crane on the cover. */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(42% 55% at 12% 18%, rgba(166, 139, 214, 0.2), rgba(166, 139, 214, 0) 70%),
+    radial-gradient(40% 55% at 88% 78%, rgba(85, 150, 70, 0.16), rgba(85, 150, 70, 0) 70%);
+}
+/* The cover's flowing lines and data points, behind the book. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 6% -14% 4% 42%;
   z-index: -1;
-  background-image: radial-gradient(circle at 1px 1px, var(--dot) 1.1px, transparent 0);
-  background-size: 22px 22px;
-  -webkit-mask-image: radial-gradient(55% 65% at 78% 45%, #000 0%, transparent 78%);
-  mask-image: radial-gradient(55% 65% at 78% 45%, #000 0%, transparent 78%);
+  background: var(--waves) center / contain no-repeat;
+  opacity: 0.8;
+  -webkit-mask-image: linear-gradient(90deg, transparent 10%, #000 45%);
+  mask-image: linear-gradient(90deg, transparent 10%, #000 45%);
 }
 
 .hero__grid {
@@ -340,6 +398,10 @@ cite {
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   align-items: center;
   gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.hero__text {
+  container-type: inline-size;
 }
 
 .status {
@@ -352,10 +414,11 @@ cite {
   border-radius: 999px;
   background: var(--card);
   color: var(--accent-text);
-  font-size: 0.76rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 .status__dot {
@@ -363,7 +426,7 @@ cite {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--green);
   animation: pulse 2.4s ease-out infinite;
 }
 @media (max-width: 30rem) {
@@ -374,38 +437,63 @@ cite {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 106, 61, 0.55);
+    box-shadow: 0 0 0 0 rgba(85, 150, 70, 0.55);
   }
   70%,
   100% {
-    box-shadow: 0 0 0 10px rgba(255, 106, 61, 0);
+    box-shadow: 0 0 0 10px rgba(85, 150, 70, 0);
   }
 }
 
+/* Title in capitals, as on the cover: "AUGMENTING" light, "DECISION" in the gradient. */
 .hero__title {
-  font-size: clamp(3rem, 1.5rem + 5.6vw, 6.25rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.1rem, 0.9rem + 4.6vw, 5rem);
+  font-size: clamp(2.1rem, 12.4cqi, 5rem);
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hero__title > span {
+  display: block;
+  width: fit-content;
+}
+.hero__title-light {
+  color: var(--title-light);
+  font-weight: 300;
+  letter-spacing: 0.045em;
+}
+.hero__title-strong {
+  font-weight: 500;
 }
 
 .hero__subtitle {
-  margin-top: 1.25rem;
-  max-width: 32ch;
-  text-wrap: balance;
+  margin-top: 1.4rem;
+  max-width: 30ch;
   color: var(--ink-soft);
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
-  font-style: italic;
-  line-height: 1.3;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.05rem + 0.8vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.hero__author {
+  margin-top: 1.1rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .hero__lead {
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
   max-width: 36rem;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 }
 
-/* 3D book. To show the real cover, replace assets/img/cover.webp. */
+/* 3D book. To change the cover, replace assets/img/cover.webp. */
 .hero__book {
   position: relative;
   display: grid;
@@ -416,16 +504,16 @@ cite {
   content: "";
   position: absolute;
   z-index: -1;
-  width: 85%;
+  width: 90%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 106, 61, 0.22), rgba(255, 106, 61, 0) 68%);
+  background: radial-gradient(circle, rgba(166, 139, 214, 0.32), rgba(85, 150, 70, 0.1) 50%, rgba(85, 150, 70, 0) 70%);
 }
 
 .book {
-  --thickness: 24px;
+  --thickness: 22px;
   position: relative;
-  width: min(100%, 21.5rem);
+  width: min(100%, 21rem);
   transform: rotateY(-20deg) rotateX(3deg);
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -439,32 +527,18 @@ cite {
   border-radius: 2px 6px 6px 2px;
   transform: translateZ(calc(var(--thickness) / 2));
   box-shadow:
-    0 2px 3px rgba(11, 22, 38, 0.12),
-    0 24px 40px -14px rgba(11, 22, 38, 0.5),
-    0 50px 80px -30px rgba(11, 22, 38, 0.45);
+    0 0 0 1px rgba(36, 29, 61, 0.06),
+    0 2px 4px rgba(36, 29, 61, 0.08),
+    0 28px 48px -18px rgba(60, 35, 110, 0.45),
+    0 60px 90px -40px rgba(47, 111, 60, 0.35);
 }
 @media (prefers-color-scheme: dark) {
-  /* A navy cover on a dark page needs a faint edge and a warmer glow to stand out. */
   .book__cover {
     box-shadow:
-      0 0 0 1px rgba(238, 240, 244, 0.1),
-      0 24px 40px -14px rgba(0, 0, 0, 0.7),
-      0 50px 90px -30px rgba(0, 0, 0, 0.75);
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 28px 48px -18px rgba(0, 0, 0, 0.7),
+      0 60px 90px -40px rgba(0, 0, 0, 0.6);
   }
-  .hero__book::before {
-    background: radial-gradient(circle, rgba(255, 106, 61, 0.2), rgba(70, 110, 170, 0.12) 45%, rgba(70, 110, 170, 0) 70%);
-  }
-}
-/* Spine highlight on the left edge of the cover. */
-.book::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 6%;
-  border-radius: 2px 0 0 2px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.22) 80%, rgba(255, 255, 255, 0.05));
-  transform: translateZ(calc(var(--thickness) / 2 + 0.5px));
-  pointer-events: none;
 }
 /* Edge of the pages, on the right-hand side of the book. */
 .book::after {
@@ -474,19 +548,26 @@ cite {
   bottom: 1.2%;
   left: calc(100% - var(--thickness) / 2 - 2px);
   width: var(--thickness);
-  background: repeating-linear-gradient(90deg, #f6f2ea 0 2px, #d8d0c1 2px 3px);
+  background: repeating-linear-gradient(90deg, #f7f6f3 0 2px, #dcd8d0 2px 3px);
   transform: rotateY(90deg);
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .hero__grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .hero::after {
+    inset: auto -30% 0 -30%;
+    height: 26rem;
+    opacity: 0.6;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .hero__book {
     padding-block: 1rem 0;
   }
   .book {
-    width: min(70%, 17rem);
+    width: min(68%, 17rem);
   }
 }
 
@@ -503,7 +584,7 @@ cite {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--card);
-  box-shadow: 0 1px 2px rgba(11, 22, 38, 0.05), 0 12px 28px -18px rgba(11, 22, 38, 0.35);
+  box-shadow: 0 1px 2px rgba(36, 29, 61, 0.05), 0 14px 30px -20px rgba(60, 35, 110, 0.45);
 }
 .signup__row:focus-within {
   outline: 3px solid var(--focus);
@@ -555,27 +636,36 @@ cite {
   color: var(--error);
 }
 
-/* Variant used on dark (navy) backgrounds. */
+/* Variant used on the deep violet bands. */
 .signup--on-dark {
   margin-inline: auto;
 }
 .signup--on-dark .signup__row {
-  border-color: var(--on-navy-line);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--on-band-line);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow: none;
 }
 .signup--on-dark .signup__input {
-  color: var(--on-navy);
+  color: var(--on-band);
 }
 .signup--on-dark .signup__input::placeholder,
 .signup--on-dark .signup__note {
-  color: var(--on-navy-muted);
+  color: var(--on-band-muted);
 }
 .signup--on-dark .signup__status {
-  color: var(--on-navy);
+  color: var(--on-band);
 }
 .signup--on-dark[data-state="error"] .signup__status {
   color: #ffb4a8;
+}
+.band .btn {
+  background: #ffffff;
+  color: var(--violet-deep);
+  box-shadow: none;
+}
+.band .btn:hover {
+  background: #efe8fb;
+  filter: none;
 }
 
 @media (max-width: 30rem) {
@@ -588,62 +678,73 @@ cite {
   }
 }
 
-/* Dark band with a statement --------------------------------------------- */
+/* Deep violet bands -------------------------------------------------------- */
 .band {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: var(--navy);
-  color: var(--on-navy-muted);
+  background: var(--band);
+  color: var(--on-band-muted);
 }
+/* The cover's lines and data points, in light violet and green. */
 .band::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: radial-gradient(circle at 1px 1px, rgba(185, 198, 218, 0.16) 1.1px, transparent 0);
-  background-size: 22px 22px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent);
+  background: url("../img/waves-dark.svg") center / cover no-repeat;
+  opacity: 0.5;
 }
 .band h2 {
-  color: var(--on-navy);
+  color: var(--on-band);
 }
 
 .statement {
-  padding-block: clamp(4rem, 9vw, 7rem);
+  padding-block: clamp(4.5rem, 10vw, 8rem);
 }
-.statement__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 2rem;
+.statement::before {
+  -webkit-mask-image: linear-gradient(90deg, transparent 36%, #000 80%);
+  mask-image: linear-gradient(90deg, transparent 36%, #000 80%);
+  opacity: 0.9;
 }
-/* The book's "data converging into a decision" motif, on the right. */
-.statement__art {
-  aspect-ratio: 3 / 2;
-  background: url("../img/motif.svg") center / contain no-repeat;
+/* Sign-up band: lines only around the edges, not behind the form. */
+#notify::before,
+#inscription::before {
+  -webkit-mask-image: radial-gradient(48% 70% at 50% 50%, transparent 35%, #000 100%);
+  mask-image: radial-gradient(48% 70% at 50% 50%, transparent 35%, #000 100%);
 }
-@media (max-width: 52rem) {
-  .statement__inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .statement__art {
-    display: none;
+@media (max-width: 56rem) {
+  /* On phones the text spans the whole band, so keep the lines faint. */
+  .band::before,
+  .statement::before {
+    opacity: 0.22;
   }
 }
 .statement p {
-  max-width: 24ch;
-  color: var(--on-navy);
-  font-family: var(--font-serif);
-  font-size: clamp(1.9rem, 1.2rem + 2.9vw, 3.6rem);
-  font-weight: 400;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
+  max-width: 22ch;
+  color: var(--on-band);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .statement em {
-  color: var(--accent-on-navy);
+  background: var(--band-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
+  font-weight: 500;
+}
+@media (forced-colors: active) {
+  .statement em {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 /* Sections ----------------------------------------------------------------- */
@@ -660,22 +761,23 @@ cite {
   gap: 0.75rem;
   margin-bottom: 1.25rem;
   color: var(--accent-text);
-  font-size: 0.78rem;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .kicker::before {
   content: "";
   flex: none;
-  width: 1.75rem;
+  width: 2rem;
   height: 2px;
-  background: var(--accent);
+  background: var(--rule-gradient);
 }
 
 .section h2 {
-  font-size: clamp(2rem, 1.35rem + 2.6vw, 3.25rem);
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3rem);
 }
 
 .split {
@@ -688,13 +790,13 @@ cite {
   margin-top: 1.25em;
 }
 .prose p {
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 }
 .prose p:first-child {
   color: var(--ink);
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .split {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
@@ -715,21 +817,32 @@ cite {
   list-style: none;
 }
 .theme {
+  position: relative;
+  overflow: hidden;
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
 }
+.theme::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--rule-gradient);
+}
 .theme__num {
   display: block;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: var(--accent-text);
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
 }
 .theme h3 {
-  font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.7rem);
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
+  font-weight: 600;
 }
 .theme p {
   margin-top: 0.75rem;
@@ -752,7 +865,7 @@ cite {
   border-top: 1px solid var(--line);
 }
 .audience h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 .audience ul {
   display: grid;
@@ -768,10 +881,11 @@ cite {
   display: block;
   margin-bottom: 0.35rem;
   color: var(--ink);
+  font-family: var(--font-display);
   font-weight: 600;
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .audience,
   .audience ul {
     grid-template-columns: minmax(0, 1fr);
@@ -807,7 +921,7 @@ cite {
   margin-bottom: 1.25rem;
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .author {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -822,12 +936,15 @@ cite {
   text-align: center;
 }
 .cta h2 {
-  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  font-size: clamp(2rem, 1.4rem + 2.8vw, 3.4rem);
 }
 .cta > p {
   margin: 1.25rem auto 0;
   max-width: 34rem;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
+}
+.cta cite {
+  color: var(--on-band);
 }
 .cta .signup__note,
 .cta .signup__status {
@@ -843,15 +960,14 @@ cite {
 }
 .page h1 {
   margin-bottom: 2.5rem;
-  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.4rem);
 }
 .page h2 {
   margin: 2.75rem 0 1rem;
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 .page h3 {
   margin: 1.75rem 0 0.5rem;
-  font-family: var(--font-sans);
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0;
@@ -891,11 +1007,12 @@ cite {
   gap: 1rem 2rem;
 }
 .site-footer .brand {
-  font-size: 1.05rem;
+  font-size: 0.78rem;
 }
 .site-footer .brand img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
 }
 .site-footer nav {
   display: flex;
