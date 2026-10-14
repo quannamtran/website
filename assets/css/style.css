@@ -811,7 +811,7 @@ cite {
 
 .themes {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 1.25rem;
   padding: 0;
   list-style: none;
@@ -888,6 +888,71 @@ cite {
 @media (max-width: 56rem) {
   .audience,
   .audience ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Table of contents */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+.toc__part {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.toc__label {
+  margin-bottom: 0.6rem;
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.toc__part h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
+  font-weight: 600;
+}
+.toc__desc {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+.toc__chapters {
+  margin-top: 1.25rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.toc__chapters li {
+  color: var(--ink);
+  font-weight: 500;
+}
+.toc__chapters li + li {
+  margin-top: 0.6rem;
+}
+.toc__num {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.toc__bookend {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+@media (max-width: 52rem) {
+  .toc {
     grid-template-columns: minmax(0, 1fr);
   }
 }
