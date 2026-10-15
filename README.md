@@ -101,3 +101,5 @@ On launch day, export the email column and send the announcement yourself, with 
 - Colors and fonts are CSS variables at the top of `assets/css/style.css`.
 - To preview locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 - Every push to `main` updates the live site within a minute or two.
+- The pages load `style.css` and `main.js` with a version tag (`?v=…`). After changing either file, change that tag in
+  the four HTML pages (any new value works), so browsers fetch the new file instead of a cached copy.

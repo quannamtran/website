@@ -64,10 +64,10 @@
     });
   });
 
-  // Endorsement carousel: one quote at a time, moving on every 5 seconds.
-  // It pauses while the pointer is over it, while it has keyboard focus, with
-  // the pause button and when the tab is hidden, and never moves on its own
-  // for people who ask their system for reduced motion.
+  // Endorsement carousel: one quote at a time, moving on every 5 seconds on
+  // every device. It holds still only after the pause button is pressed,
+  // while it has keyboard focus, and while the tab is hidden. For people who
+  // ask their system for reduced motion, quotes change without the fade (CSS).
   document.querySelectorAll('[data-carousel]').forEach(function (root) {
     var DELAY = 5000;
     var slides = [].slice.call(root.querySelectorAll('.praise__slide'));
@@ -76,8 +76,7 @@
     var toggle = root.querySelector('[data-carousel-toggle]');
     var current = 0;
     var timer = null;
-    var paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var hovered = false;
+    var paused = false;
     var focused = false;
 
     var dots = slides.map(function (slide, i) {
@@ -107,7 +106,7 @@
     // (Re)start the 5-second countdown, or stop it while the carousel should hold still.
     function schedule() {
       clearTimeout(timer);
-      var moving = !paused && !hovered && !focused && !document.hidden;
+      var moving = !paused && !focused && !document.hidden;
       if (moving) timer = setTimeout(function () { show(current + 1); }, DELAY);
       // Announce slide changes to screen readers only when they are not automatic.
       box.setAttribute('aria-live', moving ? 'off' : 'polite');
@@ -119,8 +118,6 @@
     root.querySelector('[data-carousel-next]').addEventListener('click', function () { show(current + 1); });
     toggle.addEventListener('click', function () { paused = !paused; schedule(); });
 
-    root.addEventListener('mouseenter', function () { hovered = true; schedule(); });
-    root.addEventListener('mouseleave', function () { hovered = false; schedule(); });
     root.addEventListener('focusin', function (event) {
       // Keyboard focus pauses; a mouse click on a button does not.
       var keyboard = true;
