@@ -75,11 +75,14 @@
 
           <form class="signup" method="post" novalidate data-signup
                 data-msg-invalid="Merci de saisir une adresse e-mail valide."
-                data-msg-closed="Les inscriptions ne sont pas encore ouvertes. Revenez très bientôt&#8239;!">
+                data-msg-closed="Les inscriptions ne sont pas encore ouvertes. Revenez très bientôt&#8239;!"
+                data-msg-success="Merci&#8239;! Vous êtes sur la liste. Nous vous écrirons à la sortie du livre."
+                data-msg-error="Une erreur s’est produite. Réessayez, ou écrivez à info@augmenting-decision.com.">
             <div class="signup__row">
               <label class="visually-hidden" for="email-hero">Adresse e-mail</label>
               <input class="signup__input" id="email-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="vous@exemple.fr" required>
               <button class="btn" type="submit">Me prévenir</button>
+              <div class="signup__trap" aria-hidden="true"><label>Laissez ce champ vide <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             </div>
             <p class="signup__note">Un seul e-mail à la sortie du livre. Pas de spam, désinscription à tout moment. <a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
             <p class="signup__status" role="status"></p>
@@ -252,11 +255,14 @@
         <p>Laissez votre adresse e-mail&nbsp;: nous vous préviendrons dès la sortie d’<cite lang="en">Augmenting Decision</cite>.</p>
         <form class="signup signup--on-dark" method="post" novalidate data-signup
               data-msg-invalid="Merci de saisir une adresse e-mail valide."
-              data-msg-closed="Les inscriptions ne sont pas encore ouvertes. Revenez très bientôt&#8239;!">
+              data-msg-closed="Les inscriptions ne sont pas encore ouvertes. Revenez très bientôt&#8239;!"
+              data-msg-success="Merci&#8239;! Vous êtes sur la liste. Nous vous écrirons à la sortie du livre."
+              data-msg-error="Une erreur s’est produite. Réessayez, ou écrivez à info@augmenting-decision.com.">
           <div class="signup__row">
             <label class="visually-hidden" for="email-cta">Adresse e-mail</label>
             <input class="signup__input" id="email-cta" name="email" type="email" inputmode="email" autocomplete="email" placeholder="vous@exemple.fr" required>
             <button class="btn" type="submit">Me prévenir</button>
+            <div class="signup__trap" aria-hidden="true"><label>Laissez ce champ vide <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           </div>
           <p class="signup__note">Un seul e-mail à la sortie du livre. Pas de spam, désinscription à tout moment. <a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
           <p class="signup__status" role="status"></p>
