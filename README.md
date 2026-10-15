@@ -14,7 +14,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `legal.html` · `fr/mentions-legales.html` | Legal notice and privacy policy (EN · FR) |
 | `404.html` | "Page not found" page, in both languages |
 | `assets/css/style.css` | All the styling. Colors (taken from the cover) and fonts are defined at the top. |
-| `assets/js/main.js` | Sign-up form messages and the footer year |
+| `assets/js/main.js` | Sign-up form (sends to the Google Sheet) and the footer year |
 | `assets/img/cover.webp` | Book cover |
 | `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
 | `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
@@ -27,7 +27,7 @@ Placeholders are highlighted in lavender on the pages. Search the HTML for `clas
 
 - [ ] **Author**: short bio and photo, in both `index.html` and `fr/index.html`
 - [ ] **Legal pages**: publisher name and contact email, in `legal.html` and `fr/mentions-legales.html`
-- [ ] **Sign-up form**: connect it to an email service (see below)
+- [ ] **Sign-up form**: connect it to the Google Sheet (see below)
 - [ ] **Texts**: the book description, themes and audience are drafts written from the title. Rewrite them in your own words.
 
 ## Putting the site online (one-time setup)
@@ -79,16 +79,20 @@ remove the custom domain, save, add it back and save again.
 Optional but recommended: verify the domain in your GitHub account
 (**your profile picture → Settings → Pages → Add a domain**). This stops anyone else from using it on GitHub.
 
-## Connecting the sign-up form
+## Sign-up form (Google Sheet)
 
-Each home page has two sign-up forms, one at the top and one at the bottom.
-Until they are connected, they tell visitors that sign-ups aren't open yet.
+Both "Notify me" forms send addresses to a private Google Sheet, through a small Google Apps Script
+(`tools/google-sheet-signup.gs`). Each sign-up adds a row: date, email, language, page. Duplicates and spam bots are ignored.
 
-1. Create a free account with an email service such as Brevo, MailerLite or Kit, and create a sign-up form.
-2. In the form's HTML embed code, find the URL in `action="…"` and the name of the email field.
-3. In `index.html` and `fr/index.html`, add that `action="…"` to each `<form … data-signup>` and,
-   if needed, rename `name="email"` to the field name the service expects.
-4. Put the service's name in the two legal pages, in place of `[provider name]` / `[nom du prestataire]`.
+To set it up, or to move it to another Google account:
+
+1. Create a Google Sheet (for example "Augmenting Decision – Launch list").
+2. In the sheet: **Extensions → Apps Script**. Delete what is there, paste the contents of `tools/google-sheet-signup.gs`, and save.
+3. **Deploy → New deployment →** type **Web app**. Set *Execute as*: **Me**, *Who has access*: **Anyone**. Click **Deploy** and authorize.
+4. Copy the **Web app URL** (it ends in `/exec`) into `assets/js/main.js`, as `SIGNUP_ENDPOINT`.
+
+While `SIGNUP_ENDPOINT` is empty, the forms tell visitors that sign-ups are not open yet.
+On launch day, export the email column and send the announcement yourself, with the addresses in **BCC**.
 
 ## Editing the site
 

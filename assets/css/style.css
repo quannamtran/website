@@ -659,6 +659,15 @@ cite {
   outline-offset: 2px;
 }
 
+/* Anti-spam field: invisible to people, filled in only by bots. */
+.signup__trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .signup__note {
   margin-top: 0.85rem;
   padding-inline: 1.1rem;
@@ -678,6 +687,12 @@ cite {
 }
 .signup__status:empty {
   margin: 0;
+}
+.signup[data-state="success"] .signup__status {
+  color: var(--accent-text);
+}
+.signup--on-dark[data-state="success"] .signup__status {
+  color: #c5ecb9;
 }
 .signup[data-state="error"] .signup__status {
   color: var(--error);

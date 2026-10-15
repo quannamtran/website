@@ -75,11 +75,14 @@
 
           <form class="signup" method="post" novalidate data-signup
                 data-msg-invalid="Please enter a valid email address."
-                data-msg-closed="Sign-ups aren’t open just yet. Please check back soon!">
+                data-msg-closed="Sign-ups aren’t open just yet. Please check back soon!"
+                data-msg-success="Thank you! You’re on the list. We’ll email you when the book is out."
+                data-msg-error="Something went wrong. Please try again, or write to info@augmenting-decision.com.">
             <div class="signup__row">
               <label class="visually-hidden" for="email-hero">Email address</label>
               <input class="signup__input" id="email-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
               <button class="btn" type="submit">Notify me</button>
+              <div class="signup__trap" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             </div>
             <p class="signup__note">One email when the book is out. No spam, unsubscribe anytime. <a href="legal.html#privacy">Privacy</a></p>
             <p class="signup__status" role="status"></p>
@@ -252,11 +255,14 @@
         <p>Leave your email and we’ll let you know as soon as <cite>Augmenting Decision</cite> is out.</p>
         <form class="signup signup--on-dark" method="post" novalidate data-signup
               data-msg-invalid="Please enter a valid email address."
-              data-msg-closed="Sign-ups aren’t open just yet. Please check back soon!">
+              data-msg-closed="Sign-ups aren’t open just yet. Please check back soon!"
+              data-msg-success="Thank you! You’re on the list. We’ll email you when the book is out."
+              data-msg-error="Something went wrong. Please try again, or write to info@augmenting-decision.com.">
           <div class="signup__row">
             <label class="visually-hidden" for="email-cta">Email address</label>
             <input class="signup__input" id="email-cta" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
             <button class="btn" type="submit">Notify me</button>
+            <div class="signup__trap" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           </div>
           <p class="signup__note">One email when the book is out. No spam, unsubscribe anytime. <a href="legal.html#privacy">Privacy</a></p>
           <p class="signup__status" role="status"></p>
