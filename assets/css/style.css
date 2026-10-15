@@ -740,6 +740,170 @@ cite {
   }
 }
 
+/* Early praise: endorsement carousel -------------------------------------- */
+.praise {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  background: var(--paper-alt);
+  text-align: center;
+}
+.praise__kicker {
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+/* Large quotation mark in the cover's violet-to-green gradient. */
+.praise__mark {
+  width: fit-content;
+  margin: 0 auto;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 3.5rem + 4vw, 7rem);
+  font-weight: 600;
+  line-height: 0.9;
+  height: 0.55em;
+}
+.praise__slides {
+  display: grid;
+  max-width: 50rem;
+  margin: 1.25rem auto 0;
+}
+.praise__quote {
+  margin: 0;
+}
+.praise__quote p {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.praise__quote cite {
+  font-size: 0.86em;
+}
+.praise__name {
+  margin-top: 1.75rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.praise__name::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  margin: 0 auto 1rem;
+  background: var(--rule-gradient);
+}
+.praise__role {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+/* With JavaScript: all quotes share one spot (as tall as the longest), one shows at a time. */
+.js .praise__slide {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+}
+.js .praise__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s;
+}
+/* Without JavaScript: all quotes, one after another. */
+html:not(.js) .praise__slide + .praise__slide {
+  margin-top: 3rem;
+}
+html:not(.js) .praise__controls {
+  display: none;
+}
+.praise__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 2.25rem;
+}
+.praise__btn {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--accent-text);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.praise__btn:hover {
+  border-color: var(--violet-light);
+}
+.praise__toggle .praise__icon-play,
+.praise[data-paused="true"] .praise__toggle .praise__icon-pause {
+  display: none;
+}
+.praise[data-paused="true"] .praise__toggle .praise__icon-play {
+  display: block;
+}
+.praise__dots {
+  display: flex;
+  align-items: center;
+}
+/* Each dot has a 24px touch area; the visible mark is drawn inside it. */
+.praise__dot {
+  display: grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.praise__dot::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: #d3c7ea;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.praise__dot:hover::before {
+  background: var(--violet-light);
+}
+.praise__dot[aria-current="true"]::before {
+  width: 1.6rem;
+  background: var(--rule-gradient);
+}
+.praise__dot[aria-current="true"] {
+  min-width: 2.1rem;
+}
+@media (prefers-color-scheme: dark) {
+  .praise__dot::before {
+    background: rgba(196, 169, 247, 0.32);
+  }
+}
+@media (forced-colors: active) {
+  .praise__mark {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
 /* Deep violet bands -------------------------------------------------------- */
 .band {
   position: relative;
