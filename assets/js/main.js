@@ -3,7 +3,7 @@
   // Where sign-ups are sent: the Google Apps Script web app that writes them
   // to a private Google Sheet (see tools/google-sheet-signup.gs and the README).
   // While empty, visitors are told sign-ups are not open yet.
-  var SIGNUP_ENDPOINT = '';
+  var SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxl2H7htlZjt_XDHzmIW4KdjfJmOIG5cHQ7HnBYwQHobIWZou4OccXYRyc3EAYsZNXD/exec';
 
   // Keep the copyright year current.
   var year = String(new Date().getFullYear());
