@@ -343,6 +343,27 @@ cite {
   color: var(--paper);
 }
 
+/* Social links (LinkedIn, Substack) next to the language switch. */
+.social {
+  display: flex;
+  gap: 0.4rem;
+}
+.social__link {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--accent-text);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.social__link:hover {
+  border-color: var(--violet-light);
+  background: var(--paper-alt);
+}
+
 @media (max-width: 56rem) {
   .site-nav {
     display: none;
@@ -354,6 +375,15 @@ cite {
 @media (max-width: 34rem) {
   .header-actions .btn {
     display: none;
+  }
+  /* Brand on one line, language switch and social links on the next. */
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+  .header-actions {
+    margin-left: 0;
+    width: 100%;
   }
 }
 @media (max-width: 24rem) {
