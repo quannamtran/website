@@ -374,6 +374,10 @@ cite {
 .social {
   display: flex;
   gap: 0.4rem;
+  order: 3;
+}
+.site-menu {
+  order: 2;
 }
 .social__link {
   display: grid;
@@ -393,12 +397,20 @@ cite {
 
 @media (max-width: 72rem) {
   /* Phones, tablets and small laptops: a menu button opens a dropdown with every link. */
+  .social {
+    order: 1;
+    margin-left: auto;
+  }
+  .site-menu {
+    order: 3;
+    flex: none;
+  }
   .menu-toggle {
+    order: 2;
     display: grid;
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
-    margin-left: auto;
     padding: 0;
     border: 1px solid var(--line);
     border-radius: 50%;
@@ -447,7 +459,6 @@ cite {
     font-weight: 500;
   }
   .header-actions {
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.75rem;
     margin: 1rem 0 0;
@@ -458,10 +469,34 @@ cite {
     order: 1;
   }
 }
-@media (max-width: 24rem) {
+@media (max-width: 26rem) {
+  .site-header__inner {
+    gap: 0.6rem;
+  }
   .brand {
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
+    min-width: 0;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+  .brand > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand img {
+    flex: none;
+  }
+  .brand img {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .social {
+    gap: 0.3rem;
+  }
+  .social__link,
+  .menu-toggle {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 }
 
