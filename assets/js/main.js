@@ -5,6 +5,38 @@
   // While empty, visitors are told sign-ups are not open yet.
   var SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxl2H7htlZjt_XDHzmIW4KdjfJmOIG5cHQ7HnBYwQHobIWZou4OccXYRyc3EAYsZNXD/exec';
 
+  // Sticky header: a thin line and shadow appear once the page is scrolled.
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Menu button (phones): opens the dropdown with every link. It closes after a
+  // link is chosen, on Escape, or when tapping outside.
+  var toggle = document.querySelector('.menu-toggle');
+  var menu = document.getElementById('site-menu');
+  function setMenu(open) {
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', function () {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  menu.addEventListener('click', function (event) {
+    if (event.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', function (event) {
+    if (menu.classList.contains('is-open') && !header.contains(event.target)) setMenu(false);
+  });
+
   // Keep the copyright year current.
   var year = String(new Date().getFullYear());
   document.querySelectorAll('[data-year]').forEach(function (el) {
