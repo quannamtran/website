@@ -547,16 +547,12 @@ cite {
   .site-nav .site-nav__top[aria-current="page"] {
     background: none;
   }
-  /* "You are here": the current page's sections get a green line. */
-  .site-nav__group:has(> .site-nav__top[aria-current="page"]) .site-nav__sub {
-    border-left-color: var(--green-text);
-  }
   .site-nav__sub {
     position: static;
     min-width: 0;
     padding: 0 0 0.25rem 0.9rem;
     border: 0;
-    border-left: 2px solid var(--line);
+    border-left: 2px solid var(--green-text);
     border-radius: 0;
     background: none;
     box-shadow: none;
