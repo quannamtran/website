@@ -1,0 +1,69 @@
+{
+  "language": "en",
+  "checked": "2026-10-27T10:04:37Z",
+  "note": {
+    "url": "https://substack.com/note/c-371413677",
+    "date": "2026-10-27",
+    "time": "2026-10-27T08:04:29Z",
+    "text": "Relying on a single outside provider for core AI capability is a strategic decision, even when it looks like the default. Organizations that build or fine-tune their own models gain something harder to price than performance: control over cost, data, and direction when the market shifts. Sovereignty here does not mean building everything from scratch, it means knowing which capabilities are too important to rent. That choice, made early, is what separates companies steering their own AI roadmap from those simply following someone else's.",
+    "image": null
+  },
+  "posts": [
+    {
+      "title": "Half Your Meeting, Three Slides, One Brilliant Question",
+      "url": "https://antoinetranquannam.substack.com/p/half-your-meeting-three-slides-one",
+      "date": "2026-10-25",
+      "excerpt": "The delivery blueprint that turns a finished analysis into a decision people actually make",
+      "paid": true,
+      "image": {
+        "src": "assets/img/substack/post-384cf8441732.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
+    {
+      "title": "The Model Worked. The Rollout Didn't. Here's Why.",
+      "url": "https://antoinetranquannam.substack.com/p/the-model-worked-the-rollout-didnt",
+      "date": "2026-10-22",
+      "excerpt": "A premium automaker's spot-welding AI proved itself in the lab and then stalled for months — not because the model was wrong, but because nobody had engineered the data to let it live in production.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-7234791bf10c.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
+    {
+      "title": "The Weld That Proved Your AI Was Never The Problem",
+      "url": "https://antoinetranquannam.substack.com/p/the-weld-that-proved-your-ai-was",
+      "date": "2026-10-18",
+      "excerpt": "How a working model dies in the gap between a pilot and an operating model",
+      "paid": true,
+      "image": {
+        "src": "assets/img/substack/post-9bd39fb92340.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
+    {
+      "title": "You've Got the Human-AI Equation Backwards",
+      "url": "https://antoinetranquannam.substack.com/p/youve-got-the-human-ai-equation-backwards",
+      "date": "2026-10-15",
+      "excerpt": "Most organizations have quietly turned employees into system plumbers and handed machines the judgment calls — and the fix isn't less automation, it's putting each one back where it belongs.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-05736d817902.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
+    {
+      "title": "Your Agent Doesn't Need a Bigger Brain. It Needs an Argument.",
+      "url": "https://antoinetranquannam.substack.com/p/your-agent-doesnt-need-a-bigger-brain",
+      "date": "2026-10-11",
+      "excerpt": "",
+      "paid": true,
+      "image": null
+    }
+  ]
+}

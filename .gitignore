@@ -1,0 +1,3 @@
+# Checkout of the publishing agent, used by the Substack page update
+.agent/
+__pycache__/

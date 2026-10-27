@@ -35,7 +35,7 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=06f62f12">
+  <link rel="stylesheet" href="assets/css/style.css?v=d3b8ebca">
   <script src="assets/js/main.js?v=37b438c5" defer></script>
 </head>
 <body>
@@ -54,11 +54,22 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="menu-toggle__open" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="menu-toggle__close" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       <div class="site-menu" id="site-menu">
       <nav class="site-nav" aria-label="Main">
-        <a href="#book">The book</a>
-        <a href="#inside">Inside</a>
-        <a href="#praise">Praise</a>
-        <a href="#contents">Contents</a>
-        <a href="#author">Author</a>
+        <div class="site-nav__group">
+          <a class="site-nav__top" href="./" aria-current="page">The book</a>
+          <div class="site-nav__sub">
+            <a href="#inside">Inside</a>
+            <a href="#praise">Praise</a>
+            <a href="#contents">Contents</a>
+            <a href="#author">Author</a>
+          </div>
+        </div>
+        <div class="site-nav__group">
+          <a class="site-nav__top" href="substack.html">Substack</a>
+          <div class="site-nav__sub">
+            <a href="substack.html#notes">Notes</a>
+            <a href="substack.html#posts">Posts</a>
+          </div>
+        </div>
       </nav>
       <div class="header-actions">
         <nav class="lang" aria-label="Language">
