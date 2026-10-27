@@ -19,7 +19,7 @@ writes the pages.
 Needs SUBSTACK_POST_TOKEN: a GitHub token that can read the agent repository (Contents and
 Actions, read-only).
 
-    python tools/update-substack.py --agent .agent
+    python tools/update-substack.py --agent .agent [--only notes|articles]
     python tools/update-substack.py --agent .agent --add URL [ARCHIVE_DIR] [YYYY-MM-DD]
         adds a post published by hand; its archive is found from the link when not given
 """
@@ -272,6 +272,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--agent", default=".agent", help="checkout of the agent repository")
     ap.add_argument("--out", default=OUT)
+    ap.add_argument("--only", choices=["notes", "articles"], help="update only the note or only the articles")
     ap.add_argument("--add", nargs="+", metavar=("URL", "ARCHIVE_DIR"),
                     help="add a post published by hand: URL ARCHIVE_DIR [YYYY-MM-DD]")
     ap.add_argument("--log-dir", help="read job logs from <job id>.log files here (tests)")
@@ -283,37 +284,45 @@ def main():
         with open(args.out, encoding="utf-8") as f:
             previous = json.load(f)
     now = datetime.now(timezone.utc)
-    if previous.get("checked"):
-        since = datetime.fromisoformat(previous["checked"].replace("Z", "+00:00")) - timedelta(days=MARGIN)
-    else:
-        since = now - timedelta(days=FIRST_LOOKBACK)
-    since = since.strftime("%Y-%m-%d")
+    stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    found = []
-    if args.add:
-        url, d = args.add[0], (args.add[1] if len(args.add) > 1 and args.add[1] else None)
-        when = (args.add[2] if len(args.add) > 2 else now.strftime("%Y-%m-%d")) + "T12:00:00Z"
-        found.append({"url": url, "time": when, "dir": d})
-    else:
-        for wf in ARTICLE_WORKFLOWS:
-            for run in runs(wf, since, token):
-                for log in run_logs(run, token, args.log_dir):
-                    rec = parse_article(log)
-                    if rec:
-                        found.append(rec)
+    def since(kind):
+        """Read the agent's runs from a little before this part's last check."""
+        last = previous.get(f"checked_{kind}") or previous.get("checked")
+        start = (datetime.fromisoformat(last.replace("Z", "+00:00")) - timedelta(days=MARGIN)) if last \
+            else now - timedelta(days=FIRST_LOOKBACK)
+        return start.strftime("%Y-%m-%d")
+
+    do_articles = args.add or args.only in (None, "articles")
+    do_notes = not args.add and args.only in (None, "notes")
+    checked = {k: previous.get(f"checked_{k}") or previous.get("checked") for k in ("articles", "notes")}
 
     posts = {p["url"]: p for p in previous.get("posts", [])}
-    for rec in found:
-        post = build_post(rec, args.agent)
-        if post:
-            posts[post["url"]] = post
-            print(f"article {post['date']}: {post['title']} → {post['url']}")
+    if do_articles:
+        found = []
+        if args.add:
+            url, d = args.add[0], (args.add[1] if len(args.add) > 1 and args.add[1] else None)
+            when = (args.add[2] if len(args.add) > 2 else now.strftime("%Y-%m-%d")) + "T12:00:00Z"
+            found.append({"url": url, "time": when, "dir": d})
+        else:
+            for wf in ARTICLE_WORKFLOWS:
+                for run in runs(wf, since("articles"), token):
+                    for log in run_logs(run, token, args.log_dir):
+                        rec = parse_article(log)
+                        if rec:
+                            found.append(rec)
+            checked["articles"] = stamp
+        for rec in found:
+            post = build_post(rec, args.agent)
+            if post:
+                posts[post["url"]] = post
+                print(f"article {post['date']}: {post['title']} → {post['url']}")
     posts = sorted(posts.values(), key=lambda p: p["date"], reverse=True)[:KEEP]
 
     note = previous.get("note")
-    if not args.add:
+    if do_notes:
         for wf in NOTE_WORKFLOWS:
-            for run in runs(wf, since, token):  # newest first: stop at the first note found
+            for run in runs(wf, since("notes"), token):  # newest first: stop at the first note found
                 rec = next((r for r in (parse_note(log) for log in run_logs(run, token, args.log_dir)) if r), None)
                 if rec:
                     if not note or rec["time"] > note.get("time", ""):
@@ -321,10 +330,12 @@ def main():
                         if new:
                             note = new
                     break
+        checked["notes"] = stamp
     if note:
         print(f"note {note['date']}: {note['url']}")
 
-    data = {"language": "en", "checked": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "note": note, "posts": posts}
+    data = {"language": "en", "checked_articles": checked["articles"], "checked_notes": checked["notes"],
+            "note": note, "posts": posts}
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

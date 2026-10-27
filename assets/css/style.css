@@ -36,6 +36,8 @@
   --violet-deep: #2c0d63;
   --violet-light: #a68bd6;
   --green: #559646;
+  /* The cover's green, deep enough for small text (5.8:1 on the page). */
+  --green-text: #2f6f3c;
 
   /* "DECISION" on the cover: deep violet, through slate, to green. */
   --brand-gradient: linear-gradient(90deg, #330b6b 0%, #22114f 42%, #233046 64%, #2f5a44 82%, #4f9a41 100%);
@@ -79,6 +81,7 @@
     --rule-gradient: linear-gradient(90deg, #c4a9f7, #96d685);
     --title-light: #cbb6f5;
     --accent-text: #c4a9f7;
+    --green-text: #96d685;
     --focus: #b69cf5;
     --error: #ff8f87;
     --todo: rgba(166, 139, 214, 0.32);
@@ -358,9 +361,18 @@ cite {
   transform: rotate(45deg);
   opacity: 0.6;
 }
-.site-nav__top[aria-current="page"] {
-  color: var(--ink);
+/* Page names in the cover's violet, their sections in its green. */
+.site-nav .site-nav__top,
+.site-nav .site-nav__top:hover {
+  color: var(--accent-text);
+}
+.site-nav .site-nav__top:hover,
+.site-nav .site-nav__top[aria-current="page"] {
   background: var(--paper-alt);
+}
+.site-nav .site-nav__sub a,
+.site-nav .site-nav__sub a:hover {
+  color: var(--green-text);
 }
 /* Drop-down with the group's sections: opens on hover or keyboard focus. */
 .site-nav__sub {
@@ -524,7 +536,6 @@ cite {
     justify-content: space-between;
     padding: 0.7rem 0;
     border-radius: 0;
-    color: var(--ink);
     font-family: var(--font-display);
     font-size: 1.1rem;
     font-weight: 600;
@@ -532,9 +543,13 @@ cite {
   .site-nav__top::after {
     display: none;
   }
-  .site-nav__top[aria-current="page"] {
+  .site-nav .site-nav__top:hover,
+  .site-nav .site-nav__top[aria-current="page"] {
     background: none;
-    color: var(--accent-text);
+  }
+  /* "You are here": the current page's sections get a green line. */
+  .site-nav__group:has(> .site-nav__top[aria-current="page"]) .site-nav__sub {
+    border-left-color: var(--green-text);
   }
   .site-nav__sub {
     position: static;
@@ -556,9 +571,9 @@ cite {
     font-size: 1rem;
     white-space: normal;
   }
-  .site-nav__sub a:hover {
+  .site-nav .site-nav__sub a:hover {
     background: none;
-    color: var(--ink);
+    text-decoration: underline;
   }
   .header-actions {
     flex-wrap: wrap;
