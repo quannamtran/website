@@ -1684,6 +1684,7 @@ html:not(.js) .praise__controls {
   display: flex;
 }
 .post__link {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1702,9 +1703,32 @@ html:not(.js) .praise__controls {
 }
 .post__image {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: var(--paper-alt);
+}
+/* A post without a cover gets the book's colours and lines instead. */
+.post__art {
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: url("../img/waves-dark.svg") center / cover no-repeat, var(--band);
+}
+/* "Paid": the post opens on Substack's preview for paid subscribers. */
+.post__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(16, 12, 27, 0.8);
+  color: #ffffff;
+  font: 600 0.7rem/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .post__body {
   display: flex;

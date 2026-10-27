@@ -1,8 +1,11 @@
-"""Write the latest Substack note and posts into substack.html and fr/substack.html.
+"""Write the latest Substack articles and note into substack.html and fr/substack.html.
 
-Reads assets/data/substack.json (made by tools/fetch-substack.py) and replaces what sits
-between the <!-- substack:note --> and <!-- substack:posts --> markers (and their
-closing markers). The rest of the pages is left untouched.
+Reads assets/data/substack.json, kept up to date by tools/update-substack.py (every day, by
+.github/workflows/substack.yml). Each post has title, url, date "YYYY-MM-DD", and optionally
+excerpt, paid, lang and image; the note has url, date, text and optionally image.
+
+Only what sits between the <!-- substack:note --> and <!-- substack:posts --> markers
+(and their closing markers) is replaced. The rest of the pages is left untouched.
 """
 import json
 import re
@@ -14,6 +17,9 @@ NOTE_CHARS = 600  # longer notes are cut, the card links to the full note
 NOTES_URL = "https://substack.com/@antoinetranquannam/notes"
 ARROW = ('<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" '
          'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5"/></svg>')
+LOCK = ('<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+        'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/>'
+        '<path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>')
 LOGO = ('<svg class="note__logo" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">'
         '<path d="M22.54 5.46H1.46V2.93h21.08v2.53zm0 4.48H1.46v2.54h21.08V9.94zM1.46 14.42v8.65L12 17.16l10.54 5.91v-8.65H1.46z"/></svg>')
 NEW_TAB = {"en": '<span class="visually-hidden"> (opens in a new tab)</span>',
@@ -24,9 +30,11 @@ MONTHS = {
 }
 LABELS = {
     "en": {"note": "Latest note", "read_note": "Read the note on Substack", "all_notes": "See all notes on Substack",
-           "read_post": "Read on Substack", "no_posts": "No posts yet. Check back soon."},
+           "my_notes": "See my notes on Substack", "read_post": "Read on Substack", "paid": "Paid",
+           "no_posts": "No posts yet. Check back soon."},
     "fr": {"note": "Dernière note", "read_note": "Lire la note sur Substack", "all_notes": "Voir toutes les notes sur Substack",
-           "read_post": "Lire sur Substack", "no_posts": "Pas encore de publication. Revenez bientôt."},
+           "my_notes": "Voir mes notes sur Substack", "read_post": "Lire sur Substack", "paid": "Payant",
+           "no_posts": "Pas encore de publication. Revenez bientôt."},
 }
 PAGES = {"substack.html": ("en", ""), "fr/substack.html": ("fr", "../")}
 
@@ -60,12 +68,14 @@ def shorten(s, limit):
 
 def note_html(note, lang, root, text_lang):
     L, new_tab = LABELS[lang], NEW_TAB[lang]
-    all_notes = (f'<a class="btn btn--outline" href="{NOTES_URL}" target="_blank" rel="noopener">'
-                 f'{L["all_notes"]} {ARROW}{new_tab}</a>')
+    def notes_button(label):
+        return (f'<a class="btn btn--outline" href="{NOTES_URL}" target="_blank" rel="noopener">'
+                f'{L[label]} {ARROW}{new_tab}</a>')
     if not note:
-        return ['<div class="note-empty">', f"  {all_notes}", "</div>"]
+        return [f'<p class="note-all">{notes_button("my_notes")}</p>']
 
-    paras = [p.strip() for p in re.split(r"\n\s*\n", shorten(note["text"], NOTE_CHARS)) if p.strip()]
+    note = {"author": "Antoine Tran Quan Nam", "handle": "antoinetranquannam", **note}
+    paras = [p.strip() for p in re.split(r"\n\s*\n", shorten(note.get("text", ""), NOTE_CHARS)) if p.strip()]
     text = "".join(f"<p>{escape(p).replace(chr(10), '<br>')}</p>" for p in paras)
     initials = "".join(w[0] for w in note["author"].split()[:2]).upper()
     avatar = img(note.get("avatar"), "note__avatar", root, lazy=False) or \
@@ -90,7 +100,7 @@ def note_html(note, lang, root, text_lang):
         f'  <a class="note__link" href="{escape(note["url"], quote=True)}" target="_blank" rel="noopener">'
         f'{L["read_note"]} {ARROW}{new_tab}</a>',
         "</article>",
-        f'<p class="note-all">{all_notes}</p>',
+        f'<p class="note-all">{notes_button("all_notes")}</p>',
     ]
     return lines
 
@@ -105,14 +115,18 @@ def posts_html(posts, lang, root, text_lang):
             '  <li class="post">',
             f'    <a class="post__link" href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">',
         ]
-        if p.get("image"):
-            lines.append(f'      {img(p["image"], "post__image", root)}')
+        if p.get("paid"):
+            lines.append(f'      <span class="post__badge">{LOCK} {L["paid"]}</span>')
+        # A post without a picture gets the cover's colours and lines instead.
+        lines.append(f'      {img(p["image"], "post__image", root)}' if p.get("image")
+                     else '      <span class="post__art" aria-hidden="true"></span>')
         lines.append('      <div class="post__body">')
         if p.get("date"):
             lines.append(f'        {time_tag(p["date"], lang, "post__date")}')
-        lines.append(f'        <h3 class="post__title" lang="{text_lang}">{escape(p["title"])}</h3>')
+        post_lang = p.get("lang") or text_lang
+        lines.append(f'        <h3 class="post__title" lang="{post_lang}">{escape(p["title"])}</h3>')
         if p.get("excerpt"):
-            lines.append(f'        <p class="post__excerpt" lang="{text_lang}">{escape(p["excerpt"])}</p>')
+            lines.append(f'        <p class="post__excerpt" lang="{post_lang}">{escape(p["excerpt"])}</p>')
         lines += [
             f'        <span class="post__more">{L["read_post"]} {ARROW}{new_tab}</span>',
             "      </div>",

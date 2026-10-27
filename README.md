@@ -20,7 +20,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
 | `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
-| `tools/fetch-substack.py` · `tools/render-substack.py` | The daily update: fetch from Substack, then write the page |
+| `tools/update-substack.py` · `tools/render-substack.py` | The daily update: read the agent's archive, then write the page |
 | `.github/workflows/substack.yml` | Runs the daily update on GitHub |
 | `assets/fonts/` | Montserrat (headings, like the cover) and Inter (text), served from the site itself (no Google Fonts) |
 | `CNAME` | Tells GitHub Pages the site's domain name |
@@ -100,26 +100,42 @@ On launch day, export the email column and send the announcement yourself, with 
 
 ## Substack page
 
-`substack.html` (and `fr/substack.html`) shows your latest Substack note, your 5 latest posts and a link to your Substack.
-Each card opens on Substack.
+`substack.html` (and `fr/substack.html`) shows your latest Substack note, your 5 latest articles and a link to
+your Substack. Each card opens on Substack.
 
-It updates itself **every day at 06:17 UTC** (8:17 in Paris in summer, 7:17 in winter), with the GitHub Actions
-workflow `.github/workflows/substack.yml`. When something is new, the workflow saves it and the live site
-updates a minute or two later. Nothing is published when nothing changed.
+It is filled from your publishing agent's repository, **quannamtran/substack-post**, not from Substack (Substack
+refuses automated requests from GitHub's servers). Each run of the agent logs the link Substack gave the post and
+where it archived the text. The website reads those logs, then takes the title, subtitle, cover and note text from
+the archive.
 
-- **Update right away** (for example after publishing a post): in this repository, open **Actions →
-  Refresh Substack page → Run workflow → Run workflow**.
-- **Posts** come from your publication's RSS feed (`https://antoinetranquannam.substack.com/feed`).
-- **Notes** have no feed. They come from the data Substack's own profile pages use, which is not an official API.
-  If Substack changes it, the page keeps showing the last note it found, and the workflow run shows a yellow warning.
-- **Pictures** (post images, the note's image and your profile picture) are copied onto this site and resized,
-  so visitors never load anything from Substack. This keeps the privacy promise of the legal page.
+- **When:** every day at **11:07 UTC**, with the workflow `.github/workflows/substack.yml`. Thursday's article
+  appears on Friday, Sunday's on Monday, and the note is the latest one posted before 11:07. Nothing is published
+  when nothing changed.
+- **Update right away:** in this repository, open **Actions → Refresh Substack page → Run workflow → Run workflow**.
+- **A post you published by hand:** if you ran the agent's "Announce article" for it, it is picked up automatically.
+  Otherwise run "Refresh Substack page" and paste its link in **post_url**.
+- **Pictures** (covers and charts) are copied from the archive onto this site and resized, so visitors never load
+  anything from Substack. This keeps the privacy promise of the legal page.
 - If a run fails (red cross in **Actions**), GitHub usually emails you. The page simply keeps its last content.
-- GitHub pauses daily workflows when a public repository has had no activity for 60 days. If that happens,
-  **Actions** shows a banner: click **Enable workflow**.
 
-To change the number of posts, the texts around the cards or the date format, see the top of
-`tools/fetch-substack.py` and `tools/render-substack.py`. Do not edit the HTML between the
+### One-time setup: the access key
+
+The agent's repository is private, so the website needs a read-only key to it.
+
+1. Open https://github.com/settings/personal-access-tokens/new (GitHub → your profile picture → **Settings →
+   Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**).
+2. **Token name:** `Website reads substack-post`. **Expiration:** 1 year (note the date: the key must be renewed).
+3. **Repository access:** **Only select repositories** → `quannamtran/substack-post`.
+4. **Permissions → Repository permissions:** **Actions: Read-only** and **Contents: Read-only**.
+5. Click **Generate token** and copy it.
+6. In this repository (`website`): **Settings → Secrets and variables → Actions → New repository secret**.
+   Name: `SUBSTACK_POST_TOKEN`. Secret: paste the key. Click **Add secret**.
+
+Until the key is there, the daily run only shows a yellow reminder. When the key expires, the run fails: create a
+new key the same way and replace the secret's value.
+
+To change the number of articles, the texts around the cards or the date format, see the top of
+`tools/update-substack.py` and `tools/render-substack.py`. Do not edit the HTML between the
 `<!-- substack:... -->` markers: the next update replaces it.
 
 ## Editing the site
