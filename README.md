@@ -108,10 +108,12 @@ refuses automated requests from GitHub's servers). Each run of the agent logs th
 where it archived the text. The website reads those logs, then takes the title, subtitle, cover and note text from
 the archive.
 
-- **When:** every day at **11:07 UTC**, with the workflow `.github/workflows/substack.yml`. Thursday's article
-  appears on Friday, Sunday's on Monday, and the note is the latest one posted before 11:07. Nothing is published
-  when nothing changed.
-- **Update right away:** in this repository, open **Actions → Refresh Substack page → Run workflow → Run workflow**.
+- **When** (workflow `.github/workflows/substack.yml`): the **note** every day at **11:07 UTC**, the latest one
+  posted by then; the **articles** on **Thursday and Sunday at 15:07 UTC**, after the agent publishes the free
+  article (Thursday) and the paid one (Sunday), usually around 14:20. An article published later than that shows up
+  at the next run, or right away if you run the update by hand. Nothing is published when nothing changed.
+- **Update right away** (note and articles): in this repository, open **Actions → Refresh Substack page → Run
+  workflow → Run workflow**.
 - **A post you published by hand:** if you ran the agent's "Announce article" for it, it is picked up automatically.
   Otherwise run "Refresh Substack page" and paste its link in **post_url**.
 - **Pictures** (covers and charts) are copied from the archive onto this site and resized, so visitors never load

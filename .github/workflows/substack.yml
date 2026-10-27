@@ -1,13 +1,15 @@
 # Keeps the Substack page (substack.html, fr/substack.html) up to date from the publishing
-# agent's repository, quannamtran/substack-post: every day it takes the latest note, and the
-# articles published since the last run (Thursday's appears on Friday, Sunday's on Monday).
-# Substack itself is never contacted. Needs the SUBSTACK_POST_TOKEN secret (see README).
-# Run it by hand from the Actions tab: "Refresh Substack page" > "Run workflow".
+# agent's repository, quannamtran/substack-post: the latest note every day at 11:07 UTC, and
+# the new articles on Thursday and Sunday at 15:07 UTC (the agent publishes the free article
+# on Thursday and the paid one on Sunday, around 14:20). Substack itself is never contacted.
+# Needs the SUBSTACK_POST_TOKEN secret (see README). Run it by hand from the Actions tab:
+# "Refresh Substack page" > "Run workflow" (that updates both the note and the articles).
 name: Refresh Substack page
 
 on:
   schedule:
-    - cron: "7 11 * * *"   # every day at 11:07 UTC
+    - cron: "7 11 * * *"     # every day at 11:07 UTC: the latest note
+    - cron: "7 15 * * 0,4"   # Thursday and Sunday at 15:07 UTC: the new articles
   workflow_dispatch:
     inputs:
       post_url:
@@ -71,9 +73,14 @@ jobs:
         if: steps.key.outputs.ok == 'true'
         env:
           POST_URL: ${{ inputs.post_url }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [ -n "$POST_URL" ]; then
             python tools/update-substack.py --agent .agent --add "$POST_URL"
+          elif [ "$SCHEDULE" = "7 11 * * *" ]; then
+            python tools/update-substack.py --agent .agent --only notes
+          elif [ "$SCHEDULE" = "7 15 * * 0,4" ]; then
+            python tools/update-substack.py --agent .agent --only articles
           else
             python tools/update-substack.py --agent .agent
           fi
