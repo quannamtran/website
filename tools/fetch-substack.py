@@ -37,11 +37,8 @@ SUBSTACK = "https://substack.com"
 OUT = "assets/data/substack.json"
 IMG_DIR = "assets/img/substack"
 NS = {"content": "http://purl.org/rss/1.0/modules/content/", "media": "http://search.yahoo.com/mrss/"}
-# Like the open-source Substack clients, look like a browser: Substack may refuse other requests.
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
-    "Accept-Language": "en",
-}
+# Say openly who is asking. If Substack refuses this, the update stops there.
+HEADERS = {"User-Agent": "AugmentingDecisionSite/1.0 (+https://augmenting-decision.com)"}
 
 
 def warn(msg):
