@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-10-28T11:34:39Z",
-  "checked_notes": "2026-10-28T11:34:39Z",
+  "checked_notes": "2026-10-28T17:08:25Z",
   "note": {
-    "url": "https://substack.com/note/c-372283464",
+    "url": "https://substack.com/note/c-372490073",
     "date": "2026-10-28",
-    "time": "2026-10-28T08:04:43Z",
-    "text": "Most procurement decks still rank AI vendors by benchmark supremacy, as if the model scoring three points higher on a leaderboard will move the P&L more than the one that ships at a tenth of the cost. It will not. A model running at ninety percent of frontier capability but priced and deployed to actually reach every workflow beats a ninety-nine percent model stuck in a pilot queue, every single time. The real competitive edge in enterprise AI right now is not capability ceiling, it is deployment velocity and unit economics, and boards chasing the former while ignoring the latter are funding a science project, not a strategy. Capability envy is expensive; cheap and everywhere wins the market.",
+    "time": "2026-10-28T14:05:11Z",
+    "text": "Most value from AI will not come from whoever owns the biggest model, but from whoever rewires a workflow so completely that the old way becomes unthinkable. A search box, a logistics route, a hospital intake form — the unglamorous surfaces are where adoption actually compounds. Chasing the next benchmark win feels like progress, but shipping a slightly smarter version of something people already use every day is what changes behavior at scale. Start with the boring interface nobody wants to redesign.",
     "image": null
   },
   "posts": [
