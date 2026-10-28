@@ -1,11 +1,12 @@
 {
   "language": "en",
-  "checked": "2026-10-27T10:04:37Z",
+  "checked_articles": "2026-10-28T11:34:39Z",
+  "checked_notes": "2026-10-28T11:34:39Z",
   "note": {
-    "url": "https://substack.com/note/c-371413677",
-    "date": "2026-10-27",
-    "time": "2026-10-27T08:04:29Z",
-    "text": "Relying on a single outside provider for core AI capability is a strategic decision, even when it looks like the default. Organizations that build or fine-tune their own models gain something harder to price than performance: control over cost, data, and direction when the market shifts. Sovereignty here does not mean building everything from scratch, it means knowing which capabilities are too important to rent. That choice, made early, is what separates companies steering their own AI roadmap from those simply following someone else's.",
+    "url": "https://substack.com/note/c-372283464",
+    "date": "2026-10-28",
+    "time": "2026-10-28T08:04:43Z",
+    "text": "Most procurement decks still rank AI vendors by benchmark supremacy, as if the model scoring three points higher on a leaderboard will move the P&L more than the one that ships at a tenth of the cost. It will not. A model running at ninety percent of frontier capability but priced and deployed to actually reach every workflow beats a ninety-nine percent model stuck in a pilot queue, every single time. The real competitive edge in enterprise AI right now is not capability ceiling, it is deployment velocity and unit economics, and boards chasing the former while ignoring the latter are funding a science project, not a strategy. Capability envy is expensive; cheap and everywhere wins the market.",
     "image": null
   },
   "posts": [
