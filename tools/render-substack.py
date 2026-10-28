@@ -8,6 +8,7 @@ Only what sits between the <!-- substack:note --> and <!-- substack:posts --> ma
 (and their closing markers) is replaced. The rest of the pages is left untouched.
 """
 import json
+import os
 import re
 from datetime import date
 from html import escape
@@ -15,6 +16,8 @@ from html import escape
 DATA = "assets/data/substack.json"
 NOTE_CHARS = 600  # longer notes are cut, the card links to the full note
 NOTES_URL = "https://substack.com/@antoinetranquannam/notes"
+# The author's photo on the note card (initials are shown if the file is missing).
+AUTHOR_AVATAR = {"src": "assets/img/author-avatar.webp", "width": 96, "height": 96}
 ARROW = ('<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" '
          'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5"/></svg>')
 LOCK = ('<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
@@ -78,7 +81,8 @@ def note_html(note, lang, root, text_lang):
     paras = [p.strip() for p in re.split(r"\n\s*\n", shorten(note.get("text", ""), NOTE_CHARS)) if p.strip()]
     text = "".join(f"<p>{escape(p).replace(chr(10), '<br>')}</p>" for p in paras)
     initials = "".join(w[0] for w in note["author"].split()[:2]).upper()
-    avatar = img(note.get("avatar"), "note__avatar", root, lazy=False) or \
+    pic = note.get("avatar") or (AUTHOR_AVATAR if os.path.exists(AUTHOR_AVATAR["src"]) else None)
+    avatar = img(pic, "note__avatar", root, lazy=False) or \
         f'<span class="note__avatar note__avatar--initials" aria-hidden="true">{escape(initials)}</span>'
     date_part = f' · {time_tag(note["date"], lang, "note__date")}' if note.get("date") else ""
     lines = [

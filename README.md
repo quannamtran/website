@@ -17,6 +17,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `assets/css/style.css` | All the styling. Colors (taken from the cover) and fonts are defined at the top. |
 | `assets/js/main.js` | Menu, praise carousel, sign-up form (sends to the Google Sheet) and the footer year |
 | `assets/img/cover.webp` | Book cover |
+| `assets/img/author.webp` · `author-480.webp` · `author-avatar.webp` | Author portrait (800×1000 and 480×600, for phones) and the round photo on the Substack note card (96×96) |
 | `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
 | `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
@@ -24,15 +25,6 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `.github/workflows/substack.yml` | Runs the daily update on GitHub |
 | `assets/fonts/` | Montserrat (headings, like the cover) and Inter (text), served from the site itself (no Google Fonts) |
 | `CNAME` | Tells GitHub Pages the site's domain name |
-
-## Before launch: things to fill in
-
-Placeholders are highlighted in lavender on the pages. Search the HTML for `class="todo"` to find them.
-
-- [ ] **Author**: short bio and photo, in both `index.html` and `fr/index.html`
-- [ ] **Legal pages**: publisher name and contact email, in `legal.html` and `fr/mentions-legales.html`
-- [ ] **Sign-up form**: connect it to the Google Sheet (see below)
-- [ ] **Texts**: the book description, themes and audience are drafts written from the title. Rewrite them in your own words.
 
 ## Putting the site online (one-time setup)
 
@@ -145,6 +137,7 @@ To change the number of articles, the texts around the cards or the date format,
 - Texts live directly in the HTML files. The English and French pages have the same structure,
   so a change in one usually needs the same change in the other.
 - Colors and fonts are CSS variables at the top of `assets/css/style.css`.
+- To change the author photo, replace the three `assets/img/author*.webp` files with new ones of the same sizes.
 - To preview locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 - Every push to `main` updates the live site within a minute or two.
 - The pages load `style.css` and `main.js` with a version tag (`?v=…`). After changing either file, change that tag in
