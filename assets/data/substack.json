@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-10-28T11:34:39Z",
+  "checked_articles": "2026-10-29T20:13:04Z",
   "checked_notes": "2026-10-29T17:23:58Z",
   "note": {
     "url": "https://substack.com/note/c-373159551",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "The Five-Stage Blueprint For Turning Data Into Decisions",
+      "url": "https://antoinetranquannam.substack.com/p/the-five-stage-blueprint-for-turning",
+      "date": "2026-10-29",
+      "excerpt": "A practical roadmap for marketers who want their numbers to change minds, not just fill slides.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-8db7a0ada3bf.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "Half Your Meeting, Three Slides, One Brilliant Question",
       "url": "https://antoinetranquannam.substack.com/p/half-your-meeting-three-slides-one",
@@ -57,14 +69,6 @@
         "width": 720,
         "height": 405
       }
-    },
-    {
-      "title": "Your Agent Doesn't Need a Bigger Brain. It Needs an Argument.",
-      "url": "https://antoinetranquannam.substack.com/p/your-agent-doesnt-need-a-bigger-brain",
-      "date": "2026-10-11",
-      "excerpt": "",
-      "paid": true,
-      "image": null
     }
   ]
 }
