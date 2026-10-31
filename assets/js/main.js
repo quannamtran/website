@@ -175,10 +175,12 @@
     show(0);
   });
 
-  // "Why it matters now": the two figures drawn by the scroll. Each scene is a
-  // tall stretch of page; its plate stays pinned while the scroll progress (0 to
-  // 1) draws the chart and turns the pages of the caption. People who ask for
-  // reduced motion get the finished charts and the whole caption at once.
+  // "Why it matters now": the two figures drawn by the scroll. A pinned scene is
+  // a tall stretch of page; its plate stays on screen while the scroll progress
+  // (0 to 1) draws the chart and turns the pages of the caption. An "inview"
+  // scene flows with the page: its text is fixed and the chart is drawn as the
+  // plate rises into view. People who ask for reduced motion get the finished
+  // charts and the whole caption at once.
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
   document.querySelectorAll('[data-scene]').forEach(function (scene) {
     var plate = scene.querySelector('[data-plate]');
@@ -203,7 +205,12 @@
       plate.style.setProperty('--after', ease(p, 0.74, 0.88).toFixed(3));
     }
     function progress() {
-      var room = scene.offsetHeight - window.innerHeight;
+      var vh = window.innerHeight;
+      if (scene.getAttribute('data-scene') === 'inview') {
+        // 0 when the plate's top enters the bottom tenth of the screen, 1 once it has risen past the middle.
+        return Math.min(1, Math.max(0, (vh * 0.9 - plate.getBoundingClientRect().top) / (vh * 0.5)));
+      }
+      var room = scene.offsetHeight - vh;
       if (room <= 0) return 1;
       return Math.min(1, Math.max(0, -scene.getBoundingClientRect().top / room));
     }
@@ -244,22 +251,6 @@
         }, 300 + i * 60);
       });
       note.textContent = notes;
-    });
-  });
-
-  // Fig. 2: "Try it": highlight one condition and read out its numbers.
-  document.querySelectorAll('[data-pick]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var plate = button.closest('[data-plate]');
-      var which = button.getAttribute('data-pick');
-      plate.querySelectorAll('[data-pick]').forEach(function (b) {
-        b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
-      });
-      plate.querySelectorAll('[data-cond]').forEach(function (bar) {
-        bar.classList.toggle('is-picked', bar.getAttribute('data-cond') === which);
-      });
-      var out = plate.querySelector('[data-pick-out]');
-      out.textContent = out.getAttribute('data-' + which);
     });
   });
 })();
