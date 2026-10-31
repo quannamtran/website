@@ -1870,60 +1870,13 @@ html:not(.js) .praise__controls {
 }
 
 /* Why it matters now: two figures drawn by the scroll ---------------------- */
-/* Each figure is a "scene": a tall stretch of page in which the plate (the chart)
-   stays pinned on screen while the scroll draws it and turns the pages of its
-   caption. Inspired by the pinned plates on co-existence.ai. */
+/* Each figure is a "scene": its text stays put beside the plate (the chart), and
+   the chart draws itself as the plate rises into view. In the spirit of the
+   scroll-drawn plates on co-existence.ai. */
 .why .section__intro {
   font-size: 1.1rem;
 }
 .scene {
-  position: relative;
-  height: 260vh;
-  margin-top: clamp(1rem, 3vw, 2rem);
-}
-.scene__pin {
-  position: sticky;
-  top: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 5.5rem;
-  padding-bottom: 2rem;
-}
-/* The caption's pages sit on top of each other and cross-fade. */
-.scene__steps {
-  display: grid;
-  grid-template-areas: "step";
-}
-.scene__step {
-  grid-area: step;
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.15rem;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.4s ease;
-}
-/* The page coming in waits for the one going out, so they do not overlap. */
-.scene__step.is-on {
-  color: var(--ink);
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.4s ease 0.18s, transform 0.5s ease 0.18s;
-}
-.scene__step.is-past {
-  transform: translateY(-12px);
-}
-.scene__step strong {
-  color: var(--accent-text);
-  font-family: var(--font-display);
-}
-
-/* A flowing scene: the text stays put beside the plate, which is drawn as it comes into view. */
-.scene--flow {
-  height: auto;
   margin-top: clamp(1.5rem, 4vw, 3rem);
 }
 .scene__flow {
@@ -1993,19 +1946,6 @@ html:not(.js) .praise__controls {
 .plate__source cite {
   font-style: italic;
 }
-.plate__ctrl {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem 0.9rem;
-  margin-top: 1rem;
-}
-.plate__note {
-  flex: 1 1 12rem;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
 
 /* Fig. 1: one row per judgment call. The values are the share of analysts who
    chose the agent's side (Anthropic, 2026). */
@@ -2044,37 +1984,21 @@ html:not(.js) .praise__controls {
   opacity: var(--coin);
   transition: opacity 0.3s ease;
 }
-.flip__lean b {
-  color: var(--ink);
-  font-weight: 500;
-}
-/* The coin: violet for side A, green for side B; it spins when flipped. */
+/* The coin: two sides, violet and green, for the two options it chose between. */
 .flip__coin {
   grid-area: coin;
-  display: grid;
-  place-items: center;
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  background: var(--violet);
-  color: #ffffff;
-  font: 700 0.85rem/1 var(--font-display);
+  background: linear-gradient(135deg, var(--violet) 0 50%, var(--green) 50% 100%);
   box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35);
   opacity: var(--coin);
   transform: scale(calc(0.6 + 0.4 * var(--coin)));
-  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.flip__coin i {
-  font-style: normal;
-}
-.flip__coin.is-b {
-  background: var(--green);
-}
-.flip__coin.is-spinning {
-  animation: coin-spin 0.7s ease-in-out;
-}
-@keyframes coin-spin {
-  50% { transform: rotateY(540deg) scale(1.15); }
+.flip__lean em {
+  color: var(--muted);
+  font-style: italic;
 }
 .flip__track {
   grid-area: track;
@@ -2329,34 +2253,18 @@ html:not(.js) .praise__controls {
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
-/* Phones and tablets: one column, the caption's page first, the plate under it
-   (its lower part comes into view once the scene lets go). */
+/* Phones and tablets: one column, the text first, the plate under it. */
 @media (max-width: 56rem) {
-  .scene {
-    height: 240vh;
-  }
-  .scene__pin {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
-    align-content: start;
-    padding-top: 5rem;
-  }
-  .scene__steps {
-    min-height: 6.5rem;
-  }
-  .scene__step {
-    font-size: 1rem;
-  }
-  .plate__source {
-    margin-top: 0.8rem;
-    font-size: 0.72rem;
-  }
   .scene__flow {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
   .scene__text p {
     font-size: 1rem;
+  }
+  .plate__source {
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
   }
   .bars {
     --chart-h: 8rem;
@@ -2390,39 +2298,4 @@ html:not(.js) .praise__controls {
   .bar__name {
     font-size: 0.7rem;
   }
-}
-/* Short screens cannot hold a pinned plate and its caption: let the scene scroll normally. */
-@media (max-height: 36rem) {
-  .scene {
-    height: auto;
-  }
-  .scene__pin {
-    position: static;
-    min-height: 0;
-  }
-}
-/* Without JavaScript, or when reduced motion is asked for: no pinning, the finished
-   charts, and every page of the caption shown at once. */
-html:not(.js) .scene,
-.scene.is-calm {
-  height: auto;
-}
-html:not(.js) .scene__pin,
-.scene.is-calm .scene__pin {
-  position: static;
-  min-height: 0;
-  padding-top: 0;
-}
-html:not(.js) .scene__steps,
-.scene.is-calm .scene__steps {
-  grid-template-areas: none;
-  gap: 0.9rem;
-  min-height: 0;
-}
-html:not(.js) .scene__step,
-.scene.is-calm .scene__step {
-  grid-area: auto;
-  color: var(--ink);
-  opacity: 1;
-  transform: none;
 }

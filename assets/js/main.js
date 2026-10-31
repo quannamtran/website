@@ -175,82 +175,36 @@
     show(0);
   });
 
-  // "Why it matters now": the two figures drawn by the scroll. A pinned scene is
-  // a tall stretch of page; its plate stays on screen while the scroll progress
-  // (0 to 1) draws the chart and turns the pages of the caption. An "inview"
-  // scene flows with the page: its text is fixed and the chart is drawn as the
-  // plate rises into view. People who ask for reduced motion get the finished
-  // charts and the whole caption at once.
+  // "Why it matters now": the two figures are drawn as they come into view.
+  // Scroll progress (0 when the plate's top enters the bottom of the screen,
+  // 1 once it has risen past the middle) sets the plate's --coin, --draw and
+  // --after, which the stylesheet turns into the drawing. People who ask for
+  // reduced motion get the finished charts straight away.
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
   document.querySelectorAll('[data-scene]').forEach(function (scene) {
     var plate = scene.querySelector('[data-plate]');
-    var steps = [].slice.call(scene.querySelectorAll('[data-step]'));
-    var starts = steps.map(function (step) { return parseFloat(step.getAttribute('data-step')); });
     var last = null;
 
-    // How far between two points of the scroll we are, eased, from 0 to 1.
+    // How far between two points of the progress we are, eased, from 0 to 1.
     function ease(p, from, to) {
       var t = Math.min(1, Math.max(0, (p - from) / (to - from)));
       return t * t * (3 - 2 * t);
     }
-    function draw(p) {
-      var on = 0;
-      starts.forEach(function (start, i) { if (p >= start) on = i; });
-      steps.forEach(function (step, i) {
-        step.classList.toggle('is-on', i === on);
-        step.classList.toggle('is-past', i < on);
-      });
-      plate.style.setProperty('--coin', ease(p, 0.22, 0.36).toFixed(3));
-      plate.style.setProperty('--draw', ease(p, 0.48, 0.66).toFixed(3));
-      plate.style.setProperty('--after', ease(p, 0.74, 0.88).toFixed(3));
-    }
     function progress() {
       var vh = window.innerHeight;
-      if (scene.getAttribute('data-scene') === 'inview') {
-        // 0 when the plate's top enters the bottom tenth of the screen, 1 once it has risen past the middle.
-        return Math.min(1, Math.max(0, (vh * 0.9 - plate.getBoundingClientRect().top) / (vh * 0.5)));
-      }
-      var room = scene.offsetHeight - vh;
-      if (room <= 0) return 1;
-      return Math.min(1, Math.max(0, -scene.getBoundingClientRect().top / room));
+      return Math.min(1, Math.max(0, (vh * 0.9 - plate.getBoundingClientRect().top) / (vh * 0.5)));
     }
     function tick() {
       var p = calm.matches ? 1 : progress();
-      scene.classList.toggle('is-calm', calm.matches);
       if (p === last) return;
       last = p;
-      draw(p);
+      plate.style.setProperty('--coin', ease(p, 0.1, 0.35).toFixed(3));
+      plate.style.setProperty('--draw', ease(p, 0.3, 0.7).toFixed(3));
+      plate.style.setProperty('--after', ease(p, 0.65, 0.95).toFixed(3));
     }
     window.addEventListener('scroll', function () { window.requestAnimationFrame(tick); }, { passive: true });
     window.addEventListener('resize', tick);
     if (calm.addEventListener) calm.addEventListener('change', function () { last = null; tick(); });
     tick();
-  });
-
-  // Fig. 1: "Flip the coins again". Each coin lands on a random side, the label
-  // under it says which option the agent then argues for, and the bars stay as
-  // they are: whichever side the coin picked, the analysts followed it.
-  document.querySelectorAll('[data-flip]').forEach(function (button) {
-    var plate = button.closest('[data-plate]');
-    var rows = [].slice.call(plate.querySelectorAll('.flip'));
-    var note = plate.querySelector('[data-flip-note]');
-    var notes = document.documentElement.lang === 'fr'
-      ? 'Quel que soit le côté tiré, les analystes ont suivi.'
-      : 'Whichever side the coin picked, the analysts followed.';
-    button.addEventListener('click', function () {
-      rows.forEach(function (row, i) {
-        var coin = row.querySelector('.flip__coin');
-        var sideB = Math.random() < 0.5;
-        coin.classList.remove('is-spinning');
-        void coin.offsetWidth; // restart the spin
-        coin.classList.add('is-spinning');
-        setTimeout(function () {
-          coin.classList.toggle('is-b', sideB);
-          coin.querySelector('i').textContent = sideB ? 'B' : 'A';
-          row.querySelector('[data-lean]').textContent = row.getAttribute(sideB ? 'data-b' : 'data-a');
-        }, 300 + i * 60);
-      });
-      note.textContent = notes;
-    });
   });
 })();
