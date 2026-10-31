@@ -35,8 +35,8 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=82720d11">
-  <script src="assets/js/main.js?v=ea13ef6c" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=15eef9f5">
+  <script src="assets/js/main.js?v=cd6b4565" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -215,12 +215,12 @@
 
       <!-- Fig. 1: Anthropic's coin-flip trial -->
       <div class="scene" data-scene>
-        <div class="scene__pin container">
-          <div class="scene__steps">
-            <p class="scene__step" data-step="0">Anthropic asked 50 professional analysts to run a realistic study with an AI coding agent and recommend whether a programme should go ahead. Each had four judgment calls to make, where either option was defensible.</p>
-            <p class="scene__step" data-step="0.22">Before each call, a hidden coin flip chose the side the agent would argue for. The analysts did not know. The agent made its best honest case.</p>
-            <p class="scene__step" data-step="0.48">The analysts went with the agent’s side on <strong>86%</strong> of the calls. By chance, it would have been 50%.</p>
-            <p class="scene__step" data-step="0.74">Afterwards, <strong>77%</strong> repeated the agent’s arguments as their own, sometimes word for word. 15% mentioned the agent at all. More than half said the recommendation was more theirs than the agent’s.</p>
+        <div class="scene__flow container">
+          <div class="scene__text">
+            <p>Anthropic asked 50 professional analysts to run a realistic study with an AI coding agent and recommend whether a programme should go ahead. Each had four judgment calls to make, where either option was defensible.</p>
+            <p>Before each call, a hidden coin flip chose the side the agent would argue for. The analysts did not know. The agent made its best honest case.</p>
+            <p>The analysts went with the agent’s side on <strong>86%</strong> of the calls. By chance, it would have been 50%.</p>
+            <p>Afterwards, <strong>77%</strong> repeated the agent’s arguments as their own, sometimes word for word. 15% mentioned the agent at all. More than half said the recommendation was more theirs than the agent’s.</p>
           </div>
           <figure class="plate plate--coin" data-plate>
             <div class="plate__head">
@@ -229,31 +229,31 @@
             </div>
             <p class="visually-hidden">The four judgment calls, with the share of analysts who chose the agent’s side.</p>
             <ol class="flips">
-              <li class="flip flip--d1" data-a="Yield per hectare" data-b="Yield per cost">
+              <li class="flip flip--d1">
                 <span class="flip__name">Productivity measure</span>
-                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
-                <span class="flip__lean">Agent argued for: <b data-lean>Yield per hectare</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Yield per hectare <em>or</em> yield per cost</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">92%</span>
               </li>
-              <li class="flip flip--d2" data-a="Before-and-after comparison" data-b="Adjusted-levels comparison">
+              <li class="flip flip--d2">
                 <span class="flip__name">Comparison method</span>
-                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
-                <span class="flip__lean">Agent argued for: <b data-lean>Adjusted-levels comparison</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Before-and-after comparison <em>or</em> adjusted-levels comparison</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">82%</span>
               </li>
-              <li class="flip flip--d3" data-a="Enrolled farms only" data-b="All member farms">
+              <li class="flip flip--d3">
                 <span class="flip__name">Which farms count</span>
-                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
-                <span class="flip__lean">Agent argued for: <b data-lean>Enrolled farms only</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Enrolled farms only <em>or</em> all member farms</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">81%</span>
               </li>
-              <li class="flip flip--d4" data-a="One farm, one weight" data-b="Weighted by output">
+              <li class="flip flip--d4">
                 <span class="flip__name">Weighting</span>
-                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
-                <span class="flip__lean">Agent argued for: <b data-lean>Weighted by output</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">One farm, one weight <em>or</em> weighted by output</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">90%</span>
               </li>
@@ -266,17 +266,13 @@
               <li><strong>15%</strong> mentioned the agent</li>
               <li><strong>52%</strong> said it was more theirs than the agent’s</li>
             </ul>
-            <div class="plate__ctrl">
-              <button class="btn btn--outline btn--small" type="button" data-flip>Flip the coins again</button>
-              <span class="plate__note" data-flip-note aria-live="polite"></span>
-            </div>
             <figcaption class="plate__source">Source: A. Herdağdelen, H. Joren and A. Tamkin, <a href="https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf" target="_blank" rel="noopener"><cite>Who’s Aligned to Whom? How AI Agents Shape Experts’ Research Judgment Calls</cite></a>, Anthropic, 27 October 2026. In the paper’s words: “a coin flip set which of two defensible options the participant’s agent would lean toward.” 50 analysts, 195 coded decisions; rates per decision from <a href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener">Anthropic’s summary of the study</a>.</figcaption>
           </figure>
         </div>
       </div>
 
       <!-- Fig. 2: Shaw & Nave's reasoning test -->
-      <div class="scene scene--flow" data-scene="inview">
+      <div class="scene" data-scene>
         <div class="scene__flow container">
           <div class="scene__text">
             <p>At Wharton, 359 people took a classic reasoning test: seven questions, each with a tempting wrong answer. Working alone, they got <strong>46%</strong> right.</p>

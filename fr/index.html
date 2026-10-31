@@ -35,8 +35,8 @@
   <link rel="preload" href="../assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="../assets/css/style.css?v=82720d11">
-  <script src="../assets/js/main.js?v=ea13ef6c" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=15eef9f5">
+  <script src="../assets/js/main.js?v=cd6b4565" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -215,12 +215,12 @@
 
       <!-- Fig. 1 : l’essai à pile ou face d’Anthropic -->
       <div class="scene" data-scene>
-        <div class="scene__pin container">
-          <div class="scene__steps">
-            <p class="scene__step" data-step="0">Anthropic a demandé à 50 analystes professionnels de mener une étude réaliste avec un agent de codage IA, puis de recommander ou non le déploiement d’un programme. Chacun avait quatre choix de méthode à faire, où les deux options se défendaient.</p>
-            <p class="scene__step" data-step="0.22">Avant chaque choix, un tirage à pile ou face, caché, décidait du camp que l’agent défendrait. Les analystes l’ignoraient. L’agent plaidait de bonne foi.</p>
-            <p class="scene__step" data-step="0.48">Les analystes ont suivi le camp de l’agent dans <strong>86&nbsp;%</strong> des cas. Le hasard aurait donné 50&nbsp;%.</p>
-            <p class="scene__step" data-step="0.74">Ensuite, <strong>77&nbsp;%</strong> ont repris les arguments de l’agent à leur compte, parfois mot pour mot. 15&nbsp;% ont mentionné l’agent. Plus de la moitié jugeaient la recommandation davantage la leur que celle de l’agent.</p>
+        <div class="scene__flow container">
+          <div class="scene__text">
+            <p>Anthropic a demandé à 50 analystes professionnels de mener une étude réaliste avec un agent de codage IA, puis de recommander ou non le déploiement d’un programme. Chacun avait quatre choix de méthode à faire, où les deux options se défendaient.</p>
+            <p>Avant chaque choix, un tirage à pile ou face, caché, décidait du camp que l’agent défendrait. Les analystes l’ignoraient. L’agent plaidait de bonne foi.</p>
+            <p>Les analystes ont suivi le camp de l’agent dans <strong>86&nbsp;%</strong> des cas. Le hasard aurait donné 50&nbsp;%.</p>
+            <p>Ensuite, <strong>77&nbsp;%</strong> ont repris les arguments de l’agent à leur compte, parfois mot pour mot. 15&nbsp;% ont mentionné l’agent. Plus de la moitié jugeaient la recommandation davantage la leur que celle de l’agent.</p>
           </div>
           <figure class="plate plate--coin" data-plate>
             <div class="plate__head">
@@ -229,31 +229,31 @@
             </div>
             <p class="visually-hidden">Les quatre choix de méthode, avec la part d’analystes qui ont suivi le camp de l’agent.</p>
             <ol class="flips">
-              <li class="flip flip--d1" data-a="Rendement à l’hectare" data-b="Rendement par coût">
+              <li class="flip flip--d1">
                 <span class="flip__name">Mesure de la productivité</span>
-                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
-                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Rendement à l’hectare</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Rendement à l’hectare <em>ou</em> rendement par coût</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">92&nbsp;%</span>
               </li>
-              <li class="flip flip--d2" data-a="Comparaison avant-après" data-b="Comparaison à niveaux ajustés">
+              <li class="flip flip--d2">
                 <span class="flip__name">Méthode de comparaison</span>
-                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
-                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Comparaison à niveaux ajustés</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Comparaison avant-après <em>ou</em> comparaison à niveaux ajustés</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">82&nbsp;%</span>
               </li>
-              <li class="flip flip--d3" data-a="Fermes inscrites seulement" data-b="Toutes les fermes membres">
+              <li class="flip flip--d3">
                 <span class="flip__name">Fermes prises en compte</span>
-                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
-                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Fermes inscrites seulement</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Fermes inscrites seulement <em>ou</em> toutes les fermes membres</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">81&nbsp;%</span>
               </li>
-              <li class="flip flip--d4" data-a="Une ferme, une voix" data-b="Pondération par la production">
+              <li class="flip flip--d4">
                 <span class="flip__name">Pondération</span>
-                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
-                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Pondération par la production</b></span>
+                <span class="flip__coin" aria-hidden="true"></span>
+                <span class="flip__lean">Une ferme, une voix <em>ou</em> pondération par la production</span>
                 <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
                 <span class="flip__value">90&nbsp;%</span>
               </li>
@@ -266,17 +266,13 @@
               <li><strong>15&nbsp;%</strong> ont mentionné l’agent</li>
               <li><strong>52&nbsp;%</strong> la jugeaient davantage la leur que celle de l’agent</li>
             </ul>
-            <div class="plate__ctrl">
-              <button class="btn btn--outline btn--small" type="button" data-flip>Relancer les pièces</button>
-              <span class="plate__note" data-flip-note aria-live="polite"></span>
-            </div>
             <figcaption class="plate__source">Source&nbsp;: A. Herdağdelen, H. Joren et A. Tamkin, <a href="https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf" target="_blank" rel="noopener"><cite lang="en">Who’s Aligned to Whom? How AI Agents Shape Experts’ Research Judgment Calls</cite></a>, Anthropic, 27 octobre 2026. Dans les mots de l’article&nbsp;: «&nbsp;a coin flip set which of two defensible options the participant’s agent would lean toward&nbsp;» (un tirage à pile ou face fixait laquelle des deux options défendables l’agent du participant défendrait). 50 analystes, 195 décisions codées&nbsp;; taux par décision d’après <a href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener">la synthèse publiée par Anthropic</a>.</figcaption>
           </figure>
         </div>
       </div>
 
       <!-- Fig. 2 : le test de raisonnement de Shaw et Nave -->
-      <div class="scene scene--flow" data-scene="inview">
+      <div class="scene" data-scene>
         <div class="scene__flow container">
           <div class="scene__text">
             <p>À Wharton, 359 personnes ont passé un test de raisonnement classique&nbsp;: sept questions, chacune avec une mauvaise réponse tentante. Seules, elles en réussissaient <strong>46&nbsp;%</strong>.</p>
