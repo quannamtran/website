@@ -138,6 +138,9 @@ To change the number of articles, the texts around the cards or the date format,
   so a change in one usually needs the same change in the other.
 - Colors and fonts are CSS variables at the top of `assets/css/style.css`.
 - To change the author photo, replace the three `assets/img/author*.webp` files with new ones of the same sizes.
+- The two figures in "Why it matters now" are plain HTML drawn by the scroll (see the end of `assets/js/main.js`).
+  Their numbers live twice: in the visible text of `index.html` / `fr/index.html`, and as `--v` values in
+  `assets/css/style.css` (`.flip--d1` to `.flip--d4`, `.bar--alone/right/wrong`, `.meter__fill--*`). Change both.
 - To preview locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 - Every push to `main` updates the live site within a minute or two.
 - The pages load `style.css` and `main.js` with a version tag (`?v=…`). After changing either file, change that tag in

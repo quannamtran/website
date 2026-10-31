@@ -1868,3 +1868,568 @@ html:not(.js) .praise__controls {
     transition: none !important;
   }
 }
+
+/* Why it matters now: two figures drawn by the scroll ---------------------- */
+/* Each figure is a "scene": a tall stretch of page in which the plate (the chart)
+   stays pinned on screen while the scroll draws it and turns the pages of its
+   caption. Inspired by the pinned plates on co-existence.ai. */
+.why .section__intro {
+  font-size: 1.1rem;
+}
+.scene {
+  position: relative;
+  height: 260vh;
+  margin-top: clamp(1rem, 3vw, 2rem);
+}
+.scene__pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 5.5rem;
+  padding-bottom: 2rem;
+}
+/* The caption's pages sit on top of each other and cross-fade. */
+.scene__steps {
+  display: grid;
+  grid-template-areas: "step";
+}
+.scene__step {
+  grid-area: step;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.4s ease;
+}
+/* The page coming in waits for the one going out, so they do not overlap. */
+.scene__step.is-on {
+  color: var(--ink);
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease 0.18s, transform 0.5s ease 0.18s;
+}
+.scene__step.is-past {
+  transform: translateY(-12px);
+}
+.scene__step strong {
+  color: var(--accent-text);
+  font-family: var(--font-display);
+}
+
+/* The plate: a card holding the chart */
+.plate {
+  --draw: 1;
+  --coin: 1;
+  --after: 1;
+  margin: 0;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 30px 60px -36px rgba(36, 29, 61, 0.5);
+}
+.plate__head {
+  margin-bottom: 1rem;
+}
+.plate__fig {
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.plate__fig span {
+  color: var(--muted);
+}
+.plate__q {
+  margin-top: 0.35rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.plate__source {
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.plate__source a {
+  color: inherit;
+}
+.plate__source cite {
+  font-style: italic;
+}
+.plate__ctrl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+  margin-top: 1rem;
+}
+.plate__note {
+  flex: 1 1 12rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* Fig. 1: one row per judgment call. The values are the share of analysts who
+   chose the agent's side (Anthropic, 2026). */
+.flip--d1 { --v: 92; }
+.flip--d2 { --v: 82; }
+.flip--d3 { --v: 81; }
+.flip--d4 { --v: 90; }
+.flips {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flip {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "coin name  value"
+    "coin lean  value"
+    "coin track value";
+  column-gap: 0.75rem;
+  align-items: center;
+}
+.flip__name {
+  grid-area: name;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.flip__lean {
+  grid-area: lean;
+  color: var(--muted);
+  font-size: 0.78rem;
+  opacity: var(--coin);
+  transition: opacity 0.3s ease;
+}
+.flip__lean b {
+  color: var(--ink);
+  font-weight: 500;
+}
+/* The coin: violet for side A, green for side B; it spins when flipped. */
+.flip__coin {
+  grid-area: coin;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--violet);
+  color: #ffffff;
+  font: 700 0.85rem/1 var(--font-display);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35);
+  opacity: var(--coin);
+  transform: scale(calc(0.6 + 0.4 * var(--coin)));
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+.flip__coin i {
+  font-style: normal;
+}
+.flip__coin.is-b {
+  background: var(--green);
+}
+.flip__coin.is-spinning {
+  animation: coin-spin 0.7s ease-in-out;
+}
+@keyframes coin-spin {
+  50% { transform: rotateY(540deg) scale(1.15); }
+}
+.flip__track {
+  grid-area: track;
+  position: relative;
+  height: 0.55rem;
+  margin-top: 0.3rem;
+  border-radius: 999px;
+  background: var(--paper-alt);
+  overflow: visible;
+}
+.flip__bar {
+  display: block;
+  width: calc(var(--v) * 1% * var(--draw));
+  height: 100%;
+  border-radius: 999px;
+  background: var(--button-gradient);
+  transition: width 0.2s linear;
+}
+/* The 50% mark: a coin toss would land here. */
+.flip__chance,
+.plate__chance-mark {
+  position: absolute;
+  top: -0.3rem;
+  bottom: -0.3rem;
+  left: 50%;
+  width: 0;
+  border-left: 2px dashed var(--muted);
+  opacity: calc(0.45 * var(--coin));
+}
+.flip__value {
+  grid-area: value;
+  min-width: 3ch;
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: right;
+  opacity: var(--draw);
+}
+.plate__chance {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  opacity: var(--coin);
+}
+.plate__chance-mark {
+  position: static;
+  display: inline-block;
+  width: 0;
+  height: 0.9rem;
+  opacity: 0.6;
+}
+.plate__sum {
+  margin-top: 0.9rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  opacity: var(--draw);
+}
+.plate__sum strong {
+  display: inline-block;
+  margin-right: 0.3rem;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.plate__after {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  opacity: var(--after);
+  transform: translateY(calc((1 - var(--after)) * 8px));
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.plate__after li {
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  background: var(--paper-alt);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+.plate__after strong {
+  display: block;
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+/* Fig. 2: three columns and a confidence meter. The values are the shares of
+   correct answers, and the confidence ratings (Shaw & Nave, 2026, Study 1). */
+.bar--alone, .bars__base { --v: 45.8; }
+.bar--right { --v: 71; }
+.bar--wrong { --v: 31.5; }
+.meter__fill--ai { --v: 77; }
+.meter__fill--alone { --v: 65.3; }
+.bars {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  --chart-h: 11rem;
+}
+.bar {
+  display: grid;
+  grid-template-rows: var(--chart-h) auto auto;
+  align-items: end;
+  text-align: center;
+}
+.bar__col {
+  display: flex;
+  align-items: flex-end;
+  height: var(--chart-h);
+  padding: 0 12%;
+}
+.bar__col i {
+  display: block;
+  width: 100%;
+  height: calc(var(--v) * 1% * var(--draw));
+  border-radius: 8px 8px 3px 3px;
+  background: var(--muted);
+  transition: height 0.2s linear, box-shadow 0.3s ease;
+}
+.bar--right .bar__col i {
+  background: var(--green);
+}
+.bar--wrong .bar__col i {
+  background: repeating-linear-gradient(135deg, var(--violet) 0 6px, var(--violet-light) 6px 10px);
+}
+.bar.is-picked .bar__col i {
+  box-shadow: 0 0 0 3px var(--card), 0 0 0 6px var(--focus);
+}
+/* The two "with AI" columns wait, faint, until the scroll draws them; their
+   labels appear with the drawing. */
+.bar--right .bar__col,
+.bar--wrong .bar__col {
+  opacity: calc(0.25 + 0.75 * var(--draw));
+}
+.bar--right .bar__val,
+.bar--wrong .bar__val,
+.bar--right .bar__name,
+.bar--wrong .bar__name {
+  opacity: var(--draw);
+}
+.bar__val {
+  margin-top: 0.4rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.bar__name {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+/* The "alone" score, drawn across the chart as a dashed line to compare against. */
+.bars__base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--chart-h) * (1 - var(--v) / 100));
+  border-top: 2px dashed var(--muted);
+  opacity: calc(0.5 * var(--draw));
+  pointer-events: none;
+}
+.bars__base span {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.meter {
+  margin-top: 1.1rem;
+  opacity: var(--after);
+  transition: opacity 0.3s ease;
+}
+.meter__name {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.meter__track {
+  position: relative;
+  height: 1.5rem;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background: var(--paper-alt);
+  overflow: hidden;
+}
+.meter__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--v) * 1% * var(--after));
+  border-radius: 999px;
+  transition: width 0.2s linear;
+}
+.meter__fill b {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font: 700 0.72rem/1 var(--font-display);
+  /* The figure appears once its bar has grown enough to hold it. */
+  opacity: clamp(0, (var(--after) - 0.85) * 7, 1);
+}
+.meter__fill--ai {
+  background: var(--green);
+}
+.meter__fill--alone {
+  background: var(--muted);
+}
+.meter__legend {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.meter__key {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0 0.25rem 0 0.4rem;
+  border-radius: 3px;
+  vertical-align: -1px;
+  background: var(--muted);
+}
+.meter__key--ai {
+  background: var(--green);
+}
+.meter__key--alone + * + .meter__key--ai {
+  margin-left: 0.8rem;
+}
+/* "Try it": pick which AI you got */
+.plate__try {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.pick {
+  padding: 0.4rem 0.85rem;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 500 0.85rem/1.2 var(--font-sans);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.pick:hover {
+  border-color: var(--violet-light);
+}
+.pick[aria-pressed="true"] {
+  border-color: var(--violet);
+  background: var(--violet);
+  color: #ffffff;
+}
+.plate__ctrl--pick .plate__note {
+  flex-basis: 100%;
+}
+
+.why__close {
+  max-width: 44rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+/* Phones and tablets: one column, the caption's page first, the plate under it
+   (its lower part comes into view once the scene lets go). */
+@media (max-width: 56rem) {
+  .scene {
+    height: 240vh;
+  }
+  .scene__pin {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+    align-content: start;
+    padding-top: 5rem;
+  }
+  .scene__steps {
+    min-height: 6.5rem;
+  }
+  .scene__step {
+    font-size: 1rem;
+  }
+  .plate__source {
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
+  }
+  .pick {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  .plate__try {
+    font-size: 0.8rem;
+  }
+  .bars {
+    --chart-h: 8rem;
+  }
+  .plate__after {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+  .plate__after li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    padding: 0.45rem 0.7rem;
+  }
+  .plate__after strong {
+    display: inline;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 26rem) {
+  .plate {
+    padding: 0.9rem;
+  }
+  .flip__name {
+    font-size: 0.82rem;
+  }
+  .flip__coin {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .bar__name {
+    font-size: 0.7rem;
+  }
+}
+/* Short screens cannot hold a pinned plate and its caption: let the scene scroll normally. */
+@media (max-height: 36rem) {
+  .scene {
+    height: auto;
+  }
+  .scene__pin {
+    position: static;
+    min-height: 0;
+  }
+}
+/* Without JavaScript, or when reduced motion is asked for: no pinning, the finished
+   charts, and every page of the caption shown at once. */
+html:not(.js) .scene,
+.scene.is-calm {
+  height: auto;
+}
+html:not(.js) .scene__pin,
+.scene.is-calm .scene__pin {
+  position: static;
+  min-height: 0;
+  padding-top: 0;
+}
+html:not(.js) .scene__steps,
+.scene.is-calm .scene__steps {
+  grid-template-areas: none;
+  gap: 0.9rem;
+  min-height: 0;
+}
+html:not(.js) .scene__step,
+.scene.is-calm .scene__step {
+  grid-area: auto;
+  color: var(--ink);
+  opacity: 1;
+  transform: none;
+}

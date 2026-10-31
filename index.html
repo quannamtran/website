@@ -35,8 +35,8 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=0224e2f4">
-  <script src="assets/js/main.js?v=37b438c5" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=679d4e60">
+  <script src="assets/js/main.js?v=6efd7ffa" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -199,6 +199,127 @@
         <div class="prose">
           <p><cite>Augmenting Decision</cite> starts from a simple premise: analytics and AI do not make decisions. People do. Data can challenge assumptions. Statistics can reveal uncertainty. Predictive models can help us anticipate what may happen. Generative AI can expand the possibilities we consider. Agentic AI can increasingly turn decisions into action.</p>
           <p>But none of these technologies determines what matters, which trade-offs are acceptable, or who should be accountable. This book is not about how to build smarter machines. It is about how to become a better decision-maker when machines become smarter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it matters now: two studies, drawn by the scroll ----------------- -->
+    <section class="section why" id="why-now" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">Why it matters now</p>
+          <h2 id="why-title">The judgment calls are changing hands</h2>
+          <p class="section__intro">AI now handles much of what has a checkable answer. What stays with people is judgment: which approach to take, how to read ambiguous evidence, what to recommend. Two studies from 2026 show how quietly those calls can slip to the machine.</p>
+        </div>
+      </div>
+
+      <!-- Fig. 1: Anthropic's coin-flip trial -->
+      <div class="scene" data-scene>
+        <div class="scene__pin container">
+          <div class="scene__steps">
+            <p class="scene__step" data-step="0">Anthropic asked 50 expert analysts to run a realistic study with an AI coding agent and recommend whether a programme should go ahead. Each had four judgment calls to make, where either option was defensible.</p>
+            <p class="scene__step" data-step="0.22">Before each call, a hidden coin flip chose the side the agent would argue for. The analysts did not know. The agent made its best honest case.</p>
+            <p class="scene__step" data-step="0.48">The analysts went with the agent’s side on <strong>86%</strong> of the calls. By chance, it would have been 50%.</p>
+            <p class="scene__step" data-step="0.74">Afterwards, <strong>77%</strong> repeated the agent’s arguments as their own, sometimes word for word. 15% mentioned the agent at all. More than half said the recommendation was more theirs than the agent’s.</p>
+          </div>
+          <figure class="plate plate--coin" data-plate>
+            <div class="plate__head">
+              <p class="plate__fig">Fig. 1 <span>·</span> The coin flip</p>
+              <p class="plate__q">Did the analyst pick the side the agent argued for?</p>
+            </div>
+            <p class="visually-hidden">The four judgment calls, with the share of analysts who chose the agent’s side.</p>
+            <ol class="flips">
+              <li class="flip flip--d1" data-a="Yield per hectare" data-b="Yield per cost">
+                <span class="flip__name">Productivity measure</span>
+                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
+                <span class="flip__lean">Agent argued for: <b data-lean>Yield per hectare</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">92%</span>
+              </li>
+              <li class="flip flip--d2" data-a="Before-and-after comparison" data-b="Adjusted-levels comparison">
+                <span class="flip__name">Comparison method</span>
+                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
+                <span class="flip__lean">Agent argued for: <b data-lean>Adjusted-levels comparison</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">82%</span>
+              </li>
+              <li class="flip flip--d3" data-a="Enrolled farms only" data-b="All member farms">
+                <span class="flip__name">Which farms count</span>
+                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
+                <span class="flip__lean">Agent argued for: <b data-lean>Enrolled farms only</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">81%</span>
+              </li>
+              <li class="flip flip--d4" data-a="One farm, one weight" data-b="Weighted by output">
+                <span class="flip__name">Weighting</span>
+                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
+                <span class="flip__lean">Agent argued for: <b data-lean>Weighted by output</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">90%</span>
+              </li>
+            </ol>
+            <p class="plate__chance"><span class="plate__chance-mark" aria-hidden="true"></span> 50%: what a coin toss would give</p>
+            <p class="plate__sum"><strong>86%</strong> went with the agent’s side</p>
+            <p class="visually-hidden">What the analysts said afterwards:</p>
+            <ul class="plate__after">
+              <li><strong>77%</strong> repeated its arguments as their own</li>
+              <li><strong>15%</strong> mentioned the agent</li>
+              <li><strong>52%</strong> called the recommendation mostly theirs</li>
+            </ul>
+            <div class="plate__ctrl">
+              <button class="btn btn--outline btn--small" type="button" data-flip>Flip the coins again</button>
+              <span class="plate__note" data-flip-note aria-live="polite"></span>
+            </div>
+            <figcaption class="plate__source">Source: A. Herdağdelen, H. Joren and A. Tamkin, <a href="https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf" target="_blank" rel="noopener"><cite>Who’s Aligned to Whom? How AI Agents Shape Experts’ Research Judgment Calls</cite></a>, Anthropic, 27 October 2026. 50 analysts, 195 coded decisions; rates per decision from <a href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener">Anthropic’s summary of the study</a>.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Fig. 2: Shaw & Nave's reasoning test -->
+      <div class="scene" data-scene>
+        <div class="scene__pin container">
+          <div class="scene__steps">
+            <p class="scene__step" data-step="0">At Wharton, 359 people took a classic reasoning test: seven questions, each with a tempting wrong answer. Working alone, they got <strong>46%</strong> right.</p>
+            <p class="scene__step" data-step="0.22">Two in three could ask an AI assistant. Unknown to them, its answers were wrong about half the time, delivered with the same assurance.</p>
+            <p class="scene__step" data-step="0.48">When the AI was right, scores jumped to <strong>71%</strong>. When it was wrong, they fell to <strong>31.5%</strong>, below going it alone. Those who asked followed a wrong answer four times out of five.</p>
+            <p class="scene__step" data-step="0.74">Either way, confidence went up: <strong>77%</strong> with the AI, 65% without. Wrong answers did not dent it. The authors call this <em>cognitive surrender</em>.</p>
+          </div>
+          <figure class="plate plate--test" data-plate>
+            <div class="plate__head">
+              <p class="plate__fig">Fig. 2 <span>·</span> Cognitive surrender</p>
+              <p class="plate__q">Correct answers on the reasoning test</p>
+            </div>
+            <p class="visually-hidden">Share of correct answers.</p>
+            <ul class="bars">
+              <li class="bar bar--alone" data-cond="alone"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">45.8%</span><span class="bar__name">On your own</span></li>
+              <li class="bar bar--right" data-cond="right"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">71.0%</span><span class="bar__name">With AI, when it was right</span></li>
+              <li class="bar bar--wrong" data-cond="wrong"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">31.5%</span><span class="bar__name">With AI, when it was wrong</span></li>
+              <li class="bars__base" aria-hidden="true"><span>alone</span></li>
+            </ul>
+            <div class="meter">
+              <p class="meter__name">Confidence in their answers</p>
+              <div class="meter__track" aria-hidden="true">
+                <span class="meter__fill meter__fill--ai"><b>77%</b></span>
+                <span class="meter__fill meter__fill--alone"><b>65%</b></span>
+              </div>
+              <p class="meter__legend"><span class="meter__key meter__key--alone"></span> 65% alone <span class="meter__key meter__key--ai"></span> 77% with AI, right or wrong</p>
+            </div>
+            <div class="plate__ctrl plate__ctrl--pick" role="group" aria-label="Try it: which AI did you get?">
+              <span class="plate__try">Try it: your AI is</span>
+              <button type="button" class="pick" data-pick="alone" aria-pressed="true">not there</button>
+              <button type="button" class="pick" data-pick="right" aria-pressed="false">right</button>
+              <button type="button" class="pick" data-pick="wrong" aria-pressed="false">wrong</button>
+              <p class="plate__note" data-pick-out aria-live="polite" data-alone="Accuracy 45.8%, confidence 65%." data-right="Accuracy 71%, confidence 77%." data-wrong="Accuracy 31.5%, confidence 77%: more sure, less right."></p>
+            </div>
+            <figcaption class="plate__source">Source: S. D. Shaw and G. Nave, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646" target="_blank" rel="noopener"><cite>Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender</cite></a>, The Wharton School, University of Pennsylvania, working paper, 2026. Study 1, 359 participants; confidence is the average rating across the test.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="why__close prose">
+          <p>Neither study is a case against AI. In the Anthropic trial, more than half of the analysts who worked without the agent (55%) made errors serious enough to invalidate their results, against 6% of those who used it, and they took longer. At Wharton, a small dose of accountability, a reward for accuracy and immediate feedback, doubled how often people overrode a wrong answer.</p>
+          <p>The skill of the moment is not to avoid the machine but to keep the decision: to know what you think before the agent tells you, and to notice when you have stopped checking. That is what this book is about.</p>
         </div>
       </div>
     </section>

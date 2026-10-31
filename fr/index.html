@@ -35,8 +35,8 @@
   <link rel="preload" href="../assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="../assets/css/style.css?v=0224e2f4">
-  <script src="../assets/js/main.js?v=37b438c5" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=679d4e60">
+  <script src="../assets/js/main.js?v=6efd7ffa" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -199,6 +199,127 @@
         <div class="prose">
           <p><cite lang="en">Augmenting Decision</cite> part d’un principe simple&nbsp;: l’analytique et l’IA ne prennent pas de décisions. Les humains, si. Les données peuvent remettre en cause nos hypothèses. Les statistiques peuvent révéler l’incertitude. Les modèles prédictifs peuvent nous aider à anticiper ce qui pourrait arriver. L’IA générative peut élargir les possibilités que nous envisageons. L’IA agentique transforme de plus en plus les décisions en actions.</p>
           <p>Mais aucune de ces technologies ne détermine ce qui compte, quels compromis sont acceptables, ni qui doit en répondre. Ce livre n’explique pas comment construire des machines plus intelligentes. Il explique comment mieux décider quand les machines deviennent plus intelligentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi maintenant : deux études, dessinées par le défilement -------- -->
+    <section class="section why" id="pourquoi" aria-labelledby="pourquoi-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">Pourquoi maintenant</p>
+          <h2 id="pourquoi-title">Les décisions changent de mains</h2>
+          <p class="section__intro">L’IA prend en charge une part croissante de ce qui a une réponse vérifiable. Ce qui reste aux humains, c’est le jugement&nbsp;: quelle approche choisir, comment lire des données ambiguës, que recommander. Deux études de 2026 montrent à quel point ces choix peuvent glisser vers la machine sans que personne ne s’en aperçoive.</p>
+        </div>
+      </div>
+
+      <!-- Fig. 1 : l’essai à pile ou face d’Anthropic -->
+      <div class="scene" data-scene>
+        <div class="scene__pin container">
+          <div class="scene__steps">
+            <p class="scene__step" data-step="0">Anthropic a demandé à 50 analystes expérimentés de mener une étude réaliste avec un agent de codage IA, puis de recommander ou non le déploiement d’un programme. Chacun avait quatre choix de méthode à faire, où les deux options se défendaient.</p>
+            <p class="scene__step" data-step="0.22">Avant chaque choix, un tirage à pile ou face, caché, décidait du camp que l’agent défendrait. Les analystes l’ignoraient. L’agent plaidait de bonne foi.</p>
+            <p class="scene__step" data-step="0.48">Les analystes ont suivi le camp de l’agent dans <strong>86&nbsp;%</strong> des cas. Le hasard aurait donné 50&nbsp;%.</p>
+            <p class="scene__step" data-step="0.74">Ensuite, <strong>77&nbsp;%</strong> ont repris les arguments de l’agent à leur compte, parfois mot pour mot. 15&nbsp;% ont mentionné l’agent. Plus de la moitié jugeaient la recommandation davantage la leur que celle de l’agent.</p>
+          </div>
+          <figure class="plate plate--coin" data-plate>
+            <div class="plate__head">
+              <p class="plate__fig">Fig. 1 <span>·</span> Pile ou face</p>
+              <p class="plate__q">L’analyste a-t-il choisi le camp défendu par l’agent&nbsp;?</p>
+            </div>
+            <p class="visually-hidden">Les quatre choix de méthode, avec la part d’analystes qui ont suivi le camp de l’agent.</p>
+            <ol class="flips">
+              <li class="flip flip--d1" data-a="Rendement à l’hectare" data-b="Rendement par coût">
+                <span class="flip__name">Mesure de la productivité</span>
+                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
+                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Rendement à l’hectare</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">92&nbsp;%</span>
+              </li>
+              <li class="flip flip--d2" data-a="Comparaison avant-après" data-b="Comparaison à niveaux ajustés">
+                <span class="flip__name">Méthode de comparaison</span>
+                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
+                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Comparaison à niveaux ajustés</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">82&nbsp;%</span>
+              </li>
+              <li class="flip flip--d3" data-a="Fermes inscrites seulement" data-b="Toutes les fermes membres">
+                <span class="flip__name">Fermes prises en compte</span>
+                <span class="flip__coin" aria-hidden="true"><i>A</i></span>
+                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Fermes inscrites seulement</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">81&nbsp;%</span>
+              </li>
+              <li class="flip flip--d4" data-a="Une ferme, une voix" data-b="Pondération par la production">
+                <span class="flip__name">Pondération</span>
+                <span class="flip__coin" aria-hidden="true"><i>B</i></span>
+                <span class="flip__lean">L’agent défendait&nbsp;: <b data-lean>Pondération par la production</b></span>
+                <span class="flip__track" aria-hidden="true"><span class="flip__bar"></span><span class="flip__chance"></span></span>
+                <span class="flip__value">90&nbsp;%</span>
+              </li>
+            </ol>
+            <p class="plate__chance"><span class="plate__chance-mark" aria-hidden="true"></span> 50&nbsp;%&nbsp;: ce que donnerait le hasard</p>
+            <p class="plate__sum"><strong>86&nbsp;%</strong> ont suivi le camp de l’agent</p>
+            <p class="visually-hidden">Ce que les analystes ont dit ensuite:</p>
+            <ul class="plate__after">
+              <li><strong>77&nbsp;%</strong> ont repris ses arguments à leur compte</li>
+              <li><strong>15&nbsp;%</strong> ont mentionné l’agent</li>
+              <li><strong>52&nbsp;%</strong> jugeaient la recommandation surtout la leur</li>
+            </ul>
+            <div class="plate__ctrl">
+              <button class="btn btn--outline btn--small" type="button" data-flip>Relancer les pièces</button>
+              <span class="plate__note" data-flip-note aria-live="polite"></span>
+            </div>
+            <figcaption class="plate__source">Source&nbsp;: A. Herdağdelen, H. Joren et A. Tamkin, <a href="https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf" target="_blank" rel="noopener"><cite lang="en">Who’s Aligned to Whom? How AI Agents Shape Experts’ Research Judgment Calls</cite></a>, Anthropic, 27 octobre 2026. 50 analystes, 195 décisions codées&nbsp;; taux par décision d’après <a href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener">la synthèse publiée par Anthropic</a>.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Fig. 2 : le test de raisonnement de Shaw et Nave -->
+      <div class="scene" data-scene>
+        <div class="scene__pin container">
+          <div class="scene__steps">
+            <p class="scene__step" data-step="0">À Wharton, 359 personnes ont passé un test de raisonnement classique&nbsp;: sept questions, chacune avec une mauvaise réponse tentante. Seules, elles en réussissaient <strong>46&nbsp;%</strong>.</p>
+            <p class="scene__step" data-step="0.22">Deux sur trois pouvaient interroger un assistant IA. À leur insu, ses réponses étaient fausses une fois sur deux, livrées avec la même assurance.</p>
+            <p class="scene__step" data-step="0.48">Quand l’IA avait raison, le score montait à <strong>71&nbsp;%</strong>. Quand elle se trompait, il tombait à <strong>31,5&nbsp;%</strong>, en dessous du score obtenu seul. Ceux qui l’interrogeaient suivaient une mauvaise réponse quatre fois sur cinq.</p>
+            <p class="scene__step" data-step="0.74">Dans les deux cas, la confiance montait&nbsp;: <strong>77&nbsp;%</strong> avec l’IA, 65&nbsp;% sans. Les erreurs ne l’entamaient pas. Les auteurs parlent de <em>reddition cognitive</em>.</p>
+          </div>
+          <figure class="plate plate--test" data-plate>
+            <div class="plate__head">
+              <p class="plate__fig">Fig. 2 <span>·</span> La reddition cognitive</p>
+              <p class="plate__q">Bonnes réponses au test de raisonnement</p>
+            </div>
+            <p class="visually-hidden">Part de bonnes réponses.</p>
+            <ul class="bars">
+              <li class="bar bar--alone" data-cond="alone"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">45,8&nbsp;%</span><span class="bar__name">Seul</span></li>
+              <li class="bar bar--right" data-cond="right"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">71,0&nbsp;%</span><span class="bar__name">Avec l’IA, quand elle avait raison</span></li>
+              <li class="bar bar--wrong" data-cond="wrong"><span class="bar__col" aria-hidden="true"><i></i></span><span class="bar__val">31,5&nbsp;%</span><span class="bar__name">Avec l’IA, quand elle se trompait</span></li>
+              <li class="bars__base" aria-hidden="true"><span>seul</span></li>
+            </ul>
+            <div class="meter">
+              <p class="meter__name">Confiance dans leurs réponses</p>
+              <div class="meter__track" aria-hidden="true">
+                <span class="meter__fill meter__fill--ai"><b>77&nbsp;%</b></span>
+                <span class="meter__fill meter__fill--alone"><b>65&nbsp;%</b></span>
+              </div>
+              <p class="meter__legend"><span class="meter__key meter__key--alone"></span> 65&nbsp;% seul <span class="meter__key meter__key--ai"></span> 77&nbsp;% avec l’IA, qu’elle ait raison ou tort</p>
+            </div>
+            <div class="plate__ctrl plate__ctrl--pick" role="group" aria-label="Essayez : quelle IA avez-vous eue ?">
+              <span class="plate__try">Essayez&nbsp;: votre IA est</span>
+              <button type="button" class="pick" data-pick="alone" aria-pressed="true">absente</button>
+              <button type="button" class="pick" data-pick="right" aria-pressed="false">fiable</button>
+              <button type="button" class="pick" data-pick="wrong" aria-pressed="false">dans l’erreur</button>
+              <p class="plate__note" data-pick-out aria-live="polite" data-alone="Exactitude 45,8 %, confiance 65 %." data-right="Exactitude 71 %, confiance 77 %." data-wrong="Exactitude 31,5 %, confiance 77 % : plus sûr, moins juste."></p>
+            </div>
+            <figcaption class="plate__source">Source&nbsp;: S. D. Shaw et G. Nave, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646" target="_blank" rel="noopener"><cite lang="en">Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender</cite></a>, The Wharton School, University of Pennsylvania, document de travail, 2026. Étude 1, 359 participants&nbsp;; la confiance est la note moyenne donnée sur l’ensemble du test.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="why__close prose">
+          <p>Aucune de ces études ne plaide contre l’IA. Dans l’essai d’Anthropic, plus de la moitié des analystes qui ont travaillé sans l’agent (55&nbsp;%) ont commis des erreurs assez graves pour invalider leurs résultats, contre 6&nbsp;% de ceux qui l’ont utilisé, et ils ont mis plus longtemps. À Wharton, un peu de responsabilité, une prime à la bonne réponse et un retour immédiat, a doublé la fréquence à laquelle les participants ont rejeté une mauvaise réponse.</p>
+          <p>La compétence du moment n’est pas d’éviter la machine, mais de garder la décision&nbsp;: savoir ce que l’on pense avant que l’agent ne le dise, et remarquer le moment où l’on a cessé de vérifier. C’est le sujet de ce livre.</p>
         </div>
       </div>
     </section>
