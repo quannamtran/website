@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-10-29T20:13:04Z",
-  "checked_notes": "2026-10-30T16:59:36Z",
+  "checked_notes": "2026-10-31T16:02:06Z",
   "note": {
-    "url": "https://substack.com/note/c-374266632",
-    "date": "2026-10-30",
-    "time": "2026-10-30T14:58:23Z",
-    "text": "Half the Fortune 500 will not survive the next decade, and the reason has nothing to do with whether their AI is good enough. Capability is already ahead of most organizations' willingness to redesign a workflow, a reporting line, or a budget around it. Incumbents keep bolting automation onto an org chart built for a slower world, then wonder why a leaner competitor eats the margin. The companies that disappear will not be the ones that used AI poorly — they will be the ones that used it politely.",
+    "url": "https://substack.com/note/c-375048776",
+    "date": "2026-10-31",
+    "time": "2026-10-31T14:04:24Z",
+    "text": "Most AI roadmaps still get built top-down: a steering committee picks three use cases, funds a pilot, waits for a miracle. The highest-yield AI adoption looks nothing like that — it comes from dozens of small, scrappy experiments run by the people closest to the work, most of which quietly fail and a few of which scale. Centralizing AI strategy in a committee optimizes for control, not learning rate, and learning rate is the only metric that compounds. Leaders who measure success by how many experiments shipped this quarter will outpace leaders measuring how polished the one big launch was.",
     "image": null
   },
   "posts": [
