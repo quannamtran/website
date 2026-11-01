@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-10-29T20:13:04Z",
+  "checked_articles": "2026-11-01T19:33:19Z",
   "checked_notes": "2026-11-01T17:05:49Z",
   "note": {
     "url": "https://substack.com/note/c-375631322",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "The Outcome Tail Is Wagging Your Decision Dog",
+      "url": "https://antoinetranquannam.substack.com/p/the-outcome-tail-is-wagging-your",
+      "date": "2026-11-01",
+      "excerpt": "How to judge a choice before the scoreboard lights up — and build the tools that make the next one better",
+      "paid": true,
+      "image": {
+        "src": "assets/img/substack/post-a62ff180b542.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "The Five-Stage Blueprint For Turning Data Into Decisions",
       "url": "https://antoinetranquannam.substack.com/p/the-five-stage-blueprint-for-turning",
@@ -54,18 +66,6 @@
       "paid": true,
       "image": {
         "src": "assets/img/substack/post-9bd39fb92340.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "You've Got the Human-AI Equation Backwards",
-      "url": "https://antoinetranquannam.substack.com/p/youve-got-the-human-ai-equation-backwards",
-      "date": "2026-10-15",
-      "excerpt": "Most organizations have quietly turned employees into system plumbers and handed machines the judgment calls — and the fix isn't less automation, it's putting each one back where it belongs.",
-      "paid": false,
-      "image": {
-        "src": "assets/img/substack/post-05736d817902.webp",
         "width": 720,
         "height": 405
       }
