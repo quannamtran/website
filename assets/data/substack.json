@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-10-29T20:13:04Z",
-  "checked_notes": "2026-10-31T16:02:06Z",
+  "checked_notes": "2026-11-01T17:05:49Z",
   "note": {
-    "url": "https://substack.com/note/c-375048776",
-    "date": "2026-10-31",
-    "time": "2026-10-31T14:04:24Z",
-    "text": "Most AI roadmaps still get built top-down: a steering committee picks three use cases, funds a pilot, waits for a miracle. The highest-yield AI adoption looks nothing like that — it comes from dozens of small, scrappy experiments run by the people closest to the work, most of which quietly fail and a few of which scale. Centralizing AI strategy in a committee optimizes for control, not learning rate, and learning rate is the only metric that compounds. Leaders who measure success by how many experiments shipped this quarter will outpace leaders measuring how polished the one big launch was.",
+    "url": "https://substack.com/note/c-375631322",
+    "date": "2026-11-01",
+    "time": "2026-11-01T08:03:59Z",
+    "text": "Every employee is quietly getting a different model: tuned to their phrasing, their shortcuts, their blind spots. That feels like progress until a meeting starts and five people arrive with five subtly different versions of the same fact. Shared context used to be the default cost of working together; now it has to be engineered on purpose, or it quietly disappears. The real infrastructure question isn't whose model is smartest, it's whose model everyone agreed to trust first.",
     "image": null
   },
   "posts": [
