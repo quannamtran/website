@@ -1873,6 +1873,10 @@ html:not(.js) .praise__controls {
 /* Each figure is a "scene": its text stays put beside the plate (the chart), and
    the chart draws itself as the plate rises into view. In the spirit of the
    scroll-drawn plates on co-existence.ai. */
+/* This section's heading, intro and closing text run the full content width. */
+.why .section__head {
+  max-width: none;
+}
 .why .section__intro {
   font-size: 1.1rem;
 }
@@ -2249,7 +2253,6 @@ html:not(.js) .praise__controls {
   margin-left: 0.8rem;
 }
 .why__close {
-  max-width: 44rem;
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
