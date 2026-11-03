@@ -1,13 +1,17 @@
 {
   "language": "en",
   "checked_articles": "2026-11-01T19:33:19Z",
-  "checked_notes": "2026-11-02T20:43:50Z",
+  "checked_notes": "2026-11-03T18:23:24Z",
   "note": {
-    "url": "https://substack.com/note/c-376959802",
-    "date": "2026-11-02",
-    "time": "2026-11-02T20:04:45Z",
-    "text": "Every vendor comparison deck leans on a benchmark score the vendor itself ran, scored, and selected. Self-reported numbers are marketing with decimal points, not evidence, because the prompts, the retries, and the cherry-picked runs never make it into the slide. A model worth buying should survive the same test, administered the same way, with every prediction published for anyone to check. Procurement that can't reproduce a score shouldn't be trusting it.",
-    "image": null
+    "url": "https://substack.com/note/c-377551795",
+    "date": "2026-11-03",
+    "time": "2026-11-03T14:16:18Z",
+    "text": "A platform dashboard that only glows on conversion is a trap carried over from linear product thinking.\n\nInteraction - transactions, clicks, time on app - is the easiest thing to optimize and the easiest thing to mistake for health. But interaction is downstream of two quieter jobs: bringing both sides onto the platform (accumulation) and helping them actually find each other (connection).\n\nOptimize interaction alone and the shape of the ecosystem goes lopsided - strong engagement, weak pipeline, poor matching. It looks fine until producer growth stalls, and then the whole thing stalls with it.\n\nEvery feature, every metric, every backlog item should get tagged to one of the three - accumulation, connection, or interaction - and all three should move together on the same report, not one in isolation.\n\nA platform grows only as fast as its weakest axis.",
+    "image": {
+      "src": "assets/img/substack/note-f9ce0af65cb0.webp",
+      "width": 720,
+      "height": 485
+    }
   },
   "posts": [
     {
