@@ -1,17 +1,13 @@
 {
   "language": "en",
   "checked_articles": "2026-11-01T19:33:19Z",
-  "checked_notes": "2026-11-03T18:23:24Z",
+  "checked_notes": "2026-11-04T18:35:53Z",
   "note": {
-    "url": "https://substack.com/note/c-377551795",
-    "date": "2026-11-03",
-    "time": "2026-11-03T14:16:18Z",
-    "text": "A platform dashboard that only glows on conversion is a trap carried over from linear product thinking.\n\nInteraction - transactions, clicks, time on app - is the easiest thing to optimize and the easiest thing to mistake for health. But interaction is downstream of two quieter jobs: bringing both sides onto the platform (accumulation) and helping them actually find each other (connection).\n\nOptimize interaction alone and the shape of the ecosystem goes lopsided - strong engagement, weak pipeline, poor matching. It looks fine until producer growth stalls, and then the whole thing stalls with it.\n\nEvery feature, every metric, every backlog item should get tagged to one of the three - accumulation, connection, or interaction - and all three should move together on the same report, not one in isolation.\n\nA platform grows only as fast as its weakest axis.",
-    "image": {
-      "src": "assets/img/substack/note-f9ce0af65cb0.webp",
-      "width": 720,
-      "height": 485
-    }
+    "url": "https://substack.com/note/c-378494947",
+    "date": "2026-11-04",
+    "time": "2026-11-04T14:05:29Z",
+    "text": "Reinforcement learning taught a hard lesson that still gets ignored in boardrooms: an agent that nails the training environment can faceplant the moment the world shifts a few percentage points. Most AI rollouts get evaluated the same way, on a benchmark that never leaves the lab, then get deployed into a market that never stops moving. A model's score is not its skill; its skill is what survives contact with conditions nobody tested for. Budget for the drift, not just the demo.",
+    "image": null
   },
   "posts": [
     {
