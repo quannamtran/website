@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-11-01T19:33:19Z",
+  "checked_articles": "2026-11-05T21:26:59Z",
   "checked_notes": "2026-11-05T18:41:10Z",
   "note": {
     "url": "https://substack.com/note/c-379233293",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "Your Past Self Is Not a Reliable Witness",
+      "url": "https://antoinetranquannam.substack.com/p/your-past-self-is-not-a-reliable",
+      "date": "2026-11-05",
+      "excerpt": "Hindsight quietly rewrites what you believed before an outcome happened, and that rewrite is wrecking your ability to learn.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-931f31e54e4c.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "The Outcome Tail Is Wagging Your Decision Dog",
       "url": "https://antoinetranquannam.substack.com/p/the-outcome-tail-is-wagging-your",
@@ -54,18 +66,6 @@
       "paid": false,
       "image": {
         "src": "assets/img/substack/post-7234791bf10c.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "The Weld That Proved Your AI Was Never The Problem",
-      "url": "https://antoinetranquannam.substack.com/p/the-weld-that-proved-your-ai-was",
-      "date": "2026-10-18",
-      "excerpt": "How a working model dies in the gap between a pilot and an operating model",
-      "paid": true,
-      "image": {
-        "src": "assets/img/substack/post-9bd39fb92340.webp",
         "width": 720,
         "height": 405
       }
