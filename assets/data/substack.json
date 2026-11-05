@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-01T19:33:19Z",
-  "checked_notes": "2026-11-04T18:35:53Z",
+  "checked_notes": "2026-11-05T18:41:10Z",
   "note": {
-    "url": "https://substack.com/note/c-378494947",
-    "date": "2026-11-04",
-    "time": "2026-11-04T14:05:29Z",
-    "text": "Reinforcement learning taught a hard lesson that still gets ignored in boardrooms: an agent that nails the training environment can faceplant the moment the world shifts a few percentage points. Most AI rollouts get evaluated the same way, on a benchmark that never leaves the lab, then get deployed into a market that never stops moving. A model's score is not its skill; its skill is what survives contact with conditions nobody tested for. Budget for the drift, not just the demo.",
+    "url": "https://substack.com/note/c-379233293",
+    "date": "2026-11-05",
+    "time": "2026-11-05T08:05:01Z",
+    "text": "Biology stopped being one impossibly tangled system the moment researchers started modeling disease as separate, learnable modules: this pathway, that cell type, this response to treatment. Each module, trained on its own data, becomes a lens sharp enough to predict what a drug will actually do before it reaches a patient. Stack enough of these lenses together and medicine shifts from averaging across populations to reasoning about the individual in front of you. The breakthrough was never one giant model of the body; it was deciding which smaller questions were worth answering precisely.",
     "image": null
   },
   "posts": [
