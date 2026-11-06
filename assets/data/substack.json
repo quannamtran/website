@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-05T21:26:59Z",
-  "checked_notes": "2026-11-05T18:41:10Z",
+  "checked_notes": "2026-11-06T17:54:16Z",
   "note": {
-    "url": "https://substack.com/note/c-379233293",
-    "date": "2026-11-05",
-    "time": "2026-11-05T08:05:01Z",
-    "text": "Biology stopped being one impossibly tangled system the moment researchers started modeling disease as separate, learnable modules: this pathway, that cell type, this response to treatment. Each module, trained on its own data, becomes a lens sharp enough to predict what a drug will actually do before it reaches a patient. Stack enough of these lenses together and medicine shifts from averaging across populations to reasoning about the individual in front of you. The breakthrough was never one giant model of the body; it was deciding which smaller questions were worth answering precisely.",
+    "url": "https://substack.com/note/c-380355418",
+    "date": "2026-11-06",
+    "time": "2026-11-06T14:05:27Z",
+    "text": "Teaching a model to be safe at today's size says nothing about whether that safety holds once the model gets smarter, faster, or more autonomous. Capability and alignment are not the same curve, and treating them as one is how organizations get surprised. The practical move is to budget real time and real people for checking systems as they grow, not just when they launch. Safety work that stops scaling the moment the product does is not safety work, it's a launch checklist.",
     "image": null
   },
   "posts": [
