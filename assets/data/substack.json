@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-05T21:26:59Z",
-  "checked_notes": "2026-11-06T17:54:16Z",
+  "checked_notes": "2026-11-07T16:49:01Z",
   "note": {
-    "url": "https://substack.com/note/c-380355418",
-    "date": "2026-11-06",
-    "time": "2026-11-06T14:05:27Z",
-    "text": "Teaching a model to be safe at today's size says nothing about whether that safety holds once the model gets smarter, faster, or more autonomous. Capability and alignment are not the same curve, and treating them as one is how organizations get surprised. The practical move is to budget real time and real people for checking systems as they grow, not just when they launch. Safety work that stops scaling the moment the product does is not safety work, it's a launch checklist.",
+    "url": "https://substack.com/note/c-381210853",
+    "date": "2026-11-07",
+    "time": "2026-11-07T14:04:14Z",
+    "text": "The hardest problems for an autonomous system are never the single clever step, they're the fiftieth step that depends on getting the first forty-nine right. Most AI tools are still judged on one clean answer, but real work is a chain of decisions where small errors compound silently until the output is unusable. The fix is boring and powerful: build in checkpoints where the system shows its intermediate state, not just its final guess, so mistakes get caught at step three instead of step fifty. Teams that demand visible progress markers from their AI tools, the way they would from a junior engineer, end up trusting automation for longer and harder jobs.",
     "image": null
   },
   "posts": [
