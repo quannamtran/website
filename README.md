@@ -132,6 +132,19 @@ To change the number of articles, the texts around the cards or the date format,
 `tools/update-substack.py` and `tools/render-substack.py`. Do not edit the HTML between the
 `<!-- substack:... -->` markers: the next update replaces it.
 
+## Visitor statistics (Google Analytics)
+
+Visits are measured with **Google Analytics 4**, loaded through **Google Tag Manager** (container `GTM-WWQ8QSCD`,
+set in `assets/js/main.js` as `GTM_ID`). To respect EU rules, nothing is loaded from Google until the visitor
+accepts the cookie banner; a refusal is remembered, and the "Cookies" link in the footer lets people change
+their mind. The legal pages describe this.
+
+- Reports: https://analytics.google.com (property "Augmenting Decision").
+- Tags are managed at https://tagmanager.google.com. After any change there, click **Submit → Publish**.
+- Recommended once: in Analytics, **Admin → Data collection and modification → Data retention → 14 months**, so the
+  reports match what the privacy page says.
+- The 404 page carries no analytics.
+
 ## Editing the site
 
 - Texts live directly in the HTML files. The English and French pages have the same structure,

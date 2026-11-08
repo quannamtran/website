@@ -207,4 +207,53 @@
     if (calm.addEventListener) calm.addEventListener('change', function () { last = null; tick(); });
     tick();
   });
+
+  // Audience measurement: Google Analytics, loaded through Google Tag Manager,
+  // and only once the visitor has accepted it in the banner. Until then, and
+  // after a refusal, nothing is loaded from Google and no cookie is set. The
+  // choice is kept in the browser only; the "Cookies" link in the footer
+  // brings the banner back so it can be changed.
+  var GTM_ID = 'GTM-WWQ8QSCD';
+  var CONSENT_KEY = 'augmenting-decision-consent';
+  var banner = document.querySelector('[data-consent]');
+  function readConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function saveConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* private mode */ }
+  }
+  function loadTags() {
+    if (!GTM_ID || window.__tagsLoaded) return;
+    window.__tagsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    // Measurement only: no advertising storage or personalisation.
+    gtag('consent', 'default', {
+      analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(script);
+  }
+  if (banner) {
+    var choice = readConsent();
+    if (choice === 'granted') loadTags();
+    else if (choice !== 'denied') banner.hidden = false;
+    banner.querySelector('[data-consent-accept]').addEventListener('click', function () {
+      saveConsent('granted'); banner.hidden = true; loadTags();
+    });
+    banner.querySelector('[data-consent-decline]').addEventListener('click', function () {
+      saveConsent('denied'); banner.hidden = true;
+      // A refusal after an earlier acceptance takes full effect on the next page load.
+    });
+    document.querySelectorAll('[data-consent-open]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        banner.hidden = false;
+        banner.querySelector('[data-consent-accept]').focus();
+      });
+    });
+  }
 })();

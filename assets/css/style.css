@@ -2302,3 +2302,56 @@ html:not(.js) .praise__controls {
     font-size: 0.7rem;
   }
 }
+
+/* Cookie banner: a small card at the bottom, over the page ------------------- */
+.consent {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 30;
+  padding: 0 var(--gutter) calc(1rem + env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+}
+.consent__box {
+  max-width: 36rem;
+  margin-inline: auto;
+  padding: 1.1rem 1.25rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 24px 56px -24px rgba(36, 29, 61, 0.55);
+  pointer-events: auto;
+}
+.consent__title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.consent__text {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.consent__text a {
+  color: var(--accent-text);
+}
+.consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+/* The footer's "Cookies" button, styled like the links beside it; nothing to open without scripts. */
+.site-footer .link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+html:not(.js) .link-button {
+  display: none;
+}
