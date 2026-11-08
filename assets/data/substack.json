@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-11-05T21:26:59Z",
+  "checked_articles": "2026-11-08T19:33:04Z",
   "checked_notes": "2026-11-08T17:00:46Z",
   "note": {
     "url": "https://substack.com/note/c-381836944",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "The RAG That Knew Everything And Decided Nothing",
+      "url": "https://antoinetranquannam.substack.com/p/the-rag-that-knew-everything-and",
+      "date": "2026-11-08",
+      "excerpt": "Why a vector store full of facts still leaves your assistant paralysed — and what to put in the second namespace",
+      "paid": true,
+      "image": {
+        "src": "assets/img/substack/post-f37d71dcb077.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "Your Past Self Is Not a Reliable Witness",
       "url": "https://antoinetranquannam.substack.com/p/your-past-self-is-not-a-reliable",
@@ -54,18 +66,6 @@
       "paid": true,
       "image": {
         "src": "assets/img/substack/post-384cf8441732.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "The Model Worked. The Rollout Didn't. Here's Why.",
-      "url": "https://antoinetranquannam.substack.com/p/the-model-worked-the-rollout-didnt",
-      "date": "2026-10-22",
-      "excerpt": "A premium automaker's spot-welding AI proved itself in the lab and then stalled for months — not because the model was wrong, but because nobody had engineered the data to let it live in production.",
-      "paid": false,
-      "image": {
-        "src": "assets/img/substack/post-7234791bf10c.webp",
         "width": 720,
         "height": 405
       }
