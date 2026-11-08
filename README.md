@@ -144,6 +144,12 @@ their mind. The legal pages describe this.
 - Recommended once: in Analytics, **Admin → Data collection and modification → Data retention → 14 months**, so the
   reports match what the privacy page says.
 - The 404 page carries no analytics.
+- Besides page views, the site sends four events once consent is given (see the end of `assets/js/main.js`):
+  `section_view` (which section came on screen; names in `data-section` attributes, the same in both languages),
+  `scroll_depth` (25, 50, 75, 100 %), `cta_click` (link text, destination, type and section) and `signup_success`.
+  Tag Manager forwards them with the tags in `tools/gtm-events-container.json` (Admin → Import Container → Merge).
+  To see the details in reports, register `section_id`, `percent_scrolled`, `link_text`, `link_url`, `link_type` and
+  `page_lang` as **custom dimensions** (event scope) in Analytics: Admin → Custom definitions.
 
 ## Editing the site
 

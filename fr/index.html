@@ -36,7 +36,7 @@
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/style.css?v=20270c50">
-  <script src="../assets/js/main.js?v=763c8a7d" defer></script>
+  <script src="../assets/js/main.js?v=bc2abbf6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -85,7 +85,7 @@
 
   <main id="main">
     <!-- Accroche --------------------------------------------------------- -->
-    <section class="hero" aria-labelledby="titre">
+    <section class="hero" aria-labelledby="titre" data-section="hero">
       <div class="container hero__grid">
         <div class="hero__text">
           <p class="status"><span class="status__dot" aria-hidden="true"></span><span><span class="status__lead">Un nouveau livre · </span>Bientôt disponible</span></p>
@@ -127,7 +127,7 @@
     </section>
 
     <!-- Premiers échos (carousel) ------------------------------------------ -->
-    <section class="praise" id="temoignages" aria-roledescription="carousel" aria-labelledby="praise-title" data-carousel
+    <section class="praise" id="temoignages" data-section="praise" aria-roledescription="carousel" aria-labelledby="praise-title" data-carousel
              data-label-dot="Afficher le témoignage %n sur %total" data-label-pause="Mettre les témoignages en pause" data-label-play="Relancer les témoignages">
       <div class="container">
         <h2 class="kicker praise__kicker" id="praise-title">Premiers échos</h2>
@@ -184,14 +184,14 @@
     </section>
 
     <!-- Idée forte -------------------------------------------------------- -->
-    <section class="band statement" aria-label="L’idée du livre">
+    <section class="band statement" aria-label="L’idée du livre" data-section="statement">
       <div class="container">
         <p>L’analytique et l’IA ne prennent pas de décisions. <em>Les humains, si.</em></p>
       </div>
     </section>
 
     <!-- Le livre ------------------------------------------------------------ -->
-    <section class="section" id="livre" aria-labelledby="livre-title">
+    <section class="section" id="livre" data-section="book" aria-labelledby="livre-title">
       <div class="container split">
         <div>
           <p class="kicker">Le livre</p>
@@ -205,7 +205,7 @@
     </section>
 
     <!-- Pourquoi maintenant : deux études, dessinées par le défilement -------- -->
-    <section class="section why" id="pourquoi" aria-labelledby="pourquoi-title">
+    <section class="section why" id="pourquoi" data-section="why-now" aria-labelledby="pourquoi-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Pourquoi maintenant</p>
@@ -314,7 +314,7 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="contenu" aria-labelledby="contenu-title">
+    <section class="section section--alt" id="contenu" data-section="inside" aria-labelledby="contenu-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Au fil des pages</p>
@@ -360,7 +360,7 @@
       </div>
     </section>
 
-    <section class="section" id="sommaire" aria-labelledby="sommaire-title">
+    <section class="section" id="sommaire" data-section="contents" aria-labelledby="sommaire-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Sommaire</p>
@@ -414,7 +414,7 @@
     </section>
 
     <!-- Derrière le livre ------------------------------------------------- -->
-    <section class="section" id="auteur" aria-labelledby="auteur-titre">
+    <section class="section" id="auteur" data-section="author" aria-labelledby="auteur-titre">
       <div class="container author">
         <img class="author__photo" src="../assets/img/author.webp" srcset="../assets/img/author-480.webp 480w, ../assets/img/author.webp 800w" sizes="(max-width: 56rem) 16rem, 22rem" width="800" height="1000" alt="Portrait d’Antoine Tran Quan Nam" loading="lazy" decoding="async">
         <div>
@@ -436,7 +436,7 @@
     </section>
 
     <!-- Inscription --------------------------------------------------------- -->
-    <section class="band section" id="inscription" aria-labelledby="inscription-titre">
+    <section class="band section" id="inscription" data-section="signup" aria-labelledby="inscription-titre">
       <div class="container cta">
         <h2 id="inscription-titre">Ne manquez pas la sortie</h2>
         <p>Laissez votre adresse e-mail&nbsp;: nous vous préviendrons dès la sortie d’<cite lang="en">Augmenting Decision</cite>.</p>
