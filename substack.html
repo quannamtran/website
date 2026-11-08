@@ -35,8 +35,8 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=af198102">
-  <script src="assets/js/main.js?v=cd6b4565" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20270c50">
+  <script src="assets/js/main.js?v=763c8a7d" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -212,9 +212,20 @@
       <nav aria-label="Footer">
         <a href="legal.html">Legal notice &amp; privacy</a>
         <a href="fr/substack.html" hreflang="fr" lang="fr">Version française</a>
+        <button class="link-button" type="button" data-consent-open>Cookies</button>
       </nav>
       <p>© <span data-year>2026</span> Augmenting Decision</p>
     </div>
   </footer>
+  <section class="consent" data-consent hidden aria-label="Cookies">
+    <div class="consent__box">
+      <p class="consent__title">May we count visits?</p>
+      <p class="consent__text">With your permission, Google Analytics tells us how many people read these pages and which ones. Nothing is loaded from Google unless you accept, and you can change your mind any time with the “Cookies” link at the bottom of the page. <a href="legal.html#privacy">How your data is handled</a></p>
+      <div class="consent__actions">
+        <button class="btn btn--small" type="button" data-consent-accept>Accept</button>
+        <button class="btn btn--small btn--outline" type="button" data-consent-decline>Decline</button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

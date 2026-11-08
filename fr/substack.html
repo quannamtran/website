@@ -35,8 +35,8 @@
   <link rel="preload" href="../assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="../assets/css/style.css?v=af198102">
-  <script src="../assets/js/main.js?v=cd6b4565" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20270c50">
+  <script src="../assets/js/main.js?v=763c8a7d" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -212,9 +212,20 @@
       <nav aria-label="Pied de page">
         <a href="mentions-legales.html">Mentions légales et confidentialité</a>
         <a href="../substack.html" hreflang="en" lang="en">English version</a>
+        <button class="link-button" type="button" data-consent-open>Cookies</button>
       </nav>
       <p>© <span data-year>2026</span> <span lang="en">Augmenting Decision</span></p>
     </div>
   </footer>
+  <section class="consent" data-consent hidden aria-label="Cookies">
+    <div class="consent__box">
+      <p class="consent__title">Pouvons-nous compter les visites&nbsp;?</p>
+      <p class="consent__text">Avec votre accord, Google Analytics nous indique combien de personnes lisent ces pages, et lesquelles. Rien n’est chargé depuis Google sans votre accord, et vous pouvez changer d’avis à tout moment grâce au lien «&nbsp;Cookies&nbsp;» en bas de page. <a href="mentions-legales.html#confidentialite">Comment vos données sont traitées</a></p>
+      <div class="consent__actions">
+        <button class="btn btn--small" type="button" data-consent-accept>Accepter</button>
+        <button class="btn btn--small btn--outline" type="button" data-consent-decline>Refuser</button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

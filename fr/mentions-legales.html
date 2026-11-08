@@ -18,8 +18,8 @@
 
   <link rel="preload" href="../assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/css/style.css?v=af198102">
-  <script src="../assets/js/main.js?v=cd6b4565" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20270c50">
+  <script src="../assets/js/main.js?v=763c8a7d" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -85,8 +85,10 @@
 
       <h2 id="confidentialite">Confidentialité</h2>
 
-      <h3>Ni cookies, ni pistage</h3>
-      <p>Ce site n’utilise ni cookies, ni outil de mesure d’audience, ni traceur publicitaire. Les polices et les images sont servies par le site lui-même&nbsp;: aucun contenu tiers n’est chargé pendant votre visite.</p>
+      <h3 id="cookies">Mesure d’audience, avec votre accord</h3>
+      <p>Les polices et les images sont servies par le site lui-même. Le seul service tiers est <strong>Google Analytics</strong>, que nous utilisons pour compter les visites et savoir quelles pages sont lues. Il ne fonctionne que si vous l’acceptez dans le bandeau affiché lors de votre première visite. Jusque-là, et si vous refusez, rien n’est chargé depuis Google et aucun cookie n’est déposé.</p>
+      <p>Si vous acceptez, Google Tag Manager charge Google Analytics&nbsp;4. Celui-ci dépose des cookies sur ce site (<code>_ga</code> et <code>_ga_*</code>, conservés jusqu’à 13&nbsp;mois) et transmet à Google des données techniques&nbsp;: les pages consultées, le type de navigateur et d’appareil, et une localisation approximative déduite de votre adresse IP, que Google ne conserve pas. Les données sont traitées par Google Ireland Limited et peuvent être transférées à Google LLC aux États-Unis dans le cadre du <span lang="en">EU–US Data Privacy Framework</span>. Nous conservons les rapports 14&nbsp;mois et n’utilisons aucune fonction publicitaire. La base légale est votre consentement.</p>
+      <p>Vous pouvez retirer votre consentement à tout moment grâce au lien <strong>Cookies</strong> en bas de chaque page&nbsp;: votre choix est enregistré uniquement dans votre navigateur, et Google Analytics cesse de se charger dès la page suivante. Pour supprimer les cookies déjà déposés, effacez les cookies de ce site dans votre navigateur. Politique de Google&nbsp;: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
 
       <h3>Annonce de la sortie</h3>
       <p>Si vous demandez à recevoir l’annonce de la sortie du livre, votre adresse e-mail est utilisée uniquement à cette fin, sur la base de votre consentement. Elle est conservée dans un tableur Google Sheets privé (Google Ireland Limited), accessible uniquement à l’éditeur du site, et n’est jamais vendue ni partagée. Vous pouvez demander à être retiré de la liste à tout moment en écrivant à <a href="mailto:info@augmenting-decision.com">info@augmenting-decision.com</a>&nbsp;; votre adresse est alors supprimée.</p>
@@ -97,7 +99,7 @@
       <h3>Vos droits</h3>
       <p>Conformément au Règlement général sur la protection des données (RGPD), vous pouvez accéder à vos données, les rectifier, les supprimer ou retirer votre consentement à tout moment en écrivant à <a href="mailto:info@augmenting-decision.com">info@augmenting-decision.com</a>. Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr">CNIL</a>.</p>
 
-      <p class="updated">Dernière mise à jour&nbsp;: octobre 2026</p>
+      <p class="updated">Dernière mise à jour&nbsp;: novembre 2026</p>
     </div>
   </main>
 
@@ -110,9 +112,20 @@
       <nav aria-label="Pied de page">
         <a href="mentions-legales.html" aria-current="page">Mentions légales et confidentialité</a>
         <a href="../legal.html" hreflang="en" lang="en">English version</a>
+        <button class="link-button" type="button" data-consent-open>Cookies</button>
       </nav>
       <p>© <span data-year>2026</span> <span lang="en">Augmenting Decision</span></p>
     </div>
   </footer>
+  <section class="consent" data-consent hidden aria-label="Cookies">
+    <div class="consent__box">
+      <p class="consent__title">Pouvons-nous compter les visites&nbsp;?</p>
+      <p class="consent__text">Avec votre accord, Google Analytics nous indique combien de personnes lisent ces pages, et lesquelles. Rien n’est chargé depuis Google sans votre accord, et vous pouvez changer d’avis à tout moment grâce au lien «&nbsp;Cookies&nbsp;» en bas de page. <a href="#confidentialite">Comment vos données sont traitées</a></p>
+      <div class="consent__actions">
+        <button class="btn btn--small" type="button" data-consent-accept>Accepter</button>
+        <button class="btn btn--small btn--outline" type="button" data-consent-decline>Refuser</button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
