@@ -1,0 +1,84 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-11-08 15:30:00",
+  "containerVersion": {
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "name": "Site events: sections, scroll depth, clicks, sign-ups",
+    "description": "Import into the augmenting-decision.com container (Admin > Import Container > Merge). Forwards the events the website pushes to the data layer to Google Analytics 4.",
+    "container": {
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
+      "name": "augmenting-decision.com",
+      "publicId": "GTM-WWQ8QSCD",
+      "usageContext": ["WEB"]
+    },
+    "variable": [
+      {"accountId": "0", "containerId": "0", "variableId": "101", "name": "DL - section_id", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "section_id"}]},
+      {"accountId": "0", "containerId": "0", "variableId": "102", "name": "DL - percent_scrolled", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "percent_scrolled"}]},
+      {"accountId": "0", "containerId": "0", "variableId": "103", "name": "DL - link_text", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "link_text"}]},
+      {"accountId": "0", "containerId": "0", "variableId": "104", "name": "DL - link_url", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "link_url"}]},
+      {"accountId": "0", "containerId": "0", "variableId": "105", "name": "DL - link_type", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "link_type"}]},
+      {"accountId": "0", "containerId": "0", "variableId": "106", "name": "DL - page_lang", "type": "v",
+       "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"}, {"type": "TEMPLATE", "key": "name", "value": "page_lang"}]}
+    ],
+    "trigger": [
+      {"accountId": "0", "containerId": "0", "triggerId": "201", "name": "Event - section_view", "type": "CUSTOM_EVENT",
+       "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "section_view"}]}]},
+      {"accountId": "0", "containerId": "0", "triggerId": "202", "name": "Event - scroll_depth", "type": "CUSTOM_EVENT",
+       "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "scroll_depth"}]}]},
+      {"accountId": "0", "containerId": "0", "triggerId": "203", "name": "Event - cta_click", "type": "CUSTOM_EVENT",
+       "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "cta_click"}]}]},
+      {"accountId": "0", "containerId": "0", "triggerId": "204", "name": "Event - signup_success", "type": "CUSTOM_EVENT",
+       "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "signup_success"}]}]}
+    ],
+    "tag": [
+      {"accountId": "0", "containerId": "0", "tagId": "301", "name": "GA4 - section_view", "type": "gaawe", "firingTriggerId": ["201"],
+       "parameter": [
+         {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-KK1MQ426ZS"},
+         {"type": "TEMPLATE", "key": "eventName", "value": "section_view"},
+         {"type": "LIST", "key": "eventSettingsTable", "list": [
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "section_id"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - section_id}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "page_lang"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - page_lang}}"}]}
+         ]}
+       ]},
+      {"accountId": "0", "containerId": "0", "tagId": "302", "name": "GA4 - scroll_depth", "type": "gaawe", "firingTriggerId": ["202"],
+       "parameter": [
+         {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-KK1MQ426ZS"},
+         {"type": "TEMPLATE", "key": "eventName", "value": "scroll_depth"},
+         {"type": "LIST", "key": "eventSettingsTable", "list": [
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "percent_scrolled"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - percent_scrolled}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "page_lang"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - page_lang}}"}]}
+         ]}
+       ]},
+      {"accountId": "0", "containerId": "0", "tagId": "303", "name": "GA4 - cta_click", "type": "gaawe", "firingTriggerId": ["203"],
+       "parameter": [
+         {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-KK1MQ426ZS"},
+         {"type": "TEMPLATE", "key": "eventName", "value": "cta_click"},
+         {"type": "LIST", "key": "eventSettingsTable", "list": [
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "link_type"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - link_type}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "link_text"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - link_text}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "link_url"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - link_url}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "section_id"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - section_id}}"}]},
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "page_lang"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - page_lang}}"}]}
+         ]}
+       ]},
+      {"accountId": "0", "containerId": "0", "tagId": "304", "name": "GA4 - signup_success", "type": "gaawe", "firingTriggerId": ["204"],
+       "parameter": [
+         {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-KK1MQ426ZS"},
+         {"type": "TEMPLATE", "key": "eventName", "value": "signup_success"},
+         {"type": "LIST", "key": "eventSettingsTable", "list": [
+           {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "parameter", "value": "page_lang"}, {"type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - page_lang}}"}]}
+         ]}
+       ]}
+    ]
+  }
+}

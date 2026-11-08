@@ -36,7 +36,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/style.css?v=20270c50">
-  <script src="assets/js/main.js?v=763c8a7d" defer></script>
+  <script src="assets/js/main.js?v=bc2abbf6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -85,7 +85,7 @@
 
   <main id="main">
     <!-- Hero ------------------------------------------------------------ -->
-    <section class="hero" aria-labelledby="title">
+    <section class="hero" aria-labelledby="title" data-section="hero">
       <div class="container hero__grid">
         <div class="hero__text">
           <p class="status"><span class="status__dot" aria-hidden="true"></span><span><span class="status__lead">A new book · </span>Coming soon</span></p>
@@ -127,7 +127,7 @@
     </section>
 
     <!-- Early praise (carousel) ------------------------------------------ -->
-    <section class="praise" id="praise" aria-roledescription="carousel" aria-labelledby="praise-title" data-carousel
+    <section class="praise" id="praise" data-section="praise" aria-roledescription="carousel" aria-labelledby="praise-title" data-carousel
              data-label-dot="Show endorsement %n of %total" data-label-pause="Pause the endorsements" data-label-play="Play the endorsements">
       <div class="container">
         <h2 class="kicker praise__kicker" id="praise-title">Early praise</h2>
@@ -184,14 +184,14 @@
     </section>
 
     <!-- Statement --------------------------------------------------------- -->
-    <section class="band statement" aria-label="The idea behind the book">
+    <section class="band statement" aria-label="The idea behind the book" data-section="statement">
       <div class="container">
         <p>Analytics and AI do not make decisions. <em>People do.</em></p>
       </div>
     </section>
 
     <!-- About the book ---------------------------------------------------- -->
-    <section class="section" id="book" aria-labelledby="book-title">
+    <section class="section" id="book" data-section="book" aria-labelledby="book-title">
       <div class="container split">
         <div>
           <p class="kicker">About the book</p>
@@ -205,7 +205,7 @@
     </section>
 
     <!-- Why it matters now: two studies, drawn by the scroll ----------------- -->
-    <section class="section why" id="why-now" aria-labelledby="why-title">
+    <section class="section why" id="why-now" data-section="why-now" aria-labelledby="why-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Why it matters now</p>
@@ -314,7 +314,7 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="inside" aria-labelledby="inside-title">
+    <section class="section section--alt" id="inside" data-section="inside" aria-labelledby="inside-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Inside the book</p>
@@ -360,7 +360,7 @@
       </div>
     </section>
 
-    <section class="section" id="contents" aria-labelledby="contents-title">
+    <section class="section" id="contents" data-section="contents" aria-labelledby="contents-title">
       <div class="container">
         <div class="section__head">
           <p class="kicker">Contents</p>
@@ -414,7 +414,7 @@
     </section>
 
     <!-- About the author -------------------------------------------------- -->
-    <section class="section" id="author" aria-labelledby="author-title">
+    <section class="section" id="author" data-section="author" aria-labelledby="author-title">
       <div class="container author">
         <img class="author__photo" src="assets/img/author.webp" srcset="assets/img/author-480.webp 480w, assets/img/author.webp 800w" sizes="(max-width: 56rem) 16rem, 22rem" width="800" height="1000" alt="Portrait of Antoine Tran Quan Nam" loading="lazy" decoding="async">
         <div>
@@ -436,7 +436,7 @@
     </section>
 
     <!-- Sign up ----------------------------------------------------------- -->
-    <section class="band section" id="notify" aria-labelledby="notify-title">
+    <section class="band section" id="notify" data-section="signup" aria-labelledby="notify-title">
       <div class="container cta">
         <h2 id="notify-title">Be the first to know</h2>
         <p>Leave your email and we’ll let you know as soon as <cite>Augmenting Decision</cite> is out.</p>

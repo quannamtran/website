@@ -86,6 +86,7 @@
         .then(function () {
           form.reset();
           say(form.getAttribute('data-msg-success'), 'success');
+          if (window.trackEvent) window.trackEvent('signup_success', { section_id: 'signup' });
         })
         .catch(function () {
           say(form.getAttribute('data-msg-error'), 'error');
@@ -236,6 +237,55 @@
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
     document.head.appendChild(script);
+    startTracking();
+  }
+
+  // What visitors do on the page, for the reports: which sections come on
+  // screen, how far down they scroll, and what they click. Started only once
+  // Tag Manager is loaded, so nothing is recorded before consent. No personal
+  // data: section names, scroll percentages, link texts and destinations.
+  var lang = document.documentElement.lang || 'en';
+  window.trackEvent = function (name, data) {
+    if (!window.__tagsLoaded) return;
+    var event = { event: name, page_lang: lang };
+    for (var k in data) if (data[k] !== undefined && data[k] !== '') event[k] = data[k];
+    window.dataLayer.push(event);
+  };
+  function startTracking() {
+    var sections = [].slice.call(document.querySelectorAll('[data-section]'));
+    if ('IntersectionObserver' in window && sections.length) {
+      var seen = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          seen.unobserve(entry.target);
+          window.trackEvent('section_view', { section_id: entry.target.getAttribute('data-section') });
+        });
+      }, { rootMargin: '-25% 0px -25% 0px' }); // seen once it reaches the middle half of the screen, whatever its height
+      sections.forEach(function (el) { seen.observe(el); });
+    }
+    var marks = [25, 50, 75, 100];
+    function onDepth() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      var pct = max <= 0 ? 100 : Math.round((window.scrollY / max) * 100);
+      while (marks.length && pct >= marks[0]) {
+        window.trackEvent('scroll_depth', { percent_scrolled: marks.shift() });
+      }
+    }
+    window.addEventListener('scroll', onDepth, { passive: true });
+    onDepth();
+    document.addEventListener('click', function (event) {
+      var el = event.target.closest('a, button');
+      if (!el || el.closest('[data-consent]')) return;
+      var type = el.closest('.site-nav') ? 'menu' : el.closest('.social') ? 'social' : el.closest('.lang') ? 'language'
+        : el.closest('.site-footer') ? 'footer' : el.closest('[data-carousel]') ? 'carousel' : el.closest('.post__link') ? 'post'
+        : el.closest('.note') ? 'note' : el.classList.contains('btn') ? 'button' : 'link';
+      var section = el.closest('[data-section]');
+      var text = (el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      window.trackEvent('cta_click', {
+        link_type: type, link_text: text, link_url: el.href || '', section_id: section ? section.getAttribute('data-section') : ''
+      });
+    });
   }
   if (banner) {
     var choice = readConsent();
