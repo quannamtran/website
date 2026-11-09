@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-08T19:33:04Z",
-  "checked_notes": "2026-11-08T17:00:46Z",
+  "checked_notes": "2026-11-09T21:24:14Z",
   "note": {
-    "url": "https://substack.com/note/c-381836944",
-    "date": "2026-11-08",
-    "time": "2026-11-08T08:03:50Z",
-    "text": "Once a humanoid robot's cost per operating hour drops below minimum wage, the business case stops being about innovation and becomes pure arithmetic. Factories don't need a moral debate about replacing workers, they need a spreadsheet that already says yes. The race to cheapen hardware is quietly a race to make human labor the more expensive option on the floor, and whoever wins that race first sets the price everyone else must match. Nobody is voting on this transition, the unit economics are voting for them.",
+    "url": "https://substack.com/note/c-383128460",
+    "date": "2026-11-09",
+    "time": "2026-11-09T20:04:05Z",
+    "text": "Safety rarely fails because nobody cared about it; it fails because it lived outside the normal rhythm of building, bolted on as a final review instead of baked into the weekly cadence. Teams that treat safety checks like standups, not like courtroom hearings, catch problems while they're still cheap to fix. The fix is organizational before it's technical: put the review inside the loop, not at the end of it.",
     "image": null
   },
   "posts": [
