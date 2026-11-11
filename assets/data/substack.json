@@ -1,17 +1,13 @@
 {
   "language": "en",
   "checked_articles": "2026-11-08T19:33:04Z",
-  "checked_notes": "2026-11-10T18:38:40Z",
+  "checked_notes": "2026-11-11T18:37:39Z",
   "note": {
-    "url": "https://substack.com/note/c-383732107",
-    "date": "2026-11-10",
-    "time": "2026-11-10T14:17:19Z",
-    "text": "GenAI was pitched as the great equalizer — cheap intelligence for everyone, instantly. The data tells a different story.\n\nSplit a workforce by existing skill level and hand everyone the same GenAI tool. The already-skilled pull further ahead: they know what good output looks like, so they edit, challenge, and apply it fast. The less-skilled often stall, or worse, drift backward trusting flawed outputs they can't evaluate.\n\nThat's a K-shape, not a level-up. It matters because most adoption plans assume democratization is automatic — it isn't.\n\nIf judgment is the real bottleneck, access alone won't close any gap. Training people to evaluate AI output deserves as much budget as the AI license itself.\n\nAI rewards those who already have the skills to judge it.",
-    "image": {
-      "src": "assets/img/substack/note-f9c097b0971a.webp",
-      "width": 720,
-      "height": 277
-    }
+    "url": "https://substack.com/note/c-384606191",
+    "date": "2026-11-11",
+    "time": "2026-11-11T14:04:34Z",
+    "text": "Critical AI infrastructure is increasingly governed through closed-door commercial agreements rather than public law, and that shift matters more than any single model release. When procurement contracts and voluntary pledges substitute for enforceable rules, the public loses the ability to audit decisions that shape elections, markets, and courts. Oversight negotiated in private, by parties with commercial interests in the outcome, is not oversight at all. The real infrastructure question is not what these systems can do, but who gets to decide, and in what room.",
+    "image": null
   },
   "posts": [
     {
