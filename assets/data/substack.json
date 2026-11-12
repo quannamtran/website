@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-11-08T19:33:04Z",
+  "checked_articles": "2026-11-12T21:49:37Z",
   "checked_notes": "2026-11-12T18:50:19Z",
   "note": {
     "url": "https://substack.com/note/c-385308890",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "The Expensive Lesson Behind Every GenAI System That Breaks",
+      "url": "https://antoinetranquannam.substack.com/p/the-expensive-lesson-behind-every",
+      "date": "2026-11-12",
+      "excerpt": "Enterprise AI projects rarely fail because the model is weak — they fail because nobody engineered the system around it.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-5db861bfdc48.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "The RAG That Knew Everything And Decided Nothing",
       "url": "https://antoinetranquannam.substack.com/p/the-rag-that-knew-everything-and",
@@ -54,18 +66,6 @@
       "paid": false,
       "image": {
         "src": "assets/img/substack/post-8db7a0ada3bf.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "Half Your Meeting, Three Slides, One Brilliant Question",
-      "url": "https://antoinetranquannam.substack.com/p/half-your-meeting-three-slides-one",
-      "date": "2026-10-25",
-      "excerpt": "The delivery blueprint that turns a finished analysis into a decision people actually make",
-      "paid": true,
-      "image": {
-        "src": "assets/img/substack/post-384cf8441732.webp",
         "width": 720,
         "height": 405
       }
