@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-12T21:49:37Z",
-  "checked_notes": "2026-11-12T18:50:19Z",
+  "checked_notes": "2026-11-13T18:29:11Z",
   "note": {
-    "url": "https://substack.com/note/c-385308890",
-    "date": "2026-11-12",
-    "time": "2026-11-12T08:04:28Z",
-    "text": "Every recommendation engine on the planet got rewarded for finding the edge of disagreement, because conflict is sticky and sticky is profitable. Flip the optimization target and the model behaves completely differently: instead of ranking by outrage, it ranks by overlap, surfacing the boring, unglamorous patch of agreement buried under the loudest ten percent of any debate. That patch exists in almost every dataset of human opinion, polling and employee surveys included, which means most organizations aren't lacking consensus, they're lacking a scoring function that rewards finding it. The algorithm was never the villain; the loss function was.",
+    "url": "https://substack.com/note/c-386418712",
+    "date": "2026-11-13",
+    "time": "2026-11-13T14:49:11Z",
+    "text": "Benchmark scores climb while actual task reliability stalls, and nobody questions why the gap keeps widening. The instinct is to throw more compute, more sensors, more parameters at the problem, as if raw horsepower could substitute for a model that actually knows when it's guessing. A system that aces a leaderboard but can't tell you it's unsure is not almost done, it's unfinished in the one dimension that matters for deployment. Measurement theater dressed as progress is still theater.",
     "image": null
   },
   "posts": [
