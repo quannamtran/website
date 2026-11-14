@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-12T21:49:37Z",
-  "checked_notes": "2026-11-13T18:29:11Z",
+  "checked_notes": "2026-11-14T16:59:33Z",
   "note": {
-    "url": "https://substack.com/note/c-386418712",
-    "date": "2026-11-13",
-    "time": "2026-11-13T14:49:11Z",
-    "text": "Benchmark scores climb while actual task reliability stalls, and nobody questions why the gap keeps widening. The instinct is to throw more compute, more sensors, more parameters at the problem, as if raw horsepower could substitute for a model that actually knows when it's guessing. A system that aces a leaderboard but can't tell you it's unsure is not almost done, it's unfinished in the one dimension that matters for deployment. Measurement theater dressed as progress is still theater.",
+    "url": "https://substack.com/note/c-387232971",
+    "date": "2026-11-14",
+    "time": "2026-11-14T14:05:12Z",
+    "text": "Ask executives to name the AI they actually profit from and almost none of them say autonomous superintelligence. It is the narrow tool that reads contracts, routes trucks, or flags fraud, bounded enough to audit and dumb enough to trust. Yet board decks keep budgeting like the moonshot is the product and the boring tool is the side quest. Flip the ratio: fund the unglamorous 95% that works today, and let the 5% stay a research bet, not a roadmap.",
     "image": null
   },
   "posts": [
