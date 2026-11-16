@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-15T20:20:17Z",
-  "checked_notes": "2026-11-15T17:39:51Z",
+  "checked_notes": "2026-11-16T20:57:01Z",
   "note": {
-    "url": "https://substack.com/note/c-387859187",
-    "date": "2026-11-15",
-    "time": "2026-11-15T08:03:41Z",
-    "text": "A chatbot that writes a flawless essay and one that can safely manage a hospital's inventory are not points on the same scale of progress. Most public excitement tracks fluency, the kind of output that sounds impressive in a demo, while the harder gains show up in boring, reliable task completion nobody tweets about. Judging AI by how magical it feels guarantees disappointment once it meets a messy, specific job. The practical move is to stop asking whether AI seems smart and start asking what it reliably does on the tenth try, not the first.",
+    "url": "https://substack.com/note/c-389155831",
+    "date": "2026-11-16",
+    "time": "2026-11-16T19:24:16Z",
+    "text": "Every model response traces back to a mine, a river, and a warehouse somewhere, not just a server rack in a clean diagram. The interface hides lithium extraction, water-cooled data centers, and the underpaid people labeling training data so the output feels weightless. Treating intelligence as something that simply happens in software lets organizations ignore the physical and human supply chain they now depend on. The map of what a system actually costs is longer, and more extractive, than the map of what it can do.",
     "image": null
   },
   "posts": [
