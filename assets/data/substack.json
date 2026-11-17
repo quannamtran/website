@@ -1,13 +1,17 @@
 {
   "language": "en",
   "checked_articles": "2026-11-15T20:20:17Z",
-  "checked_notes": "2026-11-16T20:57:01Z",
+  "checked_notes": "2026-11-17T19:46:42Z",
   "note": {
-    "url": "https://substack.com/note/c-389155831",
-    "date": "2026-11-16",
-    "time": "2026-11-16T19:24:16Z",
-    "text": "Every model response traces back to a mine, a river, and a warehouse somewhere, not just a server rack in a clean diagram. The interface hides lithium extraction, water-cooled data centers, and the underpaid people labeling training data so the output feels weightless. Treating intelligence as something that simply happens in software lets organizations ignore the physical and human supply chain they now depend on. The map of what a system actually costs is longer, and more extractive, than the map of what it can do.",
-    "image": null
+    "url": "https://substack.com/note/c-389786733",
+    "date": "2026-11-17",
+    "time": "2026-11-17T14:19:16Z",
+    "text": "Most AI governance dashboards are built to answer one question: what already went wrong.\n\nThat's the wrong question. By the time a bias incident or breach shows up in the numbers, the underlying model has usually been drifting for weeks.\n\nError rates creep up. Complaints trickle in. Data distributions shift quietly in the background. None of that trips a lagging metric, because lagging metrics only fire once harm is confirmed.\n\nThe real governance work happens in the gap between those two lines — the stretch where a model is clearly degrading but hasn't yet caused a reportable event.\n\nCommittees that wait for the lagging spike are managing damage. Committees that act on the leading curve are managing risk. Build the dashboard, set the thresholds, and give someone the authority to pull the plug early.\n\nThe incident lands at week 8 — the warning started at week 1.",
+    "image": {
+      "src": "assets/img/substack/note-2ee1948cbefd.webp",
+      "width": 720,
+      "height": 457
+    }
   },
   "posts": [
     {
