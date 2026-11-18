@@ -1,17 +1,13 @@
 {
   "language": "en",
   "checked_articles": "2026-11-15T20:20:17Z",
-  "checked_notes": "2026-11-17T19:46:42Z",
+  "checked_notes": "2026-11-18T19:22:44Z",
   "note": {
-    "url": "https://substack.com/note/c-389786733",
-    "date": "2026-11-17",
-    "time": "2026-11-17T14:19:16Z",
-    "text": "Most AI governance dashboards are built to answer one question: what already went wrong.\n\nThat's the wrong question. By the time a bias incident or breach shows up in the numbers, the underlying model has usually been drifting for weeks.\n\nError rates creep up. Complaints trickle in. Data distributions shift quietly in the background. None of that trips a lagging metric, because lagging metrics only fire once harm is confirmed.\n\nThe real governance work happens in the gap between those two lines — the stretch where a model is clearly degrading but hasn't yet caused a reportable event.\n\nCommittees that wait for the lagging spike are managing damage. Committees that act on the leading curve are managing risk. Build the dashboard, set the thresholds, and give someone the authority to pull the plug early.\n\nThe incident lands at week 8 — the warning started at week 1.",
-    "image": {
-      "src": "assets/img/substack/note-2ee1948cbefd.webp",
-      "width": 720,
-      "height": 457
-    }
+    "url": "https://substack.com/note/c-390674326",
+    "date": "2026-11-18",
+    "time": "2026-11-18T14:04:39Z",
+    "text": "Most organizations plan for AI by extrapolating last quarter's capability forward a notch, which guarantees surprise. A sharper habit is writing a concrete scenario of what the tools can do a year or two out, specific enough to be wrong, then checking it against reality every few months. The exercise forces decisions that are otherwise postponed until a crisis makes them urgent. Treat the scenario as a working draft, not a prophecy, and update it faster than the technology moves.",
+    "image": null
   },
   "posts": [
     {
