@@ -1032,29 +1032,37 @@ cite {
   margin: 0;
 }
 .endorse__quote p {
-  color: var(--ink-soft);
-  font-size: 1.1rem;
-  line-height: 1.75;
-  text-wrap: pretty;
-}
-.endorse__quote .endorse__lead {
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 1.05rem + 1.2vw, 2rem);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 .endorse__quote p + p {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
+/* The key words: the book's violet, a little larger, bold. */
+.endorse__key {
+  color: var(--accent-text);
+  font-size: 1.12em;
+  font-weight: 700;
+  line-height: 1; /* keeps the lines evenly spaced */
+}
+/* Who said it, then the firm's logo after a thin divider. */
 .endorse__by {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2.25rem;
 }
-.endorse__by::before {
+.endorse__who {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.endorse__who::before {
   content: "";
   width: 2rem;
   height: 2px;
@@ -1064,11 +1072,26 @@ cite {
 .endorse__name {
   color: var(--ink);
   font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .endorse__role {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+}
+.endorse__logo {
+  align-self: flex-end;
+  width: auto;
+  height: 2.6rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--line);
+}
+@media (prefers-color-scheme: dark) {
+  /* The logo in white, as brands do on dark backgrounds. */
+  .endorse__logo {
+    filter: brightness(0) invert(1);
+    opacity: 0.88;
+  }
 }
 /* Phones and narrow tablets: one column, the mark above the quote. */
 @media (max-width: 48rem) {
@@ -1080,6 +1103,15 @@ cite {
     justify-self: start;
     margin-bottom: 0.75rem;
     font-size: 5rem;
+  }
+}
+/* Phones: the logo goes under the name, without the divider. */
+@media (max-width: 30rem) {
+  .endorse__logo {
+    align-self: flex-start;
+    height: 2.3rem;
+    padding-left: 0;
+    border-left: 0;
   }
 }
 
