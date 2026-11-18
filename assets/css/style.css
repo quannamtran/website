@@ -990,6 +990,99 @@ cite {
   }
 }
 
+/* Featured endorsement: one quote, always shown, just before the statement band.
+   Editorial pull quote: the opening lines large, the rest at reading size. */
+.endorse {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  background: var(--paper-alt);
+}
+.endorse__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  grid-template-areas:
+    "kicker kicker"
+    "mark   quote";
+  column-gap: clamp(1.5rem, 5vw, 4rem);
+}
+.endorse__kicker {
+  grid-area: kicker;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.endorse__mark {
+  grid-area: mark;
+  justify-self: end;
+  width: fit-content;
+  height: 0.6em;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 4rem + 7vw, 11rem);
+  font-weight: 600;
+  line-height: 0.85;
+}
+.endorse__figure {
+  grid-area: quote;
+  max-width: 46rem;
+  margin: 0;
+}
+.endorse__quote {
+  margin: 0;
+}
+.endorse__quote p {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+.endorse__quote .endorse__lead {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.05rem + 1.2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.endorse__quote p + p {
+  margin-top: 1.5rem;
+}
+.endorse__by {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 2rem;
+}
+.endorse__by::before {
+  content: "";
+  width: 2rem;
+  height: 2px;
+  margin-bottom: 0.8rem;
+  background: var(--rule-gradient);
+}
+.endorse__name {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.endorse__role {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+/* Phones and narrow tablets: one column, the mark above the quote. */
+@media (max-width: 48rem) {
+  .endorse__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "kicker" "mark" "quote";
+  }
+  .endorse__mark {
+    justify-self: start;
+    margin-bottom: 0.75rem;
+    font-size: 5rem;
+  }
+}
+
 /* Early praise: endorsement carousel -------------------------------------- */
 .praise {
   padding-block: clamp(3.5rem, 7vw, 5.5rem);
