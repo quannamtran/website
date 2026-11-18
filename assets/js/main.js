@@ -13,6 +13,14 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // The header is fixed: keep the page content starting just below it, whatever its height.
+  function fitHeader() {
+    document.documentElement.style.setProperty('--header-h', header.getBoundingClientRect().height + 'px');
+  }
+  fitHeader();
+  window.addEventListener('resize', fitHeader);
+  if (window.ResizeObserver) new ResizeObserver(fitHeader).observe(header);
+
   // Menu button (phones): opens the dropdown with every link. It closes after a
   // link is chosen, on Escape, or when tapping outside.
   var toggle = document.querySelector('.menu-toggle');

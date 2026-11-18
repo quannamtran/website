@@ -263,9 +263,13 @@ cite {
 }
 
 /* Header ------------------------------------------------------------------- */
+/* Fixed (not sticky) so it stays on screen in every browser, in-app browsers included.
+   The page starts below it: main.js measures its height into --header-h. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   padding-block: 1rem;
   border-bottom: 1px solid transparent;
@@ -273,6 +277,9 @@ cite {
   -webkit-backdrop-filter: saturate(1.4) blur(12px);
   backdrop-filter: saturate(1.4) blur(12px);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.site-header + main {
+  margin-top: var(--header-h, 4.75rem);
 }
 /* Once the page is scrolled, a thin line separates the header from the content. */
 .site-header.is-scrolled {
