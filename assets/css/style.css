@@ -1042,8 +1042,11 @@ cite {
 .endorse__quote p + p {
   margin-top: 1.25rem;
 }
-/* The key words: the book's violet, a little larger, bold. */
-.endorse__key {
+.endorse__quote cite {
+  font-size: 0.86em;
+}
+/* Key words in every quote (featured and carousel): the book's violet, a little larger, bold. */
+.quote-key {
   color: var(--accent-text);
   font-size: 1.12em;
   font-weight: 700;
@@ -1052,12 +1055,13 @@ cite {
 /* Who said it, then the firm's logo after a thin divider. */
 .endorse__by {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.5rem;
   margin-top: 2.25rem;
 }
 .endorse__who {
+  flex: 0 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -1080,15 +1084,22 @@ cite {
   font-size: 1.05rem;
 }
 .endorse__logo {
+  flex: none;
+  display: block;
   align-self: flex-end;
-  width: auto;
-  height: 2.6rem;
   padding-left: 1.5rem;
   border-left: 1px solid var(--line);
 }
+img.endorse__logo,
+.endorse__logo img {
+  display: block;
+  width: auto;
+  height: 2.6rem;
+}
 @media (prefers-color-scheme: dark) {
-  /* The logo in white, as brands do on dark backgrounds. */
-  .endorse__logo {
+  /* One-colour logos turn white on dark backgrounds, as brands do.
+     Two-colour logos (NYU) have their own white version in a <picture>. */
+  .endorse__logo--mono {
     filter: brightness(0) invert(1);
     opacity: 0.88;
   }
@@ -1105,13 +1116,20 @@ cite {
     font-size: 5rem;
   }
 }
-/* Phones: the logo goes under the name, without the divider. */
-@media (max-width: 30rem) {
+/* Phones and small tablets: the logo goes under the name, without the divider. */
+@media (max-width: 40rem) {
+  .endorse__by {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .endorse__logo {
     align-self: flex-start;
-    height: 2.3rem;
     padding-left: 0;
     border-left: 0;
+  }
+  img.endorse__logo,
+  .endorse__logo img {
+    height: 2.3rem;
   }
 }
 
@@ -1151,7 +1169,7 @@ cite {
 .praise__quote p {
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.32rem);
+  font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.45rem);
   font-weight: 400;
   line-height: 1.65;
   text-wrap: pretty;
@@ -1163,6 +1181,7 @@ cite {
   margin-top: 1.75rem;
   color: var(--ink);
   font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .praise__name::before {
@@ -1174,9 +1193,9 @@ cite {
   background: var(--rule-gradient);
 }
 .praise__role {
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 /* With JavaScript: all quotes share one spot (as tall as the longest), one shows at a time. */
 .js .praise__slide {
