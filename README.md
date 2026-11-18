@@ -18,6 +18,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `assets/js/main.js` | Menu, praise carousel, sign-up form (sends to the Google Sheet) and the footer year |
 | `assets/img/cover.webp` | Book cover |
 | `assets/img/author.webp` · `author-480.webp` · `author-avatar.webp` | Author portrait (800×1000 and 480×600, for phones) and the round photo on the Substack note card (96×96) |
+| `assets/img/logos/` | Logos shown under the featured endorsements (transparent background; NYU also has a white version for dark mode) |
 | `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
 | `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
@@ -156,6 +157,8 @@ their mind. The legal pages describe this.
 - Texts live directly in the HTML files. The English and French pages have the same structure,
   so a change in one usually needs the same change in the other.
 - Colors and fonts are CSS variables at the top of `assets/css/style.css`.
+- Endorsements: the featured ones are `<section class="endorse">` blocks between sections, the others are slides in the
+  "Early praise" carousel. Key phrases are wrapped in `<strong class="quote-key">` (violet, bold, slightly larger).
 - To change the author photo, replace the three `assets/img/author*.webp` files with new ones of the same sizes.
 - The two figures in "Why it matters now" are plain HTML drawn by the scroll (see the end of `assets/js/main.js`).
   Their numbers live twice: in the visible text of `index.html` / `fr/index.html`, and as `--v` values in
