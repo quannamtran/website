@@ -1096,6 +1096,10 @@ img.endorse__logo,
   width: auto;
   height: 2.6rem;
 }
+/* Stacked logos (symbol above the name, like ESSEC and NEXTWIRE) need more height to stay legible. */
+img.endorse__logo--tall {
+  height: 5rem;
+}
 @media (prefers-color-scheme: dark) {
   /* One-colour logos turn white on dark backgrounds, as brands do.
      Two-colour logos (NYU) have their own white version in a <picture>. */
@@ -1130,6 +1134,9 @@ img.endorse__logo,
   img.endorse__logo,
   .endorse__logo img {
     height: 2.3rem;
+  }
+  img.endorse__logo--tall {
+    height: 4.25rem;
   }
 }
 
