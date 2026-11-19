@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-11-15T20:20:17Z",
+  "checked_articles": "2026-11-19T22:39:09Z",
   "checked_notes": "2026-11-19T19:27:27Z",
   "note": {
     "url": "https://substack.com/note/c-391367475",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "Launch One Side First, Not Both at Once",
+      "url": "https://antoinetranquannam.substack.com/p/launch-one-side-first-not-both-at",
+      "date": "2026-11-19",
+      "excerpt": "A practical sequence for platform launches that avoids the empty-room problem linear product launches never have to solve.",
+      "paid": false,
+      "image": {
+        "src": "assets/img/substack/post-e45ae3684a5c.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "Stop Optimising the Funnel. Build the Mesh.",
       "url": "https://antoinetranquannam.substack.com/p/stop-optimising-the-funnel-build",
@@ -54,18 +66,6 @@
       "paid": false,
       "image": {
         "src": "assets/img/substack/post-931f31e54e4c.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "The Outcome Tail Is Wagging Your Decision Dog",
-      "url": "https://antoinetranquannam.substack.com/p/the-outcome-tail-is-wagging-your",
-      "date": "2026-11-01",
-      "excerpt": "How to judge a choice before the scoreboard lights up — and build the tools that make the next one better",
-      "paid": true,
-      "image": {
-        "src": "assets/img/substack/post-a62ff180b542.webp",
         "width": 720,
         "height": 405
       }
