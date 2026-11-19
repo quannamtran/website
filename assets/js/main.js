@@ -21,6 +21,18 @@
   window.addEventListener('resize', fitHeader);
   if (window.ResizeObserver) new ResizeObserver(fitHeader).observe(header);
 
+  // Show the header in the browser's top layer, above the page: it then stays at the
+  // top of the screen whatever is done to the page (transforms, filters, stacking).
+  // Browsers without popovers keep the plain fixed header.
+  try {
+    if (typeof header.showPopover === 'function') {
+      header.setAttribute('popover', 'manual');
+      header.showPopover();
+    }
+  } catch (e) {
+    header.removeAttribute('popover');
+  }
+
   // Safety net: some browser extensions and page tools add a transform or filter to
   // the page, which makes a fixed header scroll away with the content. If the header
   // is ever found off the top of the screen, move it back. In a normal browser it
