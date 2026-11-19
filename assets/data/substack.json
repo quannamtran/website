@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-15T20:20:17Z",
-  "checked_notes": "2026-11-18T19:22:44Z",
+  "checked_notes": "2026-11-19T19:27:27Z",
   "note": {
-    "url": "https://substack.com/note/c-390674326",
-    "date": "2026-11-18",
-    "time": "2026-11-18T14:04:39Z",
-    "text": "Most organizations plan for AI by extrapolating last quarter's capability forward a notch, which guarantees surprise. A sharper habit is writing a concrete scenario of what the tools can do a year or two out, specific enough to be wrong, then checking it against reality every few months. The exercise forces decisions that are otherwise postponed until a crisis makes them urgent. Treat the scenario as a working draft, not a prophecy, and update it faster than the technology moves.",
+    "url": "https://substack.com/note/c-391367475",
+    "date": "2026-11-19",
+    "time": "2026-11-19T08:05:06Z",
+    "text": "Most AI deployments are built like one-way doors: easy to walk through, impossible to walk back out of. A system that can only run forward, never be unwound, isn't resilient, it's a dependency with good PR. The real test of a mature AI architecture isn't how fast it onboards a new process, it's how cleanly it lets a team, a customer, or a dataset withdraw from it without the whole structure buckling. Build the exit before you build the entrance, or the exit will build itself at the worst possible moment.",
     "image": null
   },
   "posts": [
