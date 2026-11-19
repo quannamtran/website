@@ -1,13 +1,14 @@
 /* ==========================================================================
    Augmenting Decision: site styles
    One stylesheet for every page. Colors and fonts are set once in :root and
-   follow the book cover: violet to green on white, geometric capitals.
+   follow the book cover (CRC Press, first edition): a blue sky, a deep navy
+   title panel between two green bars, monarch butterflies, condensed capitals.
    ========================================================================== */
 
 /* Fonts (self-hosted, no third-party requests) ---------------------------- */
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/montserrat-latin-wght-normal.woff2") format("woff2");
+  font-family: "Roboto Condensed";
+  src: url("../fonts/roboto-condensed-latin-wght-normal.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -20,44 +21,47 @@
   font-display: swap;
 }
 
-/* Design tokens (colors sampled from the cover) ----------------------------- */
+/* Design tokens (colours sampled from the cover) ---------------------------- */
 :root {
   color-scheme: light dark;
 
-  --paper: #fafafb;
-  --paper-alt: #f4f1f8;
+  --paper: #f7f9fc;
+  --paper-alt: #eaf2fa;      /* pale sky */
   --card: #ffffff;
-  --ink: #241d3d;
-  --ink-soft: #3e3757;
-  --muted: #615a77;
-  --line: rgba(36, 29, 61, 0.12);
+  --ink: #0e2340;            /* the title panel's navy */
+  --ink-soft: #2b3d58;
+  --muted: #53637c;
+  --line: rgba(14, 35, 64, 0.12);
 
-  --violet: #4b2a85;
-  --violet-deep: #2c0d63;
-  --violet-light: #a68bd6;
-  --green: #559646;
-  /* The cover's green, deep enough for small text (5.8:1 on the page). */
-  --green-text: #2f6f3c;
+  --blue: #1a5297;           /* the sky, deepened for text (7.4:1 on the page) */
+  --navy: #0d2240;
+  --sky: #8fbfe8;
+  --green: #1a8a6b;
+  /* The cover's teal-green bars, deep enough for small text. */
+  --green-text: #0b6352;
+  /* The monarch butterflies: decoration only, never text. */
+  --monarch: #d17a22;
 
-  /* "DECISION" on the cover: deep violet, through slate, to green. */
-  --brand-gradient: linear-gradient(90deg, #330b6b 0%, #22114f 42%, #233046 64%, #2f5a44 82%, #4f9a41 100%);
-  --button-gradient: linear-gradient(90deg, #4b2a85 0%, #3b3b7c 50%, #2f6f3c 100%);
-  --rule-gradient: linear-gradient(90deg, #4b2a85, #559646);
-  --title-light: #4b2a85;
-  --accent-text: #4b2a85;
-  --focus: #6a3fd1;
+  /* Navy, through the sky, to the cover's green. */
+  --brand-gradient: linear-gradient(90deg, #0d2240 0%, #1a5297 48%, #2b77bf 74%, #1a8a6b 100%);
+  --button-gradient: linear-gradient(90deg, #1a5297 0%, #135b78 50%, #0b6352 100%);
+  --rule-gradient: linear-gradient(90deg, #1a5297, #1a8a6b);
+  --title-light: #0e2340;
+  --accent-text: #1a5297;
+  --focus: #2b77bf;
   --error: #b3261e;
-  --todo: rgba(166, 139, 214, 0.28);
+  --todo: rgba(143, 191, 232, 0.3);
   --waves: url("../img/waves-light.svg");
 
-  /* Deep violet bands */
-  --band: #21123f;
-  --on-band: #f5f2fb;
-  --on-band-muted: #cbc2e2;
-  --on-band-line: rgba(245, 242, 251, 0.18);
-  --band-gradient-text: linear-gradient(90deg, #c9b2f6 0%, #aab9ea 55%, #a0db90 100%);
+  /* Navy bands, like the cover's title panel */
+  --band: #0d2240;
+  --band-bar: #086151;       /* the green bars above and below it */
+  --on-band: #f2f6fb;
+  --on-band-muted: #c3d1e4;
+  --on-band-line: rgba(242, 246, 251, 0.18);
+  --band-gradient-text: linear-gradient(90deg, #a9d2f5 0%, #b2dbee 50%, #8fdcc4 100%);
 
-  --font-display: "Montserrat", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Roboto Condensed", "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   --container: 72rem;
@@ -68,26 +72,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #100c1b;
-    --paper-alt: #161124;
-    --card: #1b152d;
-    --ink: #f2eff8;
-    --ink-soft: #d6d0e6;
-    --muted: #a9a1c0;
-    --line: rgba(242, 239, 248, 0.12);
+    --paper: #08121f;
+    --paper-alt: #0d1a2c;
+    --card: #12223a;
+    --ink: #eef3fa;
+    --ink-soft: #cfd9e8;
+    --muted: #9aabc3;
+    --line: rgba(238, 243, 250, 0.12);
 
-    --brand-gradient: linear-gradient(90deg, #c4a9f7 0%, #a99be9 40%, #95b4d6 66%, #96d685 100%);
-    --button-gradient: linear-gradient(90deg, #6243ad 0%, #4b4f9a 50%, #377c3c 100%);
-    --rule-gradient: linear-gradient(90deg, #c4a9f7, #96d685);
-    --title-light: #cbb6f5;
-    --accent-text: #c4a9f7;
-    --green-text: #96d685;
-    --focus: #b69cf5;
+    --brand-gradient: linear-gradient(90deg, #cfe5fa 0%, #8ec5f4 45%, #7fd6be 100%);
+    --button-gradient: linear-gradient(90deg, #1f5fa8 0%, #156a84 50%, #0d7461 100%);
+    --rule-gradient: linear-gradient(90deg, #8ec5f4, #7fd6be);
+    --title-light: #eef3fa;
+    --accent-text: #8ec5f4;
+    --green-text: #7fd6be;
+    --focus: #8ec5f4;
     --error: #ff8f87;
-    --todo: rgba(166, 139, 214, 0.32);
+    --todo: rgba(143, 191, 232, 0.3);
     --waves: url("../img/waves-dark.svg");
 
-    --band: #1e1338;
+    --band: #0b1d36;
   }
 }
 
@@ -168,8 +172,8 @@ cite {
 }
 
 ::selection {
-  background: #ddd0f5;
-  color: #241d3d;
+  background: #cfe3f6;
+  color: #0e2340;
 }
 
 .container {
@@ -205,7 +209,7 @@ cite {
   top: 1rem;
 }
 
-/* Gradient text (the cover's violet-to-green lettering). */
+/* Gradient text: navy, through the sky, to the cover's green. */
 .gradient-text {
   background: var(--brand-gradient);
   -webkit-background-clip: text;
@@ -246,13 +250,13 @@ cite {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 0 8px 20px -10px rgba(75, 42, 133, 0.6);
+  box-shadow: 0 8px 20px -10px rgba(26, 82, 151, 0.6);
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 .btn:hover {
   filter: brightness(1.08);
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px -12px rgba(75, 42, 133, 0.7);
+  box-shadow: 0 12px 26px -12px rgba(26, 82, 151, 0.7);
 }
 .btn:active {
   transform: translateY(0);
@@ -284,7 +288,7 @@ cite {
 /* Once the page is scrolled, a thin line separates the header from the content. */
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 8px 24px -20px rgba(36, 29, 61, 0.35);
+  box-shadow: 0 8px 24px -20px rgba(14, 35, 64, 0.35);
 }
 @supports not (background: color-mix(in srgb, red, blue)) {
   .site-header {
@@ -368,7 +372,7 @@ cite {
   transform: rotate(45deg);
   opacity: 0.6;
 }
-/* Page names in the cover's violet, their sections in its green. */
+/* Page names in the cover's blue, their sections in its green. */
 .site-nav .site-nav__top,
 .site-nav .site-nav__top:hover {
   color: var(--accent-text);
@@ -394,7 +398,7 @@ cite {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--card);
-  box-shadow: 0 18px 40px -22px rgba(36, 29, 61, 0.45);
+  box-shadow: 0 18px 40px -22px rgba(14, 35, 64, 0.45);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4px);
@@ -472,7 +476,7 @@ cite {
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 .social__link:hover {
-  border-color: var(--violet-light);
+  border-color: var(--sky);
   background: var(--paper-alt);
 }
 
@@ -521,7 +525,7 @@ cite {
     padding: 0.5rem var(--gutter) 1.25rem;
     border-bottom: 1px solid var(--line);
     background: var(--paper);
-    box-shadow: 0 24px 40px -24px rgba(36, 29, 61, 0.45);
+    box-shadow: 0 24px 40px -24px rgba(14, 35, 64, 0.45);
   }
   .site-menu.is-open {
     display: flex;
@@ -628,15 +632,16 @@ cite {
   padding-block: clamp(2rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem);
 }
 
-/* Soft violet and green light, like the shadow under the crane on the cover. */
+/* A soft sky, like the cover's blurred blue background, with a touch of its green. */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(42% 55% at 12% 18%, rgba(166, 139, 214, 0.2), rgba(166, 139, 214, 0) 70%),
-    radial-gradient(40% 55% at 88% 78%, rgba(85, 150, 70, 0.16), rgba(85, 150, 70, 0) 70%);
+    radial-gradient(42% 55% at 12% 18%, rgba(120, 178, 232, 0.3), rgba(120, 178, 232, 0) 70%),
+    radial-gradient(40% 55% at 88% 78%, rgba(26, 138, 107, 0.14), rgba(26, 138, 107, 0) 70%),
+    linear-gradient(180deg, rgba(143, 191, 232, 0.28), rgba(143, 191, 232, 0) 65%);
 }
 /* The cover's flowing lines and data points, behind the book. */
 .hero::after {
@@ -683,31 +688,31 @@ cite {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--monarch);
   animation: pulse 2.4s ease-out infinite;
 }
 @media (max-width: 30rem) {
-  /* Keep the label on one line on phones: just "Coming soon". */
+  /* Keep the label on one line on phones: just "Coming June 2027". */
   .status__lead {
     display: none;
   }
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(85, 150, 70, 0.55);
+    box-shadow: 0 0 0 0 rgba(209, 122, 34, 0.55);
   }
   70%,
   100% {
-    box-shadow: 0 0 0 10px rgba(85, 150, 70, 0);
+    box-shadow: 0 0 0 10px rgba(209, 122, 34, 0);
   }
 }
 
-/* Title in capitals, as on the cover: "AUGMENTING" light, "DECISION" in the gradient. */
+/* Title in bold condensed capitals, as on the cover: "AUGMENTING" in navy, "DECISION" in the gradient. */
 .hero__title {
-  font-size: clamp(2.1rem, 0.9rem + 4.6vw, 5rem);
-  font-size: clamp(2.1rem, 12.4cqi, 5rem);
-  line-height: 1.02;
-  letter-spacing: 0.02em;
+  font-size: clamp(2.6rem, 1.2rem + 5.6vw, 6rem);
+  font-size: clamp(2.6rem, 15.5cqi, 6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 .hero__title > span {
@@ -716,11 +721,10 @@ cite {
 }
 .hero__title-light {
   color: var(--title-light);
-  font-weight: 300;
-  letter-spacing: 0.045em;
+  font-weight: 700;
 }
 .hero__title-strong {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .hero__subtitle {
@@ -764,7 +768,7 @@ cite {
   width: 90%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(166, 139, 214, 0.32), rgba(85, 150, 70, 0.1) 50%, rgba(85, 150, 70, 0) 70%);
+  background: radial-gradient(circle, rgba(120, 178, 232, 0.32), rgba(26, 138, 107, 0.1) 50%, rgba(26, 138, 107, 0) 70%);
 }
 
 .book {
@@ -784,10 +788,10 @@ cite {
   border-radius: 2px 6px 6px 2px;
   transform: translateZ(calc(var(--thickness) / 2));
   box-shadow:
-    0 0 0 1px rgba(36, 29, 61, 0.06),
-    0 2px 4px rgba(36, 29, 61, 0.08),
-    0 28px 48px -18px rgba(60, 35, 110, 0.45),
-    0 60px 90px -40px rgba(47, 111, 60, 0.35);
+    0 0 0 1px rgba(14, 35, 64, 0.06),
+    0 2px 4px rgba(14, 35, 64, 0.08),
+    0 28px 48px -18px rgba(20, 62, 112, 0.45),
+    0 60px 90px -40px rgba(11, 99, 82, 0.35);
 }
 @media (prefers-color-scheme: dark) {
   .book__cover {
@@ -888,7 +892,7 @@ cite {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--card);
-  box-shadow: 0 1px 2px rgba(36, 29, 61, 0.05), 0 14px 30px -20px rgba(60, 35, 110, 0.45);
+  box-shadow: 0 1px 2px rgba(14, 35, 64, 0.05), 0 14px 30px -20px rgba(20, 62, 112, 0.45);
 }
 .signup__row:focus-within {
   outline: 3px solid var(--focus);
@@ -955,7 +959,7 @@ cite {
   color: var(--error);
 }
 
-/* Variant used on the deep violet bands. */
+/* Variant used on the navy bands. */
 .signup--on-dark {
   margin-inline: auto;
 }
@@ -979,11 +983,11 @@ cite {
 }
 .band .btn {
   background: #ffffff;
-  color: var(--violet-deep);
+  color: var(--navy);
   box-shadow: none;
 }
 .band .btn:hover {
-  background: #efe8fb;
+  background: #e6f0fa;
   filter: none;
 }
 
@@ -1040,7 +1044,7 @@ cite {
 }
 .endorse__quote p {
   color: var(--ink);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.45rem);
   font-weight: 400;
   line-height: 1.65;
@@ -1052,7 +1056,7 @@ cite {
 .endorse__quote cite {
   font-size: 0.86em;
 }
-/* Key words in every quote (featured and carousel): the book's violet, a little larger, bold. */
+/* Key words in every quote (featured and carousel): the cover's blue, a little larger, bold. */
 .quote-key {
   color: var(--accent-text);
   font-size: 1.12em;
@@ -1157,7 +1161,7 @@ img.endorse__logo--tall {
   justify-content: center;
   margin-bottom: 0.5rem;
 }
-/* Large quotation mark in the cover's violet-to-green gradient. */
+/* Large quotation mark in the brand gradient (navy, sky, green). */
 .praise__mark {
   width: fit-content;
   margin: 0 auto;
@@ -1182,7 +1186,7 @@ img.endorse__logo--tall {
 }
 .praise__quote p {
   color: var(--ink);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.45rem);
   font-weight: 400;
   line-height: 1.65;
@@ -1257,7 +1261,7 @@ html:not(.js) .praise__controls {
   transition: border-color 0.15s ease;
 }
 .praise__btn:hover {
-  border-color: var(--violet-light);
+  border-color: var(--sky);
 }
 .praise__toggle .praise__icon-play,
 .praise[data-paused="true"] .praise__toggle .praise__icon-pause {
@@ -1286,11 +1290,11 @@ html:not(.js) .praise__controls {
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 999px;
-  background: #d3c7ea;
+  background: #c5d6ea;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 .praise__dot:hover::before {
-  background: var(--violet-light);
+  background: var(--sky);
 }
 .praise__dot[aria-current="true"]::before {
   width: 1.6rem;
@@ -1301,7 +1305,7 @@ html:not(.js) .praise__controls {
 }
 @media (prefers-color-scheme: dark) {
   .praise__dot::before {
-    background: rgba(196, 169, 247, 0.32);
+    background: rgba(142, 197, 244, 0.32);
   }
 }
 @media (forced-colors: active) {
@@ -1312,15 +1316,16 @@ html:not(.js) .praise__controls {
   }
 }
 
-/* Deep violet bands -------------------------------------------------------- */
+/* Navy bands, like the cover's title panel ---------------------------------- */
 .band {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  border-block: 6px solid var(--band-bar);
   background: var(--band);
   color: var(--on-band-muted);
 }
-/* The cover's lines and data points, in light violet and green. */
+/* Flowing lines and data points, in light sky blue and green. */
 .band::before {
   content: "";
   position: absolute;
@@ -1606,7 +1611,7 @@ html:not(.js) .praise__controls {
   object-fit: cover;
   border-radius: var(--radius);
   background: var(--paper-alt);
-  box-shadow: 0 24px 48px -32px rgba(36, 29, 61, 0.45);
+  box-shadow: 0 24px 48px -32px rgba(14, 35, 64, 0.45);
 }
 .author h2 {
   margin-bottom: 1.25rem;
@@ -1678,8 +1683,8 @@ html:not(.js) .praise__controls {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(42% 55% at 12% 18%, rgba(166, 139, 214, 0.2), rgba(166, 139, 214, 0) 70%),
-    radial-gradient(40% 55% at 88% 78%, rgba(85, 150, 70, 0.16), rgba(85, 150, 70, 0) 70%);
+    radial-gradient(42% 55% at 12% 18%, rgba(120, 178, 232, 0.2), rgba(120, 178, 232, 0) 70%),
+    radial-gradient(40% 55% at 88% 78%, rgba(26, 138, 107, 0.16), rgba(26, 138, 107, 0) 70%);
 }
 .page-hero::after {
   content: "";
@@ -1728,13 +1733,13 @@ html:not(.js) .praise__controls {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
-  box-shadow: 0 20px 40px -30px rgba(36, 29, 61, 0.45);
+  box-shadow: 0 20px 40px -30px rgba(14, 35, 64, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .note:hover {
   transform: translateY(-2px);
-  border-color: var(--violet-light);
-  box-shadow: 0 24px 44px -28px rgba(36, 29, 61, 0.55);
+  border-color: var(--sky);
+  box-shadow: 0 24px 44px -28px rgba(14, 35, 64, 0.55);
 }
 .note__head {
   display: flex;
@@ -1860,8 +1865,8 @@ html:not(.js) .praise__controls {
 }
 .post__link:hover {
   transform: translateY(-2px);
-  border-color: var(--violet-light);
-  box-shadow: 0 20px 36px -24px rgba(36, 29, 61, 0.45);
+  border-color: var(--sky);
+  box-shadow: 0 20px 36px -24px rgba(14, 35, 64, 0.45);
 }
 .post__image {
   width: 100%;
@@ -1886,7 +1891,7 @@ html:not(.js) .praise__controls {
   gap: 0.35rem;
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(16, 12, 27, 0.8);
+  background: rgba(8, 18, 31, 0.8);
   color: #ffffff;
   font: 600 0.7rem/1 var(--font-display);
   letter-spacing: 0.08em;
@@ -2071,7 +2076,7 @@ html:not(.js) .praise__controls {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
-  box-shadow: 0 30px 60px -36px rgba(36, 29, 61, 0.5);
+  box-shadow: 0 30px 60px -36px rgba(14, 35, 64, 0.5);
 }
 .plate__head {
   margin-bottom: 1rem;
@@ -2146,13 +2151,13 @@ html:not(.js) .praise__controls {
   opacity: var(--coin);
   transition: opacity 0.3s ease;
 }
-/* The coin: two sides, violet and green, for the two options it chose between. */
+/* The coin: two sides, blue and green, for the two options it chose between. */
 .flip__coin {
   grid-area: coin;
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--violet) 0 50%, var(--green) 50% 100%);
+  background: linear-gradient(135deg, var(--blue) 0 50%, var(--green) 50% 100%);
   box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35);
   opacity: var(--coin);
   transform: scale(calc(0.6 + 0.4 * var(--coin)));
@@ -2302,7 +2307,7 @@ html:not(.js) .praise__controls {
   background: var(--green);
 }
 .bar--wrong .bar__col i {
-  background: repeating-linear-gradient(135deg, var(--violet) 0 6px, var(--violet-light) 6px 10px);
+  background: repeating-linear-gradient(135deg, var(--blue) 0 6px, var(--sky) 6px 10px);
 }
 /* The two "with AI" columns wait, faint, until the scroll draws them; their
    labels appear with the drawing. */
@@ -2334,8 +2339,9 @@ html:not(.js) .praise__controls {
   left: 0;
   right: 0;
   top: calc(var(--chart-h) * (1 - var(--v) / 100));
-  border-top: 2px dashed var(--muted);
-  opacity: calc(0.5 * var(--draw));
+  /* A faint dashed line, but a fully legible label. */
+  border-top: 2px dashed color-mix(in srgb, var(--muted) 50%, transparent);
+  opacity: var(--draw);
   pointer-events: none;
 }
 .bars__base span {
@@ -2385,7 +2391,13 @@ html:not(.js) .praise__controls {
   opacity: clamp(0, (var(--after) - 0.85) * 7, 1);
 }
 .meter__fill--ai {
-  background: var(--green);
+  background: var(--green-text);
+}
+@media (prefers-color-scheme: dark) {
+  /* Light bars in dark mode: dark figures on them. */
+  .meter__fill b {
+    color: var(--paper);
+  }
 }
 .meter__fill--alone {
   background: var(--muted);
@@ -2405,7 +2417,7 @@ html:not(.js) .praise__controls {
   background: var(--muted);
 }
 .meter__key--ai {
-  background: var(--green);
+  background: var(--green-text);
 }
 .meter__key--alone + * + .meter__key--ai {
   margin-left: 0.8rem;
@@ -2476,7 +2488,7 @@ html:not(.js) .praise__controls {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
-  box-shadow: 0 24px 56px -24px rgba(36, 29, 61, 0.55);
+  box-shadow: 0 24px 56px -24px rgba(14, 35, 64, 0.55);
   pointer-events: auto;
 }
 .consent__title {
