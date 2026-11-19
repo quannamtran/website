@@ -28,7 +28,7 @@
     list.forEach(function (m) {
       if (m.type === 'attributes' && !/^(class|style|popover)$/.test(m.attributeName) ) return;
       var v = header.getAttribute(m.attributeName) || '';
-      if (m.attributeName === 'style' && /^transform: translateY\(-?[\d.]+px\);?$|^$/.test(v)) return; // our own safety net
+      if (m.attributeName === 'style' && /^((transform|width|right): [^;]+;\s*)*$/.test(v)) return; // our own placement
       if (m.attributeName === 'class' && /^site-header( is-scrolled)?$/.test(v)) return;
       log.push(new Date().toLocaleTimeString() + ' header ' + m.attributeName + ' → "' + v.slice(0, 80) + '"');
     });
@@ -56,6 +56,7 @@
       'browser: ' + (navigator.userAgent.match(/(Chrome|Edg|Firefox|Version)\/[\d.]+/g) || [navigator.userAgent]).join(' '),
       'files: ' + css.concat(scripts).join('  '),
       'window: ' + window.innerWidth + '×' + window.innerHeight + '  zoom ' + Math.round(window.devicePixelRatio * 100) + '%  scrollY ' + Math.round(window.scrollY) + '  scroller ' + describe(document.scrollingElement),
+      'pinch zoom: ' + (window.visualViewport ? window.visualViewport.scale.toFixed(2) + '×  visible area top ' + Math.round(window.visualViewport.offsetTop) : 'n/a'),
       'header box: top ' + Math.round(r.top) + '  height ' + Math.round(r.height) + '  width ' + Math.round(r.width),
       'header css: ' + ['position', 'display', 'visibility', 'opacity', 'zIndex', 'transform'].map(function (k) { return k + '=' + cs[k]; }).join(' '),
       'top layer: ' + (header.matches && (function () { try { return header.matches(':popover-open'); } catch (e) { return 'n/a'; } })()),

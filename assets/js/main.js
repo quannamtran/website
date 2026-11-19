@@ -40,28 +40,45 @@
   // Diagnostics for the top menu: add ?debug=header to the address to show them.
   if (/[?&]debug=header\b/.test(window.location.search)) {
     var dbg = document.createElement('script');
-    dbg.src = (document.querySelector('script[src*="main.js"]').src).replace(/main\.js.*$/, 'debug-header.js?v=1');
+    dbg.src = (document.querySelector('script[src*="main.js"]').src).replace(/main\.js.*$/, 'debug-header.js?v=2');
     document.body.appendChild(dbg);
   }
 
-  // Safety net: some browser extensions and page tools add a transform or filter to
-  // the page, which makes a fixed header scroll away with the content. If the header
-  // is ever found off the top of the screen, move it back. In a normal browser it
-  // always sits at 0, so this does nothing.
-  var headerShift = 0, pinQueued = false;
-  function pinHeader() {
-    pinQueued = false;
-    var top = header.getBoundingClientRect().top;
-    if (Math.abs(top) < 0.5) return;
-    headerShift -= top;
-    header.style.transform = headerShift ? 'translateY(' + headerShift + 'px)' : '';
+  // Keep the header on screen in two situations a fixed bar does not cover:
+  // - Pinch-zoom (touchpad, touch screen, or Ctrl + wheel on some setups): the browser
+  //   magnifies the page like a loupe, and fixed elements stay on the unmagnified page,
+  //   so they slide out of view while scrolling. The header then follows the visible
+  //   (visual) viewport instead.
+  // - Extensions or page tools that put a transform or filter on the page, which turns
+  //   "fixed" into "scrolls with the page". Any remaining offset is corrected.
+  // In a normal, unzoomed browser the header sits at 0 and nothing is changed.
+  var headerShift = 0, placeQueued = false, vv = window.visualViewport;
+  function moveHeader(x, y) {
+    header.style.transform = (x || y) ? 'translate(' + x + 'px, ' + y + 'px)' : '';
   }
-  function queuePin() {
-    if (!pinQueued) { pinQueued = true; window.requestAnimationFrame(pinHeader); }
+  function placeHeader() {
+    placeQueued = false;
+    var zoomed = !!vv && vv.scale > 1.001;
+    var x = zoomed ? vv.offsetLeft : 0, y = zoomed ? vv.offsetTop : 0;
+    header.style.width = zoomed ? vv.width + 'px' : '';
+    header.style.right = zoomed ? 'auto' : '';
+    moveHeader(x, y + headerShift);
+    var off = header.getBoundingClientRect().top - y;
+    if (Math.abs(off) >= 0.5) {
+      headerShift -= off;
+      moveHeader(x, y + headerShift);
+    }
   }
-  window.addEventListener('scroll', queuePin, { passive: true });
-  window.addEventListener('resize', queuePin);
-  pinHeader();
+  function queuePlace() {
+    if (!placeQueued) { placeQueued = true; window.requestAnimationFrame(placeHeader); }
+  }
+  window.addEventListener('scroll', queuePlace, { passive: true });
+  window.addEventListener('resize', queuePlace);
+  if (vv) {
+    vv.addEventListener('scroll', queuePlace);
+    vv.addEventListener('resize', queuePlace);
+  }
+  placeHeader();
 
   // Menu button (phones): opens the dropdown with every link. It closes after a
   // link is chosen, on Escape, or when tapping outside.
