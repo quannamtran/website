@@ -1,6 +1,6 @@
 # Augmenting Decision · book website
 
-The website for the book *Augmenting Decision: How data and AI are reshaping the way we choose* by Antoine Tran Quan Nam,
+The website for the book *Augmenting Decision: How data and AI are transforming the way we choose* by Antoine Tran Quan Nam,
 published at **https://augmenting-decision.com** (English) and **https://augmenting-decision.com/fr/** (French).
 
 It is plain HTML and CSS, with no build step and nothing to install, hosted for free on GitHub Pages.
@@ -14,17 +14,17 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `substack.html` · `fr/substack.html` | Substack page: latest note and latest posts (EN · FR), updated every day |
 | `legal.html` · `fr/mentions-legales.html` | Legal notice and privacy policy (EN · FR) |
 | `404.html` | "Page not found" page, in both languages |
-| `assets/css/style.css` | All the styling. Colors (taken from the cover) and fonts are defined at the top. |
+| `assets/css/style.css` | All the styling. Colors (taken from the cover: sky blue, navy, teal green, monarch orange) and fonts are defined at the top. |
 | `assets/js/main.js` | Menu, praise carousel, sign-up form (sends to the Google Sheet) and the footer year |
-| `assets/img/cover.webp` | Book cover |
+| `assets/img/cover.webp` | Book cover (CRC Press, first edition) |
 | `assets/img/author.webp` · `author-480.webp` · `author-avatar.webp` | Author portrait (800×1000 and 480×600, for phones) and the round photo on the Substack note card (96×96) |
 | `assets/img/logos/` | Logos shown under the featured endorsements (transparent background; NYU also has a white version for dark mode) |
-| `assets/img/waves-*.svg` | The cover's flowing lines and data points, used as background art |
-| `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared |
+| `assets/img/waves-*.svg` | Flowing lines and data points in sky blue and green, used as background art |
+| `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared (made from `tools/og-image.html`) |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
 | `tools/update-substack.py` · `tools/render-substack.py` | The daily update: read the agent's archive, then write the page |
 | `.github/workflows/substack.yml` | Runs the daily update on GitHub |
-| `assets/fonts/` | Montserrat (headings, like the cover) and Inter (text), served from the site itself (no Google Fonts) |
+| `assets/fonts/` | Roboto Condensed (titles, like the cover's condensed capitals) and Inter (text), served from the site itself (no Google Fonts) |
 | `CNAME` | Tells GitHub Pages the site's domain name |
 
 ## Putting the site online (one-time setup)
