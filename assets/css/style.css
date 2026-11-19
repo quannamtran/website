@@ -1229,6 +1229,35 @@ img.endorse__logo--tall {
   color: var(--muted);
   font-size: 1.05rem;
 }
+/* The endorser's organisation, under their name. Logos differ in shape (wordmarks,
+   emblems, a roundel), so each gets a size that looks balanced next to the others. */
+.praise__logo {
+  display: block;
+  width: fit-content;
+  margin: 1.4rem auto 0;
+}
+img.praise__logo,
+.praise__logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: var(--logo-h);
+}
+.praise__logo--s { --logo-h: 2rem; }
+.praise__logo--m { --logo-h: 2.4rem; }
+.praise__logo--l { --logo-h: 3.4rem; }
+.praise__logo--xl { --logo-h: 5rem; }
+@media (max-width: 30rem) {
+  .praise__logo--l { --logo-h: 3rem; }
+  .praise__logo--xl { --logo-h: 4.4rem; }
+}
+@media (prefers-color-scheme: dark) {
+  /* One-colour logos turn white on the dark page; two-colour ones have a white version. */
+  .praise__logo--mono {
+    filter: brightness(0) invert(1);
+    opacity: 0.88;
+  }
+}
 /* With JavaScript: all quotes share one spot (as tall as the longest), one shows at a time. */
 .js .praise__slide {
   grid-area: 1 / 1;
