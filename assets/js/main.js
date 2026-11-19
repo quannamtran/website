@@ -37,13 +37,6 @@
     header.removeAttribute('popover');
   }
 
-  // Diagnostics for the top menu: add ?debug=header to the address to show them.
-  if (/[?&]debug=header\b/.test(window.location.search)) {
-    var dbg = document.createElement('script');
-    dbg.src = (document.querySelector('script[src*="main.js"]').src).replace(/main\.js.*$/, 'debug-header.js?v=2');
-    document.body.appendChild(dbg);
-  }
-
   // Keep the header on screen in two situations a fixed bar does not cover:
   // - Pinch-zoom (touchpad, touch screen, or Ctrl + wheel on some setups): the browser
   //   magnifies the page like a loupe, and fixed elements stay on the unmagnified page,
