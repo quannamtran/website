@@ -205,8 +205,10 @@ cite {
   font-weight: 600;
   text-decoration: none;
 }
+/* Shown just below the fixed header, which is drawn above everything. */
 .skip-link:focus {
-  top: 1rem;
+  position: fixed;
+  top: calc(var(--header-h, 4.75rem) + 0.5rem);
 }
 
 /* Gradient text: navy, through the sky, to the cover's green. */
@@ -277,10 +279,23 @@ cite {
   z-index: 20;
   padding-block: 1rem;
   border-bottom: 1px solid transparent;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  -webkit-backdrop-filter: saturate(1.4) blur(12px);
-  backdrop-filter: saturate(1.4) blur(12px);
+  /* Solid, with no blur effect: blurred bars can vanish while scrolling on some graphics cards. */
+  background: var(--paper);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* main.js also shows the header in the browser's "top layer" (as a popover), which is
+   drawn above the page and is not moved or hidden by anything done to the page itself.
+   These rules cancel the browser's default popover box. */
+.site-header[popover] {
+  bottom: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding-inline: 0;
+  border-width: 0 0 1px;
+  border-style: solid;
+  overflow: visible;
+  color: inherit;
 }
 .site-header + main {
   margin-top: var(--header-h, 4.75rem);
@@ -290,12 +305,6 @@ cite {
   border-bottom-color: var(--line);
   box-shadow: 0 8px 24px -20px rgba(14, 35, 64, 0.35);
 }
-@supports not (background: color-mix(in srgb, red, blue)) {
-  .site-header {
-    background: var(--paper);
-  }
-}
-
 .site-header__inner {
   display: flex;
   align-items: center;

@@ -158,7 +158,7 @@ their mind. The legal pages describe this.
   so a change in one usually needs the same change in the other.
 - Colors and fonts are CSS variables at the top of `assets/css/style.css`.
 - Endorsements: the featured ones are `<section class="endorse">` blocks between sections, the others are slides in the
-  "Early praise" carousel. Key phrases are wrapped in `<strong class="quote-key">` (violet, bold, slightly larger).
+  "Early praise" carousel. Key phrases are wrapped in `<strong class="quote-key">` (blue, bold, slightly larger).
 - To change the author photo, replace the three `assets/img/author*.webp` files with new ones of the same sizes.
 - The two figures in "Why it matters now" are plain HTML drawn by the scroll (see the end of `assets/js/main.js`).
   Their numbers live twice: in the visible text of `index.html` / `fr/index.html`, and as `--v` values in
