@@ -286,6 +286,11 @@ cite {
 /* main.js also shows the header in the browser's "top layer" (as a popover), which is
    drawn above the page and is not moved or hidden by anything done to the page itself.
    These rules cancel the browser's default popover box. */
+/* If anything closes that popover, keep the header showing as a plain fixed bar
+   (browsers hide closed popovers by default). */
+.site-header[popover]:not(:popover-open) {
+  display: block;
+}
 .site-header[popover] {
   bottom: auto;
   width: auto;
