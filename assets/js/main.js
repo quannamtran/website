@@ -21,6 +21,25 @@
   window.addEventListener('resize', fitHeader);
   if (window.ResizeObserver) new ResizeObserver(fitHeader).observe(header);
 
+  // Safety net: some browser extensions and page tools add a transform or filter to
+  // the page, which makes a fixed header scroll away with the content. If the header
+  // is ever found off the top of the screen, move it back. In a normal browser it
+  // always sits at 0, so this does nothing.
+  var headerShift = 0, pinQueued = false;
+  function pinHeader() {
+    pinQueued = false;
+    var top = header.getBoundingClientRect().top;
+    if (Math.abs(top) < 0.5) return;
+    headerShift -= top;
+    header.style.transform = headerShift ? 'translateY(' + headerShift + 'px)' : '';
+  }
+  function queuePin() {
+    if (!pinQueued) { pinQueued = true; window.requestAnimationFrame(pinHeader); }
+  }
+  window.addEventListener('scroll', queuePin, { passive: true });
+  window.addEventListener('resize', queuePin);
+  pinHeader();
+
   // Menu button (phones): opens the dropdown with every link. It closes after a
   // link is chosen, on Escape, or when tapping outside.
   var toggle = document.querySelector('.menu-toggle');
