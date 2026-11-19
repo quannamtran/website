@@ -28,9 +28,20 @@
     if (typeof header.showPopover === 'function') {
       header.setAttribute('popover', 'manual');
       header.showPopover();
+      // Reopen it if anything closes it.
+      header.addEventListener('toggle', function (event) {
+        if (event.newState === 'closed') window.setTimeout(function () { try { header.showPopover(); } catch (e) {} }, 0);
+      });
     }
   } catch (e) {
     header.removeAttribute('popover');
+  }
+
+  // Diagnostics for the top menu: add ?debug=header to the address to show them.
+  if (/[?&]debug=header\b/.test(window.location.search)) {
+    var dbg = document.createElement('script');
+    dbg.src = (document.querySelector('script[src*="main.js"]').src).replace(/main\.js.*$/, 'debug-header.js?v=1');
+    document.body.appendChild(dbg);
   }
 
   // Safety net: some browser extensions and page tools add a transform or filter to
