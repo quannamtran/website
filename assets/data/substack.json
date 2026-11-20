@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-19T22:39:09Z",
-  "checked_notes": "2026-11-19T19:27:27Z",
+  "checked_notes": "2026-11-20T19:03:49Z",
   "note": {
-    "url": "https://substack.com/note/c-391367475",
-    "date": "2026-11-19",
-    "time": "2026-11-19T08:05:06Z",
-    "text": "Most AI deployments are built like one-way doors: easy to walk through, impossible to walk back out of. A system that can only run forward, never be unwound, isn't resilient, it's a dependency with good PR. The real test of a mature AI architecture isn't how fast it onboards a new process, it's how cleanly it lets a team, a customer, or a dataset withdraw from it without the whole structure buckling. Build the exit before you build the entrance, or the exit will build itself at the worst possible moment.",
+    "url": "https://substack.com/note/c-392479474",
+    "date": "2026-11-20",
+    "time": "2026-11-20T15:14:41Z",
+    "text": "A twelve-month head start used to buy a company a market. Now the gap between a launch and a credible copy has collapsed to a single quarter, so the real advantage sits in the feedback loop, not the model weights: who ships to the most users fastest, learns from the most failures, and iterates before the next earnings call. Strategy decks built around a defensible technical lead are already obsolete, because the only compounding asset left is organizational speed. Leadership teams still debating a twelve-month roadmap are optimizing for a market that no longer exists.",
     "image": null
   },
   "posts": [
