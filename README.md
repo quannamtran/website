@@ -20,7 +20,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `assets/img/author.webp` · `author-480.webp` · `author-avatar.webp` | Author portrait (800×1000 and 480×600, for phones) and the round photo on the Substack note card (96×96) |
 | `assets/img/logos/` | Logos shown under the featured endorsements (transparent background; NYU also has a white version for dark mode) |
 | `assets/img/waves-*.svg` | Flowing lines and data points in sky blue and green, used as background art |
-| `assets/img/og-en.jpg` · `og-fr.jpg` | Preview images shown when the link is shared (made from `tools/og-image.html`) |
+| `assets/img/share-en-2027.jpg` · `share-fr-2027.jpg` | Preview images shown when the link is shared (made from `tools/og-image.html`). To change them, save under a **new** name and update the `og:image` tags, so LinkedIn fetches the new picture. `og-en.jpg` / `og-fr.jpg` are older copies kept for links already shared. |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
 | `tools/update-substack.py` · `tools/render-substack.py` | The daily update: read the agent's archive, then write the page |
 | `.github/workflows/substack.yml` | Runs the daily update on GitHub |
