@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-19T22:39:09Z",
-  "checked_notes": "2026-11-20T19:03:49Z",
+  "checked_notes": "2026-11-21T17:56:17Z",
   "note": {
-    "url": "https://substack.com/note/c-392479474",
-    "date": "2026-11-20",
-    "time": "2026-11-20T15:14:41Z",
-    "text": "A twelve-month head start used to buy a company a market. Now the gap between a launch and a credible copy has collapsed to a single quarter, so the real advantage sits in the feedback loop, not the model weights: who ships to the most users fastest, learns from the most failures, and iterates before the next earnings call. Strategy decks built around a defensible technical lead are already obsolete, because the only compounding asset left is organizational speed. Leadership teams still debating a twelve-month roadmap are optimizing for a market that no longer exists.",
+    "url": "https://substack.com/note/c-393063531",
+    "date": "2026-11-21",
+    "time": "2026-11-21T08:03:46Z",
+    "text": "A system that solves a problem correctly can fail the moment the same problem is rephrased, reordered, or lightly perturbed — not because the task changed, but because nothing was ever understood, only matched. That gap between passing and grasping rarely shows up in a leaderboard, only in production, where the world never asks questions the exact way the test did. Teams chasing benchmark wins should ask what happens to the score when the wording shifts and nothing else does.",
     "image": null
   },
   "posts": [
