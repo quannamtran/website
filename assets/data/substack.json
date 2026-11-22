@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-19T22:39:09Z",
-  "checked_notes": "2026-11-21T17:56:17Z",
+  "checked_notes": "2026-11-22T18:26:57Z",
   "note": {
-    "url": "https://substack.com/note/c-393063531",
-    "date": "2026-11-21",
-    "time": "2026-11-21T08:03:46Z",
-    "text": "A system that solves a problem correctly can fail the moment the same problem is rephrased, reordered, or lightly perturbed — not because the task changed, but because nothing was ever understood, only matched. That gap between passing and grasping rarely shows up in a leaderboard, only in production, where the world never asks questions the exact way the test did. Teams chasing benchmark wins should ask what happens to the score when the wording shifts and nothing else does.",
+    "url": "https://substack.com/note/c-393992481",
+    "date": "2026-11-22",
+    "time": "2026-11-22T13:14:47Z",
+    "text": "The real disruption isn't a chatbot that writes emails faster, it's the possibility that a decade of biomedical research gets compressed into eighteen months. Organizations still budgeting for marginal productivity gains are planning for the wrong kind of change. The harder question isn't whether models get smarter, it's whether institutions, regulators, and labor markets can absorb progress that no longer arrives on a human research timeline. Abundance delivered too fast looks a lot like disruption.",
     "image": null
   },
   "posts": [
