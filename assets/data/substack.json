@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "checked_articles": "2026-11-19T22:39:09Z",
+  "checked_articles": "2026-11-22T21:00:17Z",
   "checked_notes": "2026-11-22T18:26:57Z",
   "note": {
     "url": "https://substack.com/note/c-393992481",
@@ -10,6 +10,18 @@
     "image": null
   },
   "posts": [
+    {
+      "title": "Your AI Won't Crash. It Will Quietly Betray You",
+      "url": "https://antoinetranquannam.substack.com/p/your-ai-wont-crash-it-will-quietly",
+      "date": "2026-11-22",
+      "excerpt": "Why green dashboards are the most dangerous artifact in an AI production stack",
+      "paid": true,
+      "image": {
+        "src": "assets/img/substack/post-9df0e386c406.webp",
+        "width": 720,
+        "height": 405
+      }
+    },
     {
       "title": "Launch One Side First, Not Both at Once",
       "url": "https://antoinetranquannam.substack.com/p/launch-one-side-first-not-both-at",
@@ -54,18 +66,6 @@
       "paid": true,
       "image": {
         "src": "assets/img/substack/post-f37d71dcb077.webp",
-        "width": 720,
-        "height": 405
-      }
-    },
-    {
-      "title": "Your Past Self Is Not a Reliable Witness",
-      "url": "https://antoinetranquannam.substack.com/p/your-past-self-is-not-a-reliable",
-      "date": "2026-11-05",
-      "excerpt": "Hindsight quietly rewrites what you believed before an outcome happened, and that rewrite is wrecking your ability to learn.",
-      "paid": false,
-      "image": {
-        "src": "assets/img/substack/post-931f31e54e4c.webp",
         "width": 720,
         "height": 405
       }
