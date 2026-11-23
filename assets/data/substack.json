@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-22T21:00:17Z",
-  "checked_notes": "2026-11-22T18:26:57Z",
+  "checked_notes": "2026-11-23T22:34:04Z",
   "note": {
-    "url": "https://substack.com/note/c-393992481",
-    "date": "2026-11-22",
-    "time": "2026-11-22T13:14:47Z",
-    "text": "The real disruption isn't a chatbot that writes emails faster, it's the possibility that a decade of biomedical research gets compressed into eighteen months. Organizations still budgeting for marginal productivity gains are planning for the wrong kind of change. The harder question isn't whether models get smarter, it's whether institutions, regulators, and labor markets can absorb progress that no longer arrives on a human research timeline. Abundance delivered too fast looks a lot like disruption.",
+    "url": "https://substack.com/note/c-395149607",
+    "date": "2026-11-23",
+    "time": "2026-11-23T20:04:06Z",
+    "text": "Most AI roadmaps still stop at the screen: a chatbot, a dashboard, a recommendation someone else has to act on. The bigger shift is AI that touches inventory, machinery, and logistics directly, closing the loop between decision and physical outcome without a human translating output into action. Leaders chasing better insights are solving yesterday's problem; the harder build is AI that moves a robotic arm, reroutes a truck, or halts a line on its own judgment. Treat AI as an analytics layer and a competitor will ship it as an operating layer instead.",
     "image": null
   },
   "posts": [
