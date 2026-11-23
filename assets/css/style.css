@@ -1213,6 +1213,14 @@ img.endorse__logo--tall {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
+  /* Stacked, they read exactly like the single featured quotes. */
+  .endorse__pair .endorse__quote p {
+    font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.45rem);
+  }
+  .endorse__pair .endorse__mark {
+    margin-bottom: 0.75rem;
+    font-size: 5rem;
+  }
 }
 /* Phones and narrow tablets: one column, the mark above the quote. */
 @media (max-width: 48rem) {
