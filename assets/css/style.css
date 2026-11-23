@@ -1169,6 +1169,51 @@ img.endorse__logo--tall {
     opacity: 0.88;
   }
 }
+/* Two featured endorsements side by side (desktop), one above the other (tablets
+   and phones). Each has its own quote mark; the names line up at the bottom. */
+.endorse__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.endorse__pair .endorse__figure {
+  grid-area: auto; /* not the single quote's named area */
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding-right: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+.endorse__pair .endorse__figure + .endorse__figure {
+  padding-right: 0;
+  padding-left: clamp(1.5rem, 3.5vw, 3.5rem);
+  border-left: 1px solid var(--line);
+}
+.endorse__pair .endorse__mark {
+  grid-area: auto;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  font-size: clamp(4rem, 3rem + 3vw, 6.5rem);
+}
+.endorse__pair .endorse__quote {
+  flex: 1;
+}
+.endorse__pair .endorse__quote p {
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+}
+@media (max-width: 56rem) {
+  .endorse__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .endorse__pair .endorse__figure {
+    padding-right: 0;
+  }
+  .endorse__pair .endorse__figure + .endorse__figure {
+    margin-top: 2.75rem;
+    padding-top: 2.75rem;
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
 /* Phones and narrow tablets: one column, the mark above the quote. */
 @media (max-width: 48rem) {
   .endorse__grid {
