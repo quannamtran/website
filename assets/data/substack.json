@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-22T21:00:17Z",
-  "checked_notes": "2026-11-23T22:34:04Z",
+  "checked_notes": "2026-11-24T21:06:02Z",
   "note": {
-    "url": "https://substack.com/note/c-395149607",
-    "date": "2026-11-23",
-    "time": "2026-11-23T20:04:06Z",
-    "text": "Most AI roadmaps still stop at the screen: a chatbot, a dashboard, a recommendation someone else has to act on. The bigger shift is AI that touches inventory, machinery, and logistics directly, closing the loop between decision and physical outcome without a human translating output into action. Leaders chasing better insights are solving yesterday's problem; the harder build is AI that moves a robotic arm, reroutes a truck, or halts a line on its own judgment. Treat AI as an analytics layer and a competitor will ship it as an operating layer instead.",
+    "url": "https://substack.com/note/c-396022403",
+    "date": "2026-11-24",
+    "time": "2026-11-24T20:04:53Z",
+    "text": "A small team with tight constraints often moves faster than a well-funded one drowning in process, because scarcity forces real prioritization instead of parallel bets on everything. The lesson for AI organizations isn't to spend less, it's to rediscover what forced focus looks like once the budget stops being the bottleneck. Headcount and compute are inputs, not strategy. The teams that keep asking what they'd build with a tenth of the resources tend to ship the ideas that matter most.",
     "image": null
   },
   "posts": [
