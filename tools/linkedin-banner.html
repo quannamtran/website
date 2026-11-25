@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- LinkedIn profile banner, 1584x396 (LinkedIn's size). To regenerate: run "python3 -m http.server" at the
+     site root, open /tools/linkedin-banner.html in a 1584x396 window and take a screenshot (2x for a sharper file).
+     Keep the bottom-left corner free: LinkedIn puts the profile photo there. -->
+<style>
+@font-face { font-family: "RC"; src: url("/assets/fonts/roboto-condensed-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
+* { box-sizing: border-box; margin: 0; }
+body { position: relative; width: 1584px; height: 396px; overflow: hidden; font-family: "Inter"; color: #f2f6fb;
+  background:
+    radial-gradient(38% 90% at 8% 0%, rgba(120,178,232,.28), rgba(120,178,232,0) 70%),
+    radial-gradient(30% 80% at 88% 100%, rgba(26,138,107,.26), rgba(26,138,107,0) 70%),
+    #0d2240; }
+/* The cover's title panel: two teal-green bars */
+body::before, body::after { content: ""; position: absolute; left: 0; right: 0; height: 8px; background: #086151; z-index: 3; }
+body::before { top: 0; } body::after { bottom: 0; }
+.waves { position: absolute; inset: -40px -60px -40px 0; background: url("/assets/img/waves-dark.svg") center / cover no-repeat; opacity: .42;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.35) 30%, rgba(0,0,0,.15) 55%, #000 100%); }
+.text { position: absolute; left: 520px; top: 30px; width: 810px; }
+.meta { display: flex; align-items: center; gap: 26px; }
+.pill { display: inline-flex; align-items: center; gap: 12px; padding: 9px 18px 9px 14px; border: 1px solid rgba(242,246,251,.22);
+  border-radius: 999px; background: rgba(255,255,255,.06); color: #a9d2f5; font: 600 17px/1 "RC"; letter-spacing: .16em; text-transform: uppercase; }
+.dot { width: 11px; height: 11px; border-radius: 50%; background: #d17a22; box-shadow: 0 0 0 5px rgba(209,122,34,.22); }
+.pub { display: inline-flex; align-items: center; gap: 14px; color: #c3d1e4; font: 600 15px/1 "RC"; letter-spacing: .16em; text-transform: uppercase; }
+.pub img { height: 42px; filter: brightness(0) invert(1); opacity: .92; }
+h1 { margin-top: 18px; font: 700 81px/0.95 "RC"; letter-spacing: .01em; text-transform: uppercase; white-space: nowrap; }
+.grad { background: linear-gradient(90deg, #a9d2f5 0%, #b2dbee 50%, #8fdcc4 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sub { margin-top: 12px; color: #c3d1e4; font: 400 27px/1.2 "RC"; }
+.fw { display: flex; align-items: center; gap: 14px; margin-top: 16px; color: #f2f6fb; font: 600 22px/1 "RC"; letter-spacing: .14em; text-transform: uppercase; }
+.fw::before { content: ""; width: 38px; height: 3px; background: linear-gradient(90deg, #a9d2f5, #7fd6be); }
+.fw b { color: #a9d2f5; font-weight: 700; }
+.url { position: absolute; right: 270px; top: 226px; color: #f2f6fb; font: 600 21px/1 "Inter"; letter-spacing: .01em;
+  padding-bottom: 6px; border-bottom: 2px solid #1a8a6b; }
+.book { position: absolute; right: 52px; top: 22px; width: 178px; transform: perspective(1400px) rotateY(-14deg); }
+.book img { display: block; width: 100%; border-radius: 2px 5px 5px 2px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 22px 40px -14px rgba(0,0,0,.65), 0 40px 70px -30px rgba(26,138,107,.5); }
+.endorsed { position: absolute; left: 520px; right: 44px; bottom: 26px; }
+.endorsed p { color: #c3d1e4; font: 600 15px/1 "RC"; letter-spacing: .16em; text-transform: uppercase; }
+.logos { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-top: 10px; }
+.logos img { display: block; width: auto; }
+.mono { filter: brightness(0) invert(1); opacity: .9; }
+</style></head>
+<body>
+  <div class="waves"></div>
+  <div class="text">
+    <div class="meta">
+      <p class="pill"><span class="dot"></span>Coming June 2027</p>
+      <p class="pub">Published by <img src="/assets/img/logos/crc-press.webp" alt="CRC Press, Taylor &amp; Francis Group"></p>
+    </div>
+    <h1>Augmenting <span class="grad">Decision</span></h1>
+    <p class="sub">How data and AI are transforming the way we choose</p>
+    <p class="fw">Foreword by <b>Kelly Monahan</b></p>
+  </div>
+  <p class="url">augmenting-decision.com</p>
+  <div class="book"><img src="/assets/img/cover.webp" alt="Augmenting Decision cover"></div>
+  <div class="endorsed">
+    <p>Endorsed by leaders from</p>
+    <div class="logos">
+      <img class="mono" src="/assets/img/logos/bcg.webp" style="height:24px" alt="BCG">
+      <img src="/assets/img/logos/nyu-white.webp" style="height:25px" alt="New York University">
+      <img src="/assets/img/logos/insead.webp" style="height:44px" alt="INSEAD">
+      <img class="mono" src="/assets/img/logos/hcli.webp" style="height:42px" alt="Human Capital Leadership Institute">
+      <img class="mono" src="/assets/img/logos/essec.webp" style="height:46px" alt="ESSEC Business School">
+      <img src="/assets/img/logos/sorbonne-white.webp" style="height:50px" alt="Sorbonne Université">
+      <img class="mono" src="/assets/img/logos/polytechnique.webp" style="height:52px" alt="École polytechnique">
+      <img src="/assets/img/logos/sodexo-white.webp" style="height:30px" alt="Sodexo">
+      <img class="mono" src="/assets/img/logos/opella.webp" style="height:26px" alt="Opella">
+      <img class="mono" src="/assets/img/logos/h1.webp" style="height:25px" alt="H1">
+      <img class="mono" src="/assets/img/logos/nextwire.webp" style="height:44px" alt="Nextwire">
+    </div>
+  </div>
+</body></html>
