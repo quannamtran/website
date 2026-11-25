@@ -22,6 +22,7 @@ It is plain HTML and CSS, with no build step and nothing to install, hosted for 
 | `assets/img/waves-*.svg` | Flowing lines and data points in sky blue and green, used as background art |
 | `assets/img/share-en-2027.jpg` · `share-fr-2027.jpg` | Preview images shown when the link is shared (made from `tools/og-image.html`). To change them, save under a **new** name and update the `og:image` tags, so LinkedIn fetches the new picture. `og-en.jpg` / `og-fr.jpg` are older copies kept for links already shared. |
 | `assets/img/substack/` · `assets/data/substack.json` | Pictures and data of the Substack page, written by the daily update |
+| `tools/linkedin-banner.html` | LinkedIn profile banner (1584×396): open it through a local server and take a screenshot |
 | `tools/update-substack.py` · `tools/render-substack.py` | The daily update: read the agent's archive, then write the page |
 | `.github/workflows/substack.yml` | Runs the daily update on GitHub |
 | `assets/fonts/` | Roboto Condensed (titles, like the cover's condensed capitals) and Inter (text), served from the site itself (no Google Fonts) |
