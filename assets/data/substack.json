@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-22T21:00:17Z",
-  "checked_notes": "2026-11-24T21:06:02Z",
+  "checked_notes": "2026-11-25T20:26:23Z",
   "note": {
-    "url": "https://substack.com/note/c-396022403",
-    "date": "2026-11-24",
-    "time": "2026-11-24T20:04:53Z",
-    "text": "A small team with tight constraints often moves faster than a well-funded one drowning in process, because scarcity forces real prioritization instead of parallel bets on everything. The lesson for AI organizations isn't to spend less, it's to rediscover what forced focus looks like once the budget stops being the bottleneck. Headcount and compute are inputs, not strategy. The teams that keep asking what they'd build with a tenth of the resources tend to ship the ideas that matter most.",
+    "url": "https://substack.com/note/c-396885565",
+    "date": "2026-11-25",
+    "time": "2026-11-25T20:03:59Z",
+    "text": "The industry treated more data as an inexhaustible fuel source, but the useful text on the internet is finite and mostly already consumed. The next leap won't come from scraping harder; it will come from systems that learn the way a careful reader does, extracting more insight per page rather than more pages per hour. Organizations betting their AI roadmap on endless scale should ask what happens when the easy gains run out and quality of reasoning becomes the only lever left.}",
     "image": null
   },
   "posts": [
