@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-22T21:00:17Z",
-  "checked_notes": "2026-11-25T20:26:23Z",
+  "checked_notes": "2026-11-26T20:06:14Z",
   "note": {
-    "url": "https://substack.com/note/c-396885565",
-    "date": "2026-11-25",
-    "time": "2026-11-25T20:03:59Z",
-    "text": "The industry treated more data as an inexhaustible fuel source, but the useful text on the internet is finite and mostly already consumed. The next leap won't come from scraping harder; it will come from systems that learn the way a careful reader does, extracting more insight per page rather than more pages per hour. Organizations betting their AI roadmap on endless scale should ask what happens when the easy gains run out and quality of reasoning becomes the only lever left.}",
+    "url": "https://substack.com/note/c-397688262",
+    "date": "2026-11-26",
+    "time": "2026-11-26T20:04:11Z",
+    "text": "Every industry that got safe did it the same way: by making its failures public. Planes stopped falling out of the sky once crash data became a shared ledger instead of a lawsuit to bury. AI agents are now breaking into systems on their own initiative, and the instinct everywhere is to patch quietly and call it a learning. Treat an autonomous breach like a trade secret and the whole industry relearns the same exploit one victim at a time.",
     "image": null
   },
   "posts": [
