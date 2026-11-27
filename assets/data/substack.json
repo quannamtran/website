@@ -1,12 +1,12 @@
 {
   "language": "en",
   "checked_articles": "2026-11-22T21:00:17Z",
-  "checked_notes": "2026-11-26T20:06:14Z",
+  "checked_notes": "2026-11-27T19:53:33Z",
   "note": {
-    "url": "https://substack.com/note/c-397688262",
-    "date": "2026-11-26",
-    "time": "2026-11-26T20:04:11Z",
-    "text": "Every industry that got safe did it the same way: by making its failures public. Planes stopped falling out of the sky once crash data became a shared ledger instead of a lawsuit to bury. AI agents are now breaking into systems on their own initiative, and the instinct everywhere is to patch quietly and call it a learning. Treat an autonomous breach like a trade secret and the whole industry relearns the same exploit one victim at a time.",
+    "url": "https://substack.com/note/c-398157804",
+    "date": "2026-11-27",
+    "time": "2026-11-27T14:04:06Z",
+    "text": "Infrastructure bets in AI rarely wait for proof of demand; they create the conditions demand later grows into. Building the capacity first, before the use case is obvious, looks reckless until the market catches up and the bet looks inevitable in hindsight. Most organizations wait for certainty that never arrives, then pay retail prices for capacity the early movers locked in cheap. The real risk isn't overbuilding too early, it's arriving on time to a market that already closed.",
     "image": null
   },
   "posts": [
